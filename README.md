@@ -4,5 +4,5 @@ projekt-group2-university created by GitHub Classroom
 ### Projektmitglieder
 * Basmala Elsayad
 * Keles Nurgüzel
-* Dominik Banach
+* Dominik Vavra
 * Marwan Abdalla
