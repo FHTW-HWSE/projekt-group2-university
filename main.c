@@ -2,5 +2,6 @@
 int main()
 {
     printf("Projekt: Sitzplatzgenerator\n");
+    readCsv("assets/username.csv");
     return 0;
 }
