@@ -1,17 +1,30 @@
 #include "../headerFiles/headers.h"
 
-int readCsv(char *filename) {
+bool readCsv(char *filepath) {
     FILE *fp;
     char row[100];
-    fp = fopen(filename, "r");
+    fp = fopen(filepath, "r");
     if(fp == NULL) {
-        printf("Fehler");
-        EXIT_FAILURE;
+        return false;
     }
     while (feof(fp) != true)
     {
         fgets(row, 100, fp);
         printf("Row: %s", row);
     }
-    return 0;
+    fclose(fp);
+    printf("\n");
+    return true;
 }
+
+bool writeCsv(char *filename, char *line) {
+    FILE *fpt;
+    fpt = fopen(filename, "a");
+    if(fpt == NULL) {
+        return false;
+    }
+    fprintf(fpt,"%s\n", line);
+    fclose(fpt);
+    return true;
+}
+
