@@ -5,4 +5,6 @@ bool equals(char *a, char *b);
 
 long int generateRandomId();
 
+void timeToString(struct tm *timeptr, char *str, size_t max_len);
+
 #endif
