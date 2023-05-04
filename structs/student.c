@@ -1,10 +1,12 @@
 #include "../headerFiles/headers.h"
 
-long int generateRandomId()
-{
-    return 0;
-}
-
+/**
+ * @brief Create a Student object
+ * 
+ * @param firstName firstName of the Student
+ * @param lastName lastName of the Student
+ * @return student* new Student object
+ */
 student *createStudent(char *firstName, char *lastName)
 {
     student *newStudent = calloc(1, sizeof(student *));
@@ -14,11 +16,23 @@ student *createStudent(char *firstName, char *lastName)
     return newStudent;
 }
 
+/**
+ * @brief prints a single Student
+ * 
+ * @param student given Student to print
+ */
 void printStudent(student *student)
 {
     printf("%s %s\n", student->firstName, student->lastName);
 }
 
+/**
+ * @brief inserts a new Student in a Studentlist
+ * 
+ * @param list given List to insert the Student into
+ * @param newStudent the Student to insert in the List
+ * @return student* the new List
+ */
 student *insertStudentIntoList(student *list, student *newStudent) {
 	student *current;
 	if (list == NULL || (list)->lastName >= newStudent->lastName) {
@@ -37,6 +51,11 @@ student *insertStudentIntoList(student *list, student *newStudent) {
 	return list;
 }
 
+/**
+ * @brief prints a Studentlist
+ * 
+ * @param head the Student List to print
+ */
 void printStudentList(student *head)
 {
     student *current = head;

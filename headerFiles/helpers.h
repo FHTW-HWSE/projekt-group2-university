@@ -3,4 +3,6 @@
 
 bool equals(char *a, char *b);
 
+long int generateRandomId();
+
 #endif
