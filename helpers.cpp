@@ -22,6 +22,11 @@ long int generateRandomId()
     return 0;   //muss noch angepasst werden
 }
 
-void timeToString(struct tm *timeptr, char *str, size_t max_len) {
-    strftime(str, max_len, "%Y-%m-%d %H:%M:%S", timeptr);
+
+char* timeToString(time_t *time) {
+    return asctime(gmtime(time));
+}
+
+time_t *stringToTime(char *string) {
+    
 }
