@@ -8,7 +8,7 @@
  * @return exam* new Exam Object
  */
 exam *createExam(char *name, lectureHall *lectureHall) {
-    exam *newExam = calloc(1, sizeof(exam *));
+    exam *newExam = (exam *) calloc(1, sizeof(exam *));
     newExam->name = name;
     newExam->lectureHall = lectureHall;
     return newExam;

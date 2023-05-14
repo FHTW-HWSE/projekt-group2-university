@@ -7,6 +7,7 @@
 #include <stdbool.h>
 #include <time.h>
 #include <string.h>
+#include <time.h>
 
 // Selfmade header files
 #include "student.h"

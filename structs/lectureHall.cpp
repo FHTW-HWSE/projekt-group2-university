@@ -10,7 +10,7 @@
  */
 lectureHall *createLectureHall(char *name, int row, int column)
 {
-    lectureHall *newLectureHall = calloc(1, sizeof(lectureHall));
+    lectureHall *newLectureHall = (lectureHall *) calloc(1, sizeof(lectureHall));
     newLectureHall->name = name;
     newLectureHall->row = row;
     newLectureHall->column = column;

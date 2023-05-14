@@ -9,7 +9,7 @@
  */
 student *createStudent(char *firstName, char *lastName)
 {
-    student *newStudent = calloc(1, sizeof(student *));
+    student *newStudent = (student *) calloc(1, sizeof(student *));
     newStudent->id = generateRandomId();
     newStudent->firstName = firstName;
     newStudent->lastName = lastName;
