@@ -23,6 +23,9 @@ long int generateRandomId()
 }
 
 
+
+// ALLES WAS MIT ZEIT ZU TUN HAT
+
 char* timeToString(time_t *time) {
     return asctime(gmtime(time));
 }
@@ -40,4 +43,4 @@ time_t *stringToTime(char* str) {
     return result;
 }
 
-
+//ALLES WAS MIT ZEIT ZU TUN HAT ENDE
