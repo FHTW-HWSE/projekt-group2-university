@@ -13,7 +13,7 @@ lectureHall *createLectureHall(char *name, int row, int column);
 
 void printLectureHall(lectureHall *lectureHall);
 
-lectureHall *insertLecureHallIntoList(lectureHall *list, lectureHall *newLectureHall);
+void insertIntoLectureHallList(lectureHall **list, lectureHall *newLectureHall);
 
 void printLectureHallList(lectureHall *head);
 

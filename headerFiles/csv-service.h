@@ -4,7 +4,7 @@
 
 #include "headers.h"
 
-bool readCsv(char *filepath);
+stringNode *readCsv(char *filepath);
 
-bool writeCsv(char *filename, char *line);
+bool writeCsv(char *filename, stringNode *list);
 #endif

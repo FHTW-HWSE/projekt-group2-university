@@ -13,6 +13,7 @@
 #include "student.h"
 #include "lectureHall.h"
 #include "helpers.h"
+#include "string.h"
 #include "exam.h"
 #include "csv-service.h"
 #endif

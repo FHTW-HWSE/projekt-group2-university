@@ -18,7 +18,7 @@ typedef struct student
 
 student *createStudent(char *firstName, char *lastName);
 
-student *insertStudentIntoList(student *list, student *newStudent);
+student *insertStudentIntoList(student **list, student *newStudent);
 
 void printStudent(student *student);
 

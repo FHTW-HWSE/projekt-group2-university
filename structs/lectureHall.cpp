@@ -34,22 +34,16 @@ void printLectureHall(lectureHall *lectureHall)
  * @param newLectureHall 
  * @return lectureHall* 
  */
-lectureHall *insertLecureHallIntoList(lectureHall *list, lectureHall *newLectureHall) {
-	lectureHall *current;
-	if (list == NULL || (list)->name >= newLectureHall->name) {
-		newLectureHall->nextLectureHall = list;
-		list = newLectureHall;
-	} else {
-		current = list;
-		while (current->nextLectureHall != NULL
-				&& strcmp(current->nextLectureHall->name, newLectureHall->name)
-						< 0) {
-			current = current->nextLectureHall;
-		}
-		newLectureHall->nextLectureHall = current->nextLectureHall;
-		current->nextLectureHall = newLectureHall;
+void insertIntoLectureHallList(lectureHall **list, lectureHall *newLectureHall)	//Update to be alphabetisch
+{
+	if(*list == NULL) {
+		*list = newLectureHall;
+		return;
 	}
-	return list;
+
+  newLectureHall->nextLectureHall = *list;
+  //changing the new head to this freshly entered node
+  *list = newLectureHall;
 }
 
 /**
@@ -59,10 +53,10 @@ lectureHall *insertLecureHallIntoList(lectureHall *list, lectureHall *newLecture
  */
 void printLectureHallList(lectureHall *head)
 {
-    lectureHall *current = head;
-    while (current != NULL)
-    {
-        printLectureHall(current);
-        current = current->nextLectureHall;
+     while(head!=NULL){
+        printf("%s ",head->name);
+        head = head->nextLectureHall;
     }
+    
+    printf("\n");
 }
