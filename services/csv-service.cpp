@@ -12,12 +12,12 @@ stringNode *readCsv(char *filepath) {
     {
         fgets(row, 100, fp);
         stringNode *tmp = createStringNode((char*) row);
-        printStringNode(tmp);
+        //printStringNode(tmp);
         insertIntoStringList(&list, tmp);
         //printf("Row: %s", row);
     }
     fclose(fp);
-    printStringList(list);
+    //printStringList(list);
     return list;
 }
 
@@ -27,7 +27,6 @@ bool writeCsv(char *filename, stringNode *list) {
     if(fpt == NULL) {
         return false;
     }
-    printStringList(list);
     while(list != NULL) {
         fprintf(fpt,"%s\n", list->content);
         list = list->nextStringNode;

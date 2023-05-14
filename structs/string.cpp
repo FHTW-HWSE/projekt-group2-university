@@ -17,7 +17,7 @@ void printStringNode(stringNode *stringNode)
 void insertIntoStringList(stringNode **list, stringNode *newStringNode)	//Update to be alphabetisch
 {
 
-  printStringNode(newStringNode);
+  //printStringNode(newStringNode);
   newStringNode->nextStringNode = *list;
   //changing the new head to this freshly entered node
   *list = newStringNode;

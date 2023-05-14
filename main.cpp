@@ -28,13 +28,15 @@ int main()
     insertIntoStringList(&head, a);
     insertIntoStringList(&head, b);
     insertIntoStringList(&head, c);
-    printStringList(head);
 
 
-    stringNode *newlist = (stringNode*)calloc(1, sizeof(stringNode*));
-    writeCsv((char*)"assets/username.csv", head);
+    //stringNode *newlist = (stringNode*)calloc(1, sizeof(stringNode*));
+    //writeCsv((char*)"assets/username.csv", head);
 
-    printStringList(newlist);
+    stringNode *x = NULL;
+    x = readCsv((char*)"assets/username.csv");
+
+    printStringList(x);
 
 
     return 0;
