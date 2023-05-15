@@ -8,7 +8,7 @@
             "name": "(gdb) Starten",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/generator",
+            "program": "${workspaceFolder}/build/generator",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",
