@@ -19,6 +19,7 @@ void printStringNode(stringNode *stringNode)
 void insertIntoStringList(stringNode **list, stringNode *newStringNode)	//Update to be alphabetisch
 {
 
+   
   //printStringNode(newStringNode);
   newStringNode->nextStringNode = *list;
   //changing the new head to this freshly entered node
@@ -29,8 +30,7 @@ void insertIntoStringList(stringNode **list, stringNode *newStringNode)	//Update
 void printStringList(stringNode *head)
 {
      while(head!=NULL){
-        printf("%s\t",head->content);
+        printf("%s\n",head->content);
         head = head->nextStringNode;
     }
-    printf("\n");
 }

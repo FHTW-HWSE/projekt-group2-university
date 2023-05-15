@@ -3,7 +3,6 @@ int main()
 {
 
     
-    printf("Hallo");
 
     /* writeCsv((char *)"assets/username.csv", (char *)"Hallowelt");
     stringNodereadCsv((char *)"assets/username.csv"); */
@@ -33,7 +32,8 @@ int main()
     //stringNode *newlist = (stringNode*)calloc(1, sizeof(stringNode*));
     //writeCsv((char*)"assets/username.csv", head);
 
-    stringNode *x = NULL;
+    stringNode *x = (stringNode*)malloc(sizeof(stringNode*));
+    x = NULL;
     x = readCsv((char*)"../assets/username.csv");
 
     printStringList(x);
