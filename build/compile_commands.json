@@ -1,0 +1,37 @@
+[
+{
+  "directory": "/home/marwan/Technikum/Softwareentwicklung/Sitzplatzgenerator/build",
+  "command": "/usr/bin/g++   -g -std=c++20 -o CMakeFiles/generator.dir/main.cpp.o -c /home/marwan/Technikum/Softwareentwicklung/Sitzplatzgenerator/main.cpp",
+  "file": "/home/marwan/Technikum/Softwareentwicklung/Sitzplatzgenerator/main.cpp"
+},
+{
+  "directory": "/home/marwan/Technikum/Softwareentwicklung/Sitzplatzgenerator/build",
+  "command": "/usr/bin/g++   -g -std=c++20 -o CMakeFiles/generator.dir/helpers.cpp.o -c /home/marwan/Technikum/Softwareentwicklung/Sitzplatzgenerator/helpers.cpp",
+  "file": "/home/marwan/Technikum/Softwareentwicklung/Sitzplatzgenerator/helpers.cpp"
+},
+{
+  "directory": "/home/marwan/Technikum/Softwareentwicklung/Sitzplatzgenerator/build",
+  "command": "/usr/bin/g++   -g -std=c++20 -o CMakeFiles/generator.dir/structs/exam.cpp.o -c /home/marwan/Technikum/Softwareentwicklung/Sitzplatzgenerator/structs/exam.cpp",
+  "file": "/home/marwan/Technikum/Softwareentwicklung/Sitzplatzgenerator/structs/exam.cpp"
+},
+{
+  "directory": "/home/marwan/Technikum/Softwareentwicklung/Sitzplatzgenerator/build",
+  "command": "/usr/bin/g++   -g -std=c++20 -o CMakeFiles/generator.dir/structs/lectureHall.cpp.o -c /home/marwan/Technikum/Softwareentwicklung/Sitzplatzgenerator/structs/lectureHall.cpp",
+  "file": "/home/marwan/Technikum/Softwareentwicklung/Sitzplatzgenerator/structs/lectureHall.cpp"
+},
+{
+  "directory": "/home/marwan/Technikum/Softwareentwicklung/Sitzplatzgenerator/build",
+  "command": "/usr/bin/g++   -g -std=c++20 -o CMakeFiles/generator.dir/structs/string.cpp.o -c /home/marwan/Technikum/Softwareentwicklung/Sitzplatzgenerator/structs/string.cpp",
+  "file": "/home/marwan/Technikum/Softwareentwicklung/Sitzplatzgenerator/structs/string.cpp"
+},
+{
+  "directory": "/home/marwan/Technikum/Softwareentwicklung/Sitzplatzgenerator/build",
+  "command": "/usr/bin/g++   -g -std=c++20 -o CMakeFiles/generator.dir/structs/student.cpp.o -c /home/marwan/Technikum/Softwareentwicklung/Sitzplatzgenerator/structs/student.cpp",
+  "file": "/home/marwan/Technikum/Softwareentwicklung/Sitzplatzgenerator/structs/student.cpp"
+},
+{
+  "directory": "/home/marwan/Technikum/Softwareentwicklung/Sitzplatzgenerator/build",
+  "command": "/usr/bin/g++   -g -std=c++20 -o CMakeFiles/generator.dir/services/csv-service.cpp.o -c /home/marwan/Technikum/Softwareentwicklung/Sitzplatzgenerator/services/csv-service.cpp",
+  "file": "/home/marwan/Technikum/Softwareentwicklung/Sitzplatzgenerator/services/csv-service.cpp"
+}
+]

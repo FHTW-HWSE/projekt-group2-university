@@ -1,2 +1,3 @@
+/home/marwan/Technikum/Softwareentwicklung/Sitzplatzgenerator/CMakeFiles/generator.dir
 /home/marwan/Technikum/Softwareentwicklung/Sitzplatzgenerator/CMakeFiles/edit_cache.dir
 /home/marwan/Technikum/Softwareentwicklung/Sitzplatzgenerator/CMakeFiles/rebuild_cache.dir

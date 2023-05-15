@@ -116,6 +116,187 @@ depend:
 	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
+#=============================================================================
+# Target rules for targets named generator
+
+# Build rule for target.
+generator: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 generator
+.PHONY : generator
+
+# fast build rule for target.
+generator/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generator.dir/build.make CMakeFiles/generator.dir/build
+.PHONY : generator/fast
+
+helpers.o: helpers.cpp.o
+.PHONY : helpers.o
+
+# target to build an object file
+helpers.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generator.dir/build.make CMakeFiles/generator.dir/helpers.cpp.o
+.PHONY : helpers.cpp.o
+
+helpers.i: helpers.cpp.i
+.PHONY : helpers.i
+
+# target to preprocess a source file
+helpers.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generator.dir/build.make CMakeFiles/generator.dir/helpers.cpp.i
+.PHONY : helpers.cpp.i
+
+helpers.s: helpers.cpp.s
+.PHONY : helpers.s
+
+# target to generate assembly for a file
+helpers.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generator.dir/build.make CMakeFiles/generator.dir/helpers.cpp.s
+.PHONY : helpers.cpp.s
+
+main.o: main.cpp.o
+.PHONY : main.o
+
+# target to build an object file
+main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generator.dir/build.make CMakeFiles/generator.dir/main.cpp.o
+.PHONY : main.cpp.o
+
+main.i: main.cpp.i
+.PHONY : main.i
+
+# target to preprocess a source file
+main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generator.dir/build.make CMakeFiles/generator.dir/main.cpp.i
+.PHONY : main.cpp.i
+
+main.s: main.cpp.s
+.PHONY : main.s
+
+# target to generate assembly for a file
+main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generator.dir/build.make CMakeFiles/generator.dir/main.cpp.s
+.PHONY : main.cpp.s
+
+services/csv-service.o: services/csv-service.cpp.o
+.PHONY : services/csv-service.o
+
+# target to build an object file
+services/csv-service.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generator.dir/build.make CMakeFiles/generator.dir/services/csv-service.cpp.o
+.PHONY : services/csv-service.cpp.o
+
+services/csv-service.i: services/csv-service.cpp.i
+.PHONY : services/csv-service.i
+
+# target to preprocess a source file
+services/csv-service.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generator.dir/build.make CMakeFiles/generator.dir/services/csv-service.cpp.i
+.PHONY : services/csv-service.cpp.i
+
+services/csv-service.s: services/csv-service.cpp.s
+.PHONY : services/csv-service.s
+
+# target to generate assembly for a file
+services/csv-service.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generator.dir/build.make CMakeFiles/generator.dir/services/csv-service.cpp.s
+.PHONY : services/csv-service.cpp.s
+
+structs/exam.o: structs/exam.cpp.o
+.PHONY : structs/exam.o
+
+# target to build an object file
+structs/exam.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generator.dir/build.make CMakeFiles/generator.dir/structs/exam.cpp.o
+.PHONY : structs/exam.cpp.o
+
+structs/exam.i: structs/exam.cpp.i
+.PHONY : structs/exam.i
+
+# target to preprocess a source file
+structs/exam.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generator.dir/build.make CMakeFiles/generator.dir/structs/exam.cpp.i
+.PHONY : structs/exam.cpp.i
+
+structs/exam.s: structs/exam.cpp.s
+.PHONY : structs/exam.s
+
+# target to generate assembly for a file
+structs/exam.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generator.dir/build.make CMakeFiles/generator.dir/structs/exam.cpp.s
+.PHONY : structs/exam.cpp.s
+
+structs/lectureHall.o: structs/lectureHall.cpp.o
+.PHONY : structs/lectureHall.o
+
+# target to build an object file
+structs/lectureHall.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generator.dir/build.make CMakeFiles/generator.dir/structs/lectureHall.cpp.o
+.PHONY : structs/lectureHall.cpp.o
+
+structs/lectureHall.i: structs/lectureHall.cpp.i
+.PHONY : structs/lectureHall.i
+
+# target to preprocess a source file
+structs/lectureHall.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generator.dir/build.make CMakeFiles/generator.dir/structs/lectureHall.cpp.i
+.PHONY : structs/lectureHall.cpp.i
+
+structs/lectureHall.s: structs/lectureHall.cpp.s
+.PHONY : structs/lectureHall.s
+
+# target to generate assembly for a file
+structs/lectureHall.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generator.dir/build.make CMakeFiles/generator.dir/structs/lectureHall.cpp.s
+.PHONY : structs/lectureHall.cpp.s
+
+structs/string.o: structs/string.cpp.o
+.PHONY : structs/string.o
+
+# target to build an object file
+structs/string.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generator.dir/build.make CMakeFiles/generator.dir/structs/string.cpp.o
+.PHONY : structs/string.cpp.o
+
+structs/string.i: structs/string.cpp.i
+.PHONY : structs/string.i
+
+# target to preprocess a source file
+structs/string.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generator.dir/build.make CMakeFiles/generator.dir/structs/string.cpp.i
+.PHONY : structs/string.cpp.i
+
+structs/string.s: structs/string.cpp.s
+.PHONY : structs/string.s
+
+# target to generate assembly for a file
+structs/string.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generator.dir/build.make CMakeFiles/generator.dir/structs/string.cpp.s
+.PHONY : structs/string.cpp.s
+
+structs/student.o: structs/student.cpp.o
+.PHONY : structs/student.o
+
+# target to build an object file
+structs/student.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generator.dir/build.make CMakeFiles/generator.dir/structs/student.cpp.o
+.PHONY : structs/student.cpp.o
+
+structs/student.i: structs/student.cpp.i
+.PHONY : structs/student.i
+
+# target to preprocess a source file
+structs/student.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generator.dir/build.make CMakeFiles/generator.dir/structs/student.cpp.i
+.PHONY : structs/student.cpp.i
+
+structs/student.s: structs/student.cpp.s
+.PHONY : structs/student.s
+
+# target to generate assembly for a file
+structs/student.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generator.dir/build.make CMakeFiles/generator.dir/structs/student.cpp.s
+.PHONY : structs/student.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -124,6 +305,28 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... generator"
+	@echo "... helpers.o"
+	@echo "... helpers.i"
+	@echo "... helpers.s"
+	@echo "... main.o"
+	@echo "... main.i"
+	@echo "... main.s"
+	@echo "... services/csv-service.o"
+	@echo "... services/csv-service.i"
+	@echo "... services/csv-service.s"
+	@echo "... structs/exam.o"
+	@echo "... structs/exam.i"
+	@echo "... structs/exam.s"
+	@echo "... structs/lectureHall.o"
+	@echo "... structs/lectureHall.i"
+	@echo "... structs/lectureHall.s"
+	@echo "... structs/string.o"
+	@echo "... structs/string.i"
+	@echo "... structs/string.s"
+	@echo "... structs/student.o"
+	@echo "... structs/student.i"
+	@echo "... structs/student.s"
 .PHONY : help
 
 
