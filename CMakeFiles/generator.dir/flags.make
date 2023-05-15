@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = 
+CXX_INCLUDES = -I/home/marwan/Technikum/Softwareentwicklung/Sitzplatzgenerator/headerFiles
 
-CXX_FLAGS = -std=c++20
+CXX_FLAGS = -g -std=c++20
 

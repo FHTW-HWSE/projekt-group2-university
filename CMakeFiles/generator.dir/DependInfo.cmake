@@ -8,17 +8,12 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/marwan/Technikum/Softwareentwicklung/Sitzplatzgenerator/helpers.cpp" "CMakeFiles/generator.dir/helpers.cpp.o" "gcc" "CMakeFiles/generator.dir/helpers.cpp.o.d"
   "/home/marwan/Technikum/Softwareentwicklung/Sitzplatzgenerator/main.cpp" "CMakeFiles/generator.dir/main.cpp.o" "gcc" "CMakeFiles/generator.dir/main.cpp.o.d"
-  "/home/marwan/Technikum/Softwareentwicklung/Sitzplatzgenerator/services/csv-service.cpp" "CMakeFiles/generator.dir/services/csv-service.cpp.o" "gcc" "CMakeFiles/generator.dir/services/csv-service.cpp.o.d"
-  "/home/marwan/Technikum/Softwareentwicklung/Sitzplatzgenerator/structs/exam.cpp" "CMakeFiles/generator.dir/structs/exam.cpp.o" "gcc" "CMakeFiles/generator.dir/structs/exam.cpp.o.d"
-  "/home/marwan/Technikum/Softwareentwicklung/Sitzplatzgenerator/structs/lectureHall.cpp" "CMakeFiles/generator.dir/structs/lectureHall.cpp.o" "gcc" "CMakeFiles/generator.dir/structs/lectureHall.cpp.o.d"
-  "/home/marwan/Technikum/Softwareentwicklung/Sitzplatzgenerator/structs/string.cpp" "CMakeFiles/generator.dir/structs/string.cpp.o" "gcc" "CMakeFiles/generator.dir/structs/string.cpp.o.d"
-  "/home/marwan/Technikum/Softwareentwicklung/Sitzplatzgenerator/structs/student.cpp" "CMakeFiles/generator.dir/structs/student.cpp.o" "gcc" "CMakeFiles/generator.dir/structs/student.cpp.o.d"
   )
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
+  "/home/marwan/Technikum/Softwareentwicklung/Sitzplatzgenerator/CMakeFiles/generator_library.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

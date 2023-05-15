@@ -1,0 +1,2 @@
+/usr/bin/ar qc libgenerator_library.a CMakeFiles/generator_library.dir/helpers.cpp.o CMakeFiles/generator_library.dir/structs/exam.cpp.o CMakeFiles/generator_library.dir/structs/lectureHall.cpp.o CMakeFiles/generator_library.dir/structs/string.cpp.o CMakeFiles/generator_library.dir/structs/student.cpp.o CMakeFiles/generator_library.dir/services/csv-service.cpp.o
+/usr/bin/ranlib libgenerator_library.a
