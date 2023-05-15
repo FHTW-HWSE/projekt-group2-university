@@ -11,8 +11,11 @@ stringNode *readCsv(char *filepath) {
     while (feof(fp) != true)
     {
         fgets(row, 100, fp);
+        printf("%s",row);
         //printStringNode(tmp);
-        insertIntoStringList(&list, createStringNode((char*) row));
+        
+        insertIntoStringList(&list, createStringNode(row));
+        printStringNode(createStringNode((char*) row));
         //printf("Row: %s", row);
     }
     fclose(fp);

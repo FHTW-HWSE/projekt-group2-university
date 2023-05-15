@@ -4,7 +4,9 @@
 stringNode *createStringNode(char *content)
 {
     stringNode *newStringNode = (stringNode *) calloc(1, sizeof(stringNode*));
-    newStringNode->content = content;
+    //newStringNode->content = content;
+    newStringNode->content = (char*) malloc(100*sizeof(char));
+    strcpy(newStringNode->content, content);
     return newStringNode;
 }
 
