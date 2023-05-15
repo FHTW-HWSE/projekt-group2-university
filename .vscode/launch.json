@@ -8,7 +8,7 @@
             "name": "(gdb) Starten",
             "type": "cppdbg",
             "request": "launch",
-            "program": "Programmnamen eingeben, z. B. \"${workspaceFolder}/a.out\"",
+            "program": "${workspaceFolder}/generator",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",
