@@ -19,18 +19,42 @@ void printStringNode(stringNode *stringNode)
 void insertIntoStringList(stringNode **list, stringNode *newStringNode)	//Update to be alphabetisch
 {
 
-   
-  //printStringNode(newStringNode);
-  newStringNode->nextStringNode = *list;
-  //changing the new head to this freshly entered node
-  *list = newStringNode;
+   if(*list == NULL) {
+    *list = newStringNode;
+    return;
+   }
+
+        stringNode *current = *list;
+
+        //last node's next address will be NULL.
+        while(current->nextStringNode != NULL)
+        {
+            current = current->nextStringNode;
+        }
+
+        //add the newNode at the end of the linked list
+        current->nextStringNode = newStringNode;
+      
 }
 
 
 void printStringList(stringNode *head)
 {
-     while(head!=NULL){
+     while(head->nextStringNode!=NULL){
+        if(head->content != NULL) {
+            printf("%s",head->content);
+            head = head->nextStringNode;
+        }
+        
+    }
         printf("%s\n",head->content);
-        head = head->nextStringNode;
+}
+
+void freeStringList(stringNode *head) {
+    stringNode* tmp;
+    while(head != NULL) {
+        tmp = head->nextStringNode;
+        free(head);
+        head = tmp;
     }
 }

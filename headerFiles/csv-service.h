@@ -4,7 +4,7 @@
 
 #include "headers.h"
 
-stringNode *readCsv(char *filepath);
+void readCsv(char *filepath, stringNode **list);
 
 bool writeCsv(char *filename, stringNode *list);
 #endif

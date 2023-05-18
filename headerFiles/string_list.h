@@ -16,4 +16,7 @@ void insertIntoStringList(stringNode **list, stringNode *newStringNode);
 
 void printStringList(stringNode *head);
 
+void freeStringList(stringNode *head);
+
+
 #endif
