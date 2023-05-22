@@ -38,6 +38,7 @@ int main()
 
     printStringList(x);
 
+    //Hallo Nugo
 
     return 0;
 }
