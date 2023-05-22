@@ -40,5 +40,7 @@ int main()
 
     //Hallo Nugo
 
+
+    //haalo dominik
     return 0;
 }
