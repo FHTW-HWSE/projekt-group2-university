@@ -5,7 +5,7 @@ stringNode *createStringNode(char *content)
 {
     stringNode *newStringNode = (stringNode *) calloc(1, sizeof(stringNode*));
     //newStringNode->content = content;
-    newStringNode->content = (char*) malloc(100*sizeof(char));
+    newStringNode->content = (char*) malloc(STRING_MAX * sizeof(char));
     strcpy(newStringNode->content, content);
     return newStringNode;
 }
@@ -40,14 +40,13 @@ void insertIntoStringList(stringNode **list, stringNode *newStringNode)	//Update
 
 void printStringList(stringNode *head)
 {
-     while(head->nextStringNode!=NULL){
+     while(head!=NULL){
         if(head->content != NULL) {
             printf("%s",head->content);
             head = head->nextStringNode;
         }
-        
     }
-        printf("%s\n",head->content);
+        printf("\n");
 }
 
 void freeStringList(stringNode *head) {

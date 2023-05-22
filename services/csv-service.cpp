@@ -1,18 +1,19 @@
 #include "../headerFiles/headers.h"
 
-void readCsv(char *filepath, stringNode **list) {
+bool readCsv(char *filepath, stringNode **list) {
     FILE *fp;
-    char row[100];
+    char row[STRING_MAX];
     fp = fopen(filepath, "r");
     if(fp == NULL) {
-        return ;
+        return false;
     }
     while (feof(fp) != true)
     {
-        fgets(row, 100, fp);
+        fgets(row, STRING_MAX, fp);
         insertIntoStringList(list, createStringNode(row));
     }
     fclose(fp);
+    return true;
 }
 
 
@@ -23,7 +24,7 @@ bool writeCsv(char *filename, stringNode *list) {
         return false;
     }
     while(list != NULL) {
-        fprintf(fpt,"%s\n", list->content);
+        fprintf(fpt,"%s", list->content);
         list = list->nextStringNode;
     }
     fclose(fpt);

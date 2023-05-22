@@ -22,3 +22,22 @@ exam *createExam(char *name, lectureHall *lectureHall) {
 void printExam(exam *exam) {
     printf("%s\n", exam->name);
 }
+
+void insertIntoExamList(exam **list, exam *newExam)	//Update to be alphabetisch
+{
+
+   if(*list == NULL) {
+    *list = newExam;
+    return;
+   }
+        exam *current = *list;
+        //last node's next address will be NULL.
+        while(current->nextExam != NULL)
+        {
+            current = current->nextExam;
+        }
+        //add the newNode at the end of the linked list
+        current->nextExam = newExam;
+}
+
+

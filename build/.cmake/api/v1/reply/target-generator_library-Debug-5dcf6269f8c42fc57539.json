@@ -99,25 +99,25 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "structs/exam.cpp",
+			"path" : "lists/exam.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "structs/lectureHall.cpp",
+			"path" : "lists/lectureHall.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "structs/string.cpp",
+			"path" : "lists/string.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "structs/student.cpp",
+			"path" : "lists/student.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{

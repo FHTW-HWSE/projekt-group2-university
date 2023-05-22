@@ -3,42 +3,20 @@ int main()
 {
 
     
+    stringNode *stringList = (stringNode*)malloc(sizeof(stringNode*));
+    stringList = NULL;
+    if(!readCsv((char*)"../assets/username.csv", &stringList)) {
+        perror("FILE NOT FOUND");
+        //exit(0);
+    }
+    //writeCsv((char*)"../assets/username.csv", test);
 
-    /* writeCsv((char *)"assets/username.csv", (char *)"Hallowelt");
-    stringNodereadCsv((char *)"assets/username.csv"); */
+    lectureHall *lh = (lectureHall*)malloc(sizeof(lectureHall*));
+    lh = NULL;
+    //stringlistToLectureHallList(stringList, &lh);
 
-  
-
-    //char *date_string = (char *)"2023-05-13 12:34:56";
-    //time_t *date = stringToTime(date_string);
-    //printf("%s\n", date_string);
-
-
-    //stringNode *list = readCsv((char *)"assets/username.csv");
-    //printStringList(list);
-
-    stringNode *head = (stringNode*)malloc(sizeof(stringNode*));
-    head = NULL;
-
-    stringNode *a = createStringNode((char *)"mein");
-    stringNode *b = createStringNode((char *) "name");
-    stringNode *c = createStringNode((char *) "ist");
-
-    insertIntoStringList(&head, a);
-    insertIntoStringList(&head, b);
-    insertIntoStringList(&head, c);
-
-
-    //stringNode *newlist = (stringNode*)calloc(1, sizeof(stringNode*));
-    //writeCsv((char*)"assets/username.csv", head);
-
-    //readCsv((char*)"assets/username.csv");
-    //printStringList(head);
-
-    
-    stringNode *test = (stringNode*)malloc(sizeof(stringNode*));
-    test = NULL;
-    readCsv((char*)"../assets/username.csv", &test);
-    printStringList(test);
+    //lectureHall *a = createLectureHallFromString((char*)"F202;4;3");
+   
+    printStringList(stringList);
     return 0;
 }

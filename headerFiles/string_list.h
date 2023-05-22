@@ -1,7 +1,7 @@
 #ifndef STRING_LIST_H // Include guard
 #define STRING_LIST_H
 
-
+#define STRING_MAX 100
 typedef struct stringNode
 {
    char* content;

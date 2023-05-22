@@ -76,8 +76,8 @@ CMakeFiles/generator.dir/main.cpp.o: ../main.cpp \
   /usr/include/strings.h \
   ../headerFiles/student.h \
   ../headerFiles/lectureHall.h \
-  ../headerFiles/helpers.h \
   ../headerFiles/string_list.h \
+  ../headerFiles/helpers.h \
   ../headerFiles/exam.h \
   ../headerFiles/headers.h \
   ../headerFiles/csv-service.h
@@ -85,9 +85,9 @@ CMakeFiles/generator.dir/main.cpp.o: ../main.cpp \
 
 ../headerFiles/csv-service.h:
 
-../headerFiles/string_list.h:
-
 ../headerFiles/helpers.h:
+
+../headerFiles/string_list.h:
 
 ../headerFiles/lectureHall.h:
 
