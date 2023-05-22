@@ -38,7 +38,7 @@ int main()
 
     printStringList(x);
 
-    //Hallo Nugo
+    //Hallo Nugojsqus
 
     return 0;
 }
