@@ -25,7 +25,7 @@ lectureHall *createLectureHall(char *name, int row, int column)
  */
 void printLectureHall(lectureHall *lectureHall)
 {
-    printf("%s: %i: %i\n", lectureHall->name, lectureHall->row, lectureHall->column);
+    printf("Raumname: %9s\t Reihen: %3d\t Spalten: %3d\n", lectureHall->name, lectureHall->row, lectureHall->column);
 }
 
 /**
@@ -55,9 +55,10 @@ void insertIntoLectureHallList(lectureHall **list, lectureHall *newLectureHall) 
  */
 void printLectureHallList(lectureHall *head)
 {
+    printf("\tListe aller Räume\n");
     while (head != NULL)
     {
-        printf("%s ", head->name);
+        printLectureHall(head);
         head = head->nextLectureHall;
     }
     printf("\n");
