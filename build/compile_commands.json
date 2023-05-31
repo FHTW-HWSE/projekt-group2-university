@@ -1,0 +1,37 @@
+[
+{
+  "directory": "/home/marwan/Technikum/Softwareentwicklung/Sitzplatzgenerator/build",
+  "command": "/usr/bin/g++  -I/home/marwan/Technikum/Softwareentwicklung/Sitzplatzgenerator/headerFiles -g -o CMakeFiles/generator_library.dir/helpers.cpp.o -c /home/marwan/Technikum/Softwareentwicklung/Sitzplatzgenerator/helpers.cpp",
+  "file": "/home/marwan/Technikum/Softwareentwicklung/Sitzplatzgenerator/helpers.cpp"
+},
+{
+  "directory": "/home/marwan/Technikum/Softwareentwicklung/Sitzplatzgenerator/build",
+  "command": "/usr/bin/g++  -I/home/marwan/Technikum/Softwareentwicklung/Sitzplatzgenerator/headerFiles -g -o CMakeFiles/generator_library.dir/lists/exam.cpp.o -c /home/marwan/Technikum/Softwareentwicklung/Sitzplatzgenerator/lists/exam.cpp",
+  "file": "/home/marwan/Technikum/Softwareentwicklung/Sitzplatzgenerator/lists/exam.cpp"
+},
+{
+  "directory": "/home/marwan/Technikum/Softwareentwicklung/Sitzplatzgenerator/build",
+  "command": "/usr/bin/g++  -I/home/marwan/Technikum/Softwareentwicklung/Sitzplatzgenerator/headerFiles -g -o CMakeFiles/generator_library.dir/lists/lectureHall.cpp.o -c /home/marwan/Technikum/Softwareentwicklung/Sitzplatzgenerator/lists/lectureHall.cpp",
+  "file": "/home/marwan/Technikum/Softwareentwicklung/Sitzplatzgenerator/lists/lectureHall.cpp"
+},
+{
+  "directory": "/home/marwan/Technikum/Softwareentwicklung/Sitzplatzgenerator/build",
+  "command": "/usr/bin/g++  -I/home/marwan/Technikum/Softwareentwicklung/Sitzplatzgenerator/headerFiles -g -o CMakeFiles/generator_library.dir/lists/string.cpp.o -c /home/marwan/Technikum/Softwareentwicklung/Sitzplatzgenerator/lists/string.cpp",
+  "file": "/home/marwan/Technikum/Softwareentwicklung/Sitzplatzgenerator/lists/string.cpp"
+},
+{
+  "directory": "/home/marwan/Technikum/Softwareentwicklung/Sitzplatzgenerator/build",
+  "command": "/usr/bin/g++  -I/home/marwan/Technikum/Softwareentwicklung/Sitzplatzgenerator/headerFiles -g -o CMakeFiles/generator_library.dir/lists/student.cpp.o -c /home/marwan/Technikum/Softwareentwicklung/Sitzplatzgenerator/lists/student.cpp",
+  "file": "/home/marwan/Technikum/Softwareentwicklung/Sitzplatzgenerator/lists/student.cpp"
+},
+{
+  "directory": "/home/marwan/Technikum/Softwareentwicklung/Sitzplatzgenerator/build",
+  "command": "/usr/bin/g++  -I/home/marwan/Technikum/Softwareentwicklung/Sitzplatzgenerator/headerFiles -g -o CMakeFiles/generator_library.dir/services/csv-service.cpp.o -c /home/marwan/Technikum/Softwareentwicklung/Sitzplatzgenerator/services/csv-service.cpp",
+  "file": "/home/marwan/Technikum/Softwareentwicklung/Sitzplatzgenerator/services/csv-service.cpp"
+},
+{
+  "directory": "/home/marwan/Technikum/Softwareentwicklung/Sitzplatzgenerator/build",
+  "command": "/usr/bin/g++  -I/home/marwan/Technikum/Softwareentwicklung/Sitzplatzgenerator/headerFiles -g -std=c++20 -o CMakeFiles/generator.dir/main.cpp.o -c /home/marwan/Technikum/Softwareentwicklung/Sitzplatzgenerator/main.cpp",
+  "file": "/home/marwan/Technikum/Softwareentwicklung/Sitzplatzgenerator/main.cpp"
+}
+]

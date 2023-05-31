@@ -1,21 +1,21 @@
 #include "../headerFiles/headers.h"
 
-stringNode *readCsv(char *filepath) {
-    stringNode *list = (stringNode*) malloc(sizeof(stringNode*));
+bool readCsv(char *filepath, stringNode **list) {
     FILE *fp;
-    char row[100];
+    char row[STRING_MAX];
     fp = fopen(filepath, "r");
     if(fp == NULL) {
-        return NULL;
+        return false;
     }
     while (feof(fp) != true)
     {
-        fgets(row, 100, fp);
-        insertIntoStringList(&list, createStringNode(row));
+        fgets(row, STRING_MAX, fp);
+        insertIntoStringList(list, createStringNode(row));
     }
     fclose(fp);
-    return list;
+    return true;
 }
+
 
 bool writeCsv(char *filename, stringNode *list) {
     FILE *fpt;
@@ -24,7 +24,7 @@ bool writeCsv(char *filename, stringNode *list) {
         return false;
     }
     while(list != NULL) {
-        fprintf(fpt,"%s\n", list->content);
+        fprintf(fpt,"%s", list->content);
         list = list->nextStringNode;
     }
     fclose(fpt);

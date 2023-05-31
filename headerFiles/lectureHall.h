@@ -1,6 +1,6 @@
 #ifndef LECTUREHALL_H // Include guard
 #define LECTUREHALL_H
-
+#include "string_list.h"
 typedef struct lectureHall
 {
     char *name;
@@ -17,6 +17,9 @@ void insertIntoLectureHallList(lectureHall **list, lectureHall *newLectureHall);
 
 void printLectureHallList(lectureHall *head);
 
+void stringlistToLectureHallList(stringNode *stringList, lectureHall **lectureHallList);
+
+lectureHall *createLectureHallFromString(char *string);
 
 
 #endif
