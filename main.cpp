@@ -2,6 +2,9 @@
 int main()
 {
 
+
+    
+
     
     stringNode *stringList = (stringNode*)malloc(sizeof(stringNode*));
     stringList = NULL;
@@ -9,19 +12,12 @@ int main()
         perror("FILE NOT FOUND");
         //exit(0);
     }
-    //writeCsv((char*)"../assets/username.csv", test);
 
-    lectureHall *lh = (lectureHall*)malloc(sizeof(lectureHall*));
-    lh = NULL;
-    //stringlistToLectureHallList(stringList, &lh);
-
-    //printLectureHall(a);
-   
-    printStringList(stringList);
-
-    //printLectureHall(a);
-    stringlistToLectureHallList(stringList, &lh);
-    printLectureHallList(lh);
+    lectureHall *lectureHallList = (lectureHall*)malloc(sizeof(lectureHall*));
+    lectureHallList = NULL;
+ 
+    stringlistToLectureHallList(stringList, &lectureHallList);
+    printLectureHallList(lectureHallList);
    
     return 0;
 }
