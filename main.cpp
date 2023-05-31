@@ -62,6 +62,7 @@ int main()
     
 
     stringlistToLectureHallList(stringList, &lectureHallList);
+    freeStringList(stringList);
 
     printf("Welcome\n");
     printf("Login as Admin: Press 1\n");
