@@ -1,9 +1,10 @@
 #include "headerFiles/headers.h"
-#define ADMIN_PWD (char *)"sitzplatzgenerator"
+#define ADMIN_PWD (char *)"pwd"
 
 bool isAdmin = false;
 
-void adminWorkflow()
+
+void adminWorkflow(lectureHall **lectureHallList)
 {
     printf("Pls Enter Admin Password: ");
     char pwd[30];
@@ -21,6 +22,15 @@ void adminWorkflow()
     }
     printf("\nPassword is Correct!\nHello Admin!\n");
     isAdmin = true;
+    printf("press 1 to show a List of all Rooms\n");
+    printf("press 2 to show a List of all Students\n");
+
+    int input;
+    getchar();
+    input = getchar();
+    if(input == '1') {
+        printLectureHallList(*lectureHallList);
+    }
 }
 
 void studentWorkflow()
@@ -39,6 +49,19 @@ void studentWorkflow()
 
 int main()
 {
+    lectureHall *lectureHallList = (lectureHall *)malloc(sizeof(lectureHall *));
+    lectureHallList = NULL;
+    stringNode *stringList = (stringNode *)malloc(sizeof(stringNode *));
+    stringList = NULL;
+    if (!readCsv((char *)"../assets/lecturehalls.csv", &stringList))
+    {
+        perror("FILE NOT FOUND");
+        // exit(0);
+    }
+
+    
+
+    stringlistToLectureHallList(stringList, &lectureHallList);
 
     printf("Welcome\n");
     printf("Login as Admin: Press 1\n");
@@ -50,26 +73,14 @@ int main()
 
     if (c == '1')
     {
-        adminWorkflow();
+        adminWorkflow(&lectureHallList);
     }
     else
     {
         studentWorkflow();
     }
 
-    stringNode *stringList = (stringNode *)malloc(sizeof(stringNode *));
-    stringList = NULL;
-    if (!readCsv((char *)"../assets/lecturehalls.csv", &stringList))
-    {
-        perror("FILE NOT FOUND");
-        // exit(0);
-    }
-
-    lectureHall *lectureHallList = (lectureHall *)malloc(sizeof(lectureHall *));
-    lectureHallList = NULL;
-
-    stringlistToLectureHallList(stringList, &lectureHallList);
-    // printLectureHallList(lectureHallList);
+   
 
     return 0;
 }
