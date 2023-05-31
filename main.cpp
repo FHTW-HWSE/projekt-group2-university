@@ -15,7 +15,7 @@ int main()
     lh = NULL;
     //stringlistToLectureHallList(stringList, &lh);
 
-    lectureHall *a = createLectureHallFromString((char*)"F202;4;3");
+    //lectureHall *a = createLectureHallFromString((char*)"F202;4;3");
    
     printStringList(stringList);
     return 0;
