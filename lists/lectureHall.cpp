@@ -92,8 +92,6 @@ void stringlistToLectureHallList(stringNode *stringList, lectureHall **lectureHa
     while (stringList != NULL)
     {
         insertIntoLectureHallList(lectureHallList, createLectureHallFromString(stringList->content));
-        //lectureHall *tmp = createLectureHallFromString(stringList->content);
-        //printf("%s\n", stringList->content);
         stringList = stringList->nextStringNode;
     }
 }
