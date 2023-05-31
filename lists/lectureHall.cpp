@@ -68,7 +68,7 @@ lectureHall *createLectureHallFromString(char *string)
 {
 
     char str[20] = {0};
-    char* result[2];
+    char* result[3];
     strcpy(str, string);
     const char s[2] = ";";
     char *token;

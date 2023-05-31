@@ -24,5 +24,8 @@ void printStudent(student *student);
 
 void printStudentList(student *head);
 
+student *createStudentFromString(char *string);
+
+void stringlistToStudentList(stringNode *stringList, student **studentList);
 
 #endif

@@ -11,10 +11,10 @@
 #include <time.h>
 
 // Selfmade header files
+#include "string_list.h"
 #include "student.h"
 #include "lectureHall.h"
 #include "helpers.h"
-#include "string_list.h"
 #include "exam.h"
 #include "csv-service.h"
 #endif

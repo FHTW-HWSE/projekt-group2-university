@@ -74,9 +74,9 @@ CMakeFiles/generator.dir/main.cpp.o: ../main.cpp \
   /usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h \
   /usr/include/string.h \
   /usr/include/strings.h \
+  ../headerFiles/string_list.h \
   ../headerFiles/student.h \
   ../headerFiles/lectureHall.h \
-  ../headerFiles/string_list.h \
   ../headerFiles/helpers.h \
   ../headerFiles/exam.h \
   ../headerFiles/headers.h \
@@ -87,9 +87,9 @@ CMakeFiles/generator.dir/main.cpp.o: ../main.cpp \
 
 ../headerFiles/helpers.h:
 
-../headerFiles/string_list.h:
-
 ../headerFiles/lectureHall.h:
+
+../headerFiles/string_list.h:
 
 /usr/include/strings.h:
 
