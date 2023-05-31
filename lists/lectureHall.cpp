@@ -65,7 +65,10 @@ void printLectureHallList(lectureHall *head)
 lectureHall *createLectureHallFromString(char *string)
 {
     int i = 0;
-    char *params[3];
+    char **params = (char**) calloc(3, sizeof(char*));
+    for(int i=0; i<3; i++) {
+        params[i] = (char*) malloc(100*sizeof(char));
+    }
     int paramCounter = 0;
     while (string[i] != '\0')
     {
@@ -80,7 +83,8 @@ lectureHall *createLectureHallFromString(char *string)
         i++;
     }
     printf("%s", params[0]);
-    return createLectureHall(params[0], atoi(params[1]), atoi(params[2]));
+    lectureHall * hall = createLectureHall(params[0], atoi(params[1]), atoi(params[2]));
+    
 }
 
 void stringlistToLectureHallList(stringNode *stringList, lectureHall **lectureHallList)
