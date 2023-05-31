@@ -3,10 +3,15 @@
 
 stringNode *createStringNode(char *content)
 {
-    stringNode *newStringNode = (stringNode *) calloc(1, sizeof(stringNode*));
-    //newStringNode->content = content;
-    newStringNode->content = (char*) malloc(STRING_MAX * sizeof(char));
-    strcpy(newStringNode->content, content);
+    stringNode *newStringNode = (stringNode *) calloc(1, sizeof(stringNode));
+    int i=0;
+    while(content[i] != '\0') {
+        newStringNode->content[i] = content[i];
+        i++;
+    }
+    content[i+1] = '\0';
+    //newStringNode->content = (char*) malloc(STRING_MAX * sizeof(char));
+    //strcpy(newStringNode->content, content);
     return newStringNode;
 }
 

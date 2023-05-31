@@ -11,7 +11,8 @@
 lectureHall *createLectureHall(char *name, int row, int column)
 {
     lectureHall *newLectureHall = (lectureHall *)calloc(1, sizeof(lectureHall));
-    newLectureHall->name = name;
+    newLectureHall->name = (char *)malloc(4 * sizeof(char));
+    strcpy(newLectureHall->name, name);
     newLectureHall->row = row;
     newLectureHall->column = column;
     return newLectureHall;
@@ -64,35 +65,34 @@ void printLectureHallList(lectureHall *head)
 
 lectureHall *createLectureHallFromString(char *string)
 {
-    int i = 0;
-    char **params = (char**) calloc(3, sizeof(char*));
-    for(int i=0; i<3; i++) {
-        params[i] = (char*) malloc(100*sizeof(char));
-    }
-    int paramCounter = 0;
-    while (string[i] != '\0')
-    {
-        if (string[i] == ';')
-        {
-            paramCounter++;
-        }
-        else
-        {
-            strncat(params[paramCounter], &string[i], sizeof(char));
-        }
+
+    char str[20] = {0};
+    char* result[2];
+    strcpy(str, string);
+    const char s[2] = ";";
+    char *token;
+
+    token = strtok(str, s);
+
+    int i=0;
+    while(token != NULL) {
+        //printf("%s\n", token);
+        result[i] = token;
+        token = strtok(NULL, s);
         i++;
     }
-    printf("%s", params[0]);
-    lectureHall * hall = createLectureHall(params[0], atoi(params[1]), atoi(params[2]));
-    
+
+    return createLectureHall(result[0], atoi(result[1]), atoi(result[2]));
+
 }
 
 void stringlistToLectureHallList(stringNode *stringList, lectureHall **lectureHallList)
 {
-    while(stringList != NULL) {
-        //insertIntoLectureHallList(lectureHallList, createLectureHallFromString(stringList->content));
-        //printLectureHall()
-        createLectureHallFromString(stringList->content);
+    while (stringList != NULL)
+    {
+        insertIntoLectureHallList(lectureHallList, createLectureHallFromString(stringList->content));
+        //lectureHall *tmp = createLectureHallFromString(stringList->content);
+        //printf("%s\n", stringList->content);
         stringList = stringList->nextStringNode;
     }
 }

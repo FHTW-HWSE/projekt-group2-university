@@ -4,7 +4,7 @@
 #define STRING_MAX 100
 typedef struct stringNode
 {
-   char* content;
+   char content[STRING_MAX];
    stringNode *nextStringNode;
 } stringNode;
 
