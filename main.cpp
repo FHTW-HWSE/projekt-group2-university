@@ -74,8 +74,10 @@ void adminWorkflow(lectureHall **lectureHallList, student **studentList, exam **
     isAdmin = true;
     printf("press 1 to show a List of all Rooms\n");
     printf("press 2 to show a List of all Students\n");
-    printf("press 3 to generate a new LectureHall\n");
-    printf("press 4 to generate a new Exam\n");
+    printf("press 3 to show a List of all Exams\n");
+
+    printf("press 4 to generate a new LectureHall\n");
+    printf("press 5 to generate a new Exam\n");
 
 
     int input;
@@ -89,10 +91,13 @@ void adminWorkflow(lectureHall **lectureHallList, student **studentList, exam **
     case '2': 
         printStudentList(*studentList);
         break;
-    case '3': 
+    case '3':
+        printExamList(*examList);
+        break;
+    case '4': 
         adminInsertHall(*lectureHallList);
         break;
-    case '4':
+    case '5':
         printLectureHallList(*lectureHallList);
         adminInsertExam(NULL, *lectureHallList);
         break;
@@ -125,11 +130,17 @@ int main()
     student *studentList = (student*) malloc(sizeof(student*));
     studentList = NULL;
 
+    exam *examList = (exam*) malloc(sizeof(student*));
+    examList = NULL;
+
     stringNode *stringListHalls = (stringNode *)malloc(sizeof(stringNode *));
     stringListHalls= NULL;
 
     stringNode *stringListStudents = (stringNode *)malloc(sizeof(stringNode *));
     stringListStudents = NULL;
+
+    stringNode *stringListExam = (stringNode *)malloc(sizeof(stringNode *));
+    stringListExam = NULL;
 
     if (!readCsv((char *)"../assets/lecturehalls.csv", &stringListHalls))
     {
@@ -142,12 +153,19 @@ int main()
         perror("FILE NOT FOUND");
         // exit(0);
     }
+
+    if (!readCsv((char *)"../assets/exams.csv", &stringListExam))
+    {
+        perror("FILE NOT FOUND");
+        // exit(0);
+    }
     
 
 
     stringlistToLectureHallList(stringListHalls, &lectureHallList);
     stringlistToStudentList(stringListStudents, &studentList);
-
+    stringlistToExamList(stringListExam, &examList, lectureHallList);
+    //printExamList(examList);
    
     //freeing the stringLists after copying data into new data structure
     freeStringList(stringListHalls);
@@ -163,7 +181,7 @@ int main()
 
     if (c == '1')
     {
-        adminWorkflow(&lectureHallList, &studentList, NULL);
+        adminWorkflow(&lectureHallList, &studentList, &examList);
     }
     else
     {
