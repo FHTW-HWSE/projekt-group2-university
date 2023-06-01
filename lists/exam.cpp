@@ -7,9 +7,11 @@
  * @param lectureHall the Lecture Hall in which the Exam is hold
  * @return exam* new Exam Object
  */
-exam *createExam(char *name, lectureHall *lectureHall) {
+exam *createExam(char *name, int workload, lectureHall *lectureHall) {
     exam *newExam = (exam *) calloc(1, sizeof(exam *));
-    newExam->name = name;
+    newExam->name = (char *)malloc(20 * sizeof(char));
+    strcpy(newExam->name, name);
+    newExam->workload = workload;
     newExam->lectureHall = lectureHall;
     return newExam;
 }
@@ -20,10 +22,18 @@ exam *createExam(char *name, lectureHall *lectureHall) {
  * @param exam the Exam to print
  */
 void printExam(exam *exam) {
-    printf("%s\n", exam->name);
+    char workload[10];
+    if(exam->workload == 0) {
+        strcpy(workload, "weak");
+    } else if(exam->workload == 1) {
+        strcpy(workload, "medium");
+    } else {
+        strcpy(workload, "strong");
+    }
+    printf("Examname: %s   Workload: %s   Lecturehall: %s\n", exam->name, workload, exam->lectureHall->name);
 }
 
-void insertIntoExamList(exam **list, exam *newExam)	//Update to be alphabetisch
+void insertIntoExamList(exam **list, exam *newExam, bool csvflag)	//Update to be alphabetisch
 {
 
    if(*list == NULL) {

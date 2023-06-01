@@ -18,12 +18,38 @@ bool adminInsertHall(lectureHall *list) {
     //printLectureHall(tmp);
     if(!insertIntoLectureHallList(&list, tmp, true)) {
         printf("Lecture hall with this name already exists\n");
+        return false;
     }
     return true;
 }
 
+bool adminInsertExam(exam *examList, lectureHall *lectureHallList) {
+    char name[20];
+    char workload;
+    char lecturehall[20];
+    printf("Enter the name of the Exam: ");
+    scanf("%20s", name);
+    printf("\nChoose the workload for the Exam\n");
+    printf("Enter 0 for weak\nEnter 1 for medium\nEnter 2 for strong\n");
+    getchar();
+    workload = getchar();
+    if(workload != '0' && workload != '1' && workload != '2') {
+        printf("\nInvalid Input\n");
+        return false;
+    }
+    printf("Enter the name of the lecutrehall where the exam is hold:\n");
+    scanf("%20s", lecturehall);
+    printf("%s", lecturehall);
+    printLectureHallList(lectureHallList);
+    if(searchLectureHall(lectureHallList, lecturehall) == NULL) {
+        printf("This Lecturehall does not exist\n");
+    }
 
-void adminWorkflow(lectureHall **lectureHallList, student **studentList)
+
+    return true;
+}
+
+void adminWorkflow(lectureHall **lectureHallList, student **studentList, exam **examList)
 {
     printf("Pls Enter Admin Password: ");
     char pwd[30];
@@ -44,6 +70,8 @@ void adminWorkflow(lectureHall **lectureHallList, student **studentList)
     printf("press 1 to show a List of all Rooms\n");
     printf("press 2 to show a List of all Students\n");
     printf("press 3 to generate a new LectureHall\n");
+    printf("press 4 to generate a new Exam\n");
+
 
     int input;
     getchar();
@@ -58,6 +86,10 @@ void adminWorkflow(lectureHall **lectureHallList, student **studentList)
         break;
     case '3': 
         adminInsertHall(*lectureHallList);
+        break;
+    case '4':
+        printLectureHallList(*lectureHallList);
+        adminInsertExam(NULL, *lectureHallList);
         break;
     default:
         printf("invalid input\n");
@@ -111,6 +143,7 @@ int main()
     stringlistToLectureHallList(stringListHalls, &lectureHallList);
     stringlistToStudentList(stringListStudents, &studentList);
 
+    printLectureHallList(lectureHallList);
     
     //freeing the stringLists after copying data into new data structure
     freeStringList(stringListHalls);
@@ -126,7 +159,7 @@ int main()
 
     if (c == '1')
     {
-        adminWorkflow(&lectureHallList, &studentList);
+        adminWorkflow(&lectureHallList, &studentList, NULL);
     }
     else
     {

@@ -13,6 +13,8 @@ lectureHall *createLectureHall(char *name, int row, int column);
 
 void printLectureHall(lectureHall *lectureHall);
 
+lectureHall *searchLectureHall(lectureHall* head, char *name);
+
 bool insertIntoLectureHallList(lectureHall **list, lectureHall *newLectureHall, bool csvflag); // Update to be alphabetisch
 
 void printLectureHallList(lectureHall *head);

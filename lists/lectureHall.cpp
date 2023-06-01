@@ -37,16 +37,17 @@ void printLectureHall(lectureHall *lectureHall)
  */
 
 
-bool searchLectureHall(lectureHall* head, char *name) {
-    while(head != NULL) {
-        if(equals(head->name, name)) {
+lectureHall *searchLectureHall(lectureHall* head, char *name) {
+    lectureHall *current = head;
+    while(current != NULL) {
+        if(equals(current->name, name)) {
             //printf("elemet gefunden\n");
-            return true;
+            return current;
         }
-        head = head->nextLectureHall;
+        current = current->nextLectureHall;
     }
     //printf("elemet nicht gefunden\n");
-    return false;
+    return NULL;
 }
 
 
@@ -58,7 +59,7 @@ bool insertIntoLectureHallList(lectureHall **list, lectureHall *newLectureHall, 
     return true;
    }
 
-   if(searchLectureHall(*list, newLectureHall->name)) {
+   if(searchLectureHall(*list, newLectureHall->name) == NULL) {
         return false;
    }
 
