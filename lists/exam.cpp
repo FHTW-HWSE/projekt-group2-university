@@ -168,3 +168,18 @@ void freeExamList(exam *head)
     }
     free(head);
 }
+
+bool insertStudentIntoExam(student *student, exam *exam) {
+    //creating student string
+    char studenttext[50] = {0};
+    strcat(studenttext, student->firstName);
+    strcat(studenttext, (char*)";");
+    strcat(studenttext, student->lastName);
+
+    //creating examfile string
+    char examfile[50] = "../assets/exams/";
+    strcat(examfile, exam->name);
+    strcat(examfile, (char*)".csv");
+
+    return writeLineInCsv(examfile, studenttext);
+}

@@ -29,4 +29,6 @@ void stringlistToExamList(stringNode *stringList, exam **examList,  lectureHall 
 
 void freeExamList(exam *head);
 
+bool insertStudentIntoExam(student *student, exam *exam);
+
 #endif

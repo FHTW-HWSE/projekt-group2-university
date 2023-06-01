@@ -124,7 +124,7 @@ void adminWorkflow(lectureHall **lectureHallList, student **studentList, exam **
     }
 }
 
-void studentWorkflow(student **studentList)
+void studentWorkflow(student **studentList, exam **examList)
 {
     char firstname[20];
     char lastname[20];
@@ -137,6 +137,20 @@ void studentWorkflow(student **studentList)
     student *loggedStudent = createStudent(firstname, lastname);
     insertStudentIntoList(studentList, loggedStudent, true);
     printf("Welcome %s %s\n", loggedStudent->firstName, loggedStudent->lastName);
+    printf("Press 1 to see lists of all exams\n");
+    char input;
+    getchar();
+    input = getchar();
+
+    switch (input)
+    {
+    case '1':
+        printExamList(*examList);
+        break;
+    
+    default:
+        break;
+    }
 }
 
 int main()
@@ -191,7 +205,7 @@ int main()
     }
     else
     {
-        studentWorkflow(&studentList);
+        studentWorkflow(&studentList, &examList);
     }
 
 
