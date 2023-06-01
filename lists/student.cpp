@@ -35,11 +35,15 @@ void printStudent(student *student)
  * @param newStudent the Student to insert in the List
  * @return student* the new List
  */
-void insertStudentIntoList(student **list, student *newStudent)
+bool insertStudentIntoList(student **list, student *newStudent)
 {
 	if(*list == NULL) {
     *list = newStudent;
-    return;
+    return true;
+   }
+
+   if(searchStudent(*list, newStudent->lastName)) {
+        return false;
    }
 
         student *current = *list;
@@ -52,6 +56,7 @@ void insertStudentIntoList(student **list, student *newStudent)
 
         //add the newNode at the end of the linked list
         current->nextStudent= newStudent;
+		return true;
 }
 
 /**
@@ -59,6 +64,19 @@ void insertStudentIntoList(student **list, student *newStudent)
  *
  * @param head the Student List to print
  */
+
+bool searchStudent(student* head, char *lastname) {
+    while(head != NULL) {
+        if(equals(head->lastName, lastname)) {
+            //printf("elemet gefunden\n");
+            return true;
+        }
+        head = head->nextStudent;
+    }
+    //printf("elemet nicht gefunden\n");
+    return false;
+}
+
 void printStudentList(student *head)
 {
 	printf("\tListe aller Studenten\n");

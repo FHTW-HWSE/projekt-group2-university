@@ -35,17 +35,44 @@ void printLectureHall(lectureHall *lectureHall)
  * @param newLectureHall
  * @return lectureHall*
  */
-void insertIntoLectureHallList(lectureHall **list, lectureHall *newLectureHall) // Update to be alphabetisch
-{
-    if (*list == NULL)
-    {
-        *list = newLectureHall;
-        return;
-    }
 
-    newLectureHall->nextLectureHall = *list;
-    // changing the new head to this freshly entered node
+
+bool searchLectureHall(lectureHall* head, char *name) {
+    while(head != NULL) {
+        if(equals(head->name, name)) {
+            //printf("elemet gefunden\n");
+            return true;
+        }
+        head = head->nextLectureHall;
+    }
+    //printf("elemet nicht gefunden\n");
+    return false;
+}
+
+
+
+bool insertIntoLectureHallList(lectureHall **list, lectureHall *newLectureHall) // Update to be alphabetisch
+{
+   if(*list == NULL) {
     *list = newLectureHall;
+    return true;
+   }
+
+   if(searchLectureHall(*list, newLectureHall->name)) {
+        return false;
+   }
+
+        lectureHall *current = *list;
+
+        //last node's next address will be NULL.
+        while(current->nextLectureHall != NULL)
+        {
+            current = current->nextLectureHall;
+        }
+
+        //add the newNode at the end of the linked list
+        current->nextLectureHall= newLectureHall;
+		return true;
 }
 
 /**

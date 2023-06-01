@@ -18,9 +18,11 @@ typedef struct student
 
 student *createStudent(char *firstName, char *lastName);
 
-void insertStudentIntoList(student **list, student *newStudent);
+bool insertStudentIntoList(student **list, student *newStudent);
 
 void printStudent(student *student);
+
+bool searchStudent(student* head, char *lastname);
 
 void printStudentList(student *head);
 
