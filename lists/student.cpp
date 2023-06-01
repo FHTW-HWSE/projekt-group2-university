@@ -35,25 +35,23 @@ void printStudent(student *student)
  * @param newStudent the Student to insert in the List
  * @return student* the new List
  */
-student *insertStudentIntoList(student **list, student *newStudent)
+void insertStudentIntoList(student **list, student *newStudent)
 {
-	student *current;
-	if (*list == NULL || (*list)->lastName >= newStudent->lastName)
-	{
-		newStudent->nextStudent = *list;
-		*list = newStudent;
-	}
-	else
-	{
-		current = *list;
-		while (current->nextStudent != NULL && strcmp(current->nextStudent->lastName, newStudent->lastName) < 0)
-		{
-			current = current->nextStudent;
-		}
-		newStudent->nextStudent = current->nextStudent;
-		current->nextStudent = newStudent;
-	}
-	return *list;
+	if(*list == NULL) {
+    *list = newStudent;
+    return;
+   }
+
+        student *current = *list;
+
+        //last node's next address will be NULL.
+        while(current->nextStudent != NULL)
+        {
+            current = current->nextStudent;
+        }
+
+        //add the newNode at the end of the linked list
+        current->nextStudent= newStudent;
 }
 
 /**
