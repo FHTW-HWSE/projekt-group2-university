@@ -46,7 +46,6 @@ bool writeLineInCsv(char *filename, char *content)
     fseek (fpt, 0, SEEK_END);
     long size = ftell(fpt);
 
-   
 
     if(size == 0) {
         fprintf(fpt, "%s", content);

@@ -90,7 +90,6 @@ void adminWorkflow(lectureHall **lectureHallList, student **studentList, exam **
     printf("Pls Enter Admin Password: ");
     char pwd[30];
     scanf("%30s", pwd);
-    printf("%s", pwd);
     while (!equals(pwd, ADMIN_PWD))
     {
         printf("\nWrong Password. pls ender again or quit with q: ");
