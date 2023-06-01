@@ -68,8 +68,17 @@ bool insertIntoExamList(exam **list, exam *newExam, bool csvflag)	//Update to be
         }
         //add the newNode at the end of the linked list
         current->nextExam = newExam;
+          if(csvflag) {
+            char csvstring[30] = {0};
+            strcat(csvstring, newExam->name);
+            strcat(csvstring, ";");
+            strcat(csvstring, integerToString(newExam->workload));
+            strcat(csvstring, ";");
+            strcat(csvstring, newExam->lectureHall->name);
+            //strcat(csvstring, itoa(newLectureHall->row));
+            writeLineInCsv((char*)"../assets/exams.csv", csvstring);
+        }
         return true; 
-        return true;
 }
 
 void printExamList(exam *head)

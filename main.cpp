@@ -47,10 +47,7 @@ bool adminInsertExam(exam *examList, lectureHall *lectureHallList) {
     }
     //printLectureHall(tmp);
     exam *newExam = createExam(name, atoi(&workload), tmp);
-    printf("\n");
-    printExam(newExam);
-
-
+    insertIntoExamList(&examList, newExam, true);
     return true;
 }
 
@@ -99,7 +96,7 @@ void adminWorkflow(lectureHall **lectureHallList, student **studentList, exam **
         break;
     case '5':
         printLectureHallList(*lectureHallList);
-        adminInsertExam(NULL, *lectureHallList);
+        adminInsertExam(*examList, *lectureHallList);
         break;
     default:
         printf("invalid input\n");
