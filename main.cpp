@@ -4,6 +4,25 @@
 bool isAdmin = false;
 
 
+bool adminInsertHall(lectureHall *list) {
+    char name[20];
+    char row[3];
+    char col[3];
+    printf("Enter lecture hall name: ");
+    scanf("%20s", name);
+    printf("Enter amount of rows in the hall: ");
+    scanf("%3s", row);
+    printf("Enter amount of columns in the hall: ");
+    scanf("%3s", col);
+    lectureHall *tmp = createLectureHall(name, atoi(row), atoi(col));
+    //printLectureHall(tmp);
+    if(!insertIntoLectureHallList(&list, tmp)) {
+        printf("Lecture hall with this name already exists\n");
+    }
+    return true;
+}
+
+
 void adminWorkflow(lectureHall **lectureHallList, student **studentList)
 {
     printf("Pls Enter Admin Password: ");
@@ -24,14 +43,26 @@ void adminWorkflow(lectureHall **lectureHallList, student **studentList)
     isAdmin = true;
     printf("press 1 to show a List of all Rooms\n");
     printf("press 2 to show a List of all Students\n");
+    printf("press 3 to generate a new LectureHall\n");
 
     int input;
     getchar();
     input = getchar();
-    if(input == '1') {
+    switch (input)
+    {
+    case '1':
         printLectureHallList(*lectureHallList);
-    } else if(input == '2') {
+        break;
+    case '2': 
         printStudentList(*studentList);
+        break;
+    case '3': 
+        adminInsertHall(*lectureHallList);
+        break;
+    default:
+        printf("invalid input\n");
+        exit(0);
+        break;
     }
 }
 
