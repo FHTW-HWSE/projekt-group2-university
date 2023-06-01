@@ -147,7 +147,8 @@ int main()
 
     stringlistToLectureHallList(stringListHalls, &lectureHallList);
     stringlistToStudentList(stringListStudents, &studentList);
-    
+
+   
     //freeing the stringLists after copying data into new data structure
     freeStringList(stringListHalls);
     freeStringList(stringListStudents);

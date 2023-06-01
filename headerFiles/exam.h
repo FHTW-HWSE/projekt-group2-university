@@ -19,7 +19,10 @@ exam *createExam(char *name, int workload, lectureHall *lectureHall);
 
 void printExam(exam *exam);
 
-void insertIntoExamList(exam **list, exam *newExam, bool csvflag);	//Update to be alphabetisch
+bool insertIntoExamList(exam **list, exam *newExam, bool csvflag);	//Update to be alphabetisch
 
+void printExamList(exam *head);
+
+exam *createExamFromString(char *string, lectureHall *lectureHallList);
 
 #endif
