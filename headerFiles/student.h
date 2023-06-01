@@ -22,7 +22,7 @@ bool insertStudentIntoList(student **list, student *newStudent, bool csvflag);
 
 void printStudent(student *student);
 
-bool searchStudent(student* head, char *lastname);
+student* searchStudent(student *head, char *lastname);
 
 void printStudentList(student *head);
 

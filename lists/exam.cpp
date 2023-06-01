@@ -92,7 +92,7 @@ bool insertIntoExamList(exam **list, exam *newExam, bool csvflag) // Update to b
     {
         
 
-        char csvstring[30] = {0};
+        char csvstring[50] = {0};
         strcat(csvstring, newExam->name);
         strcat(csvstring, ";");
         strcat(csvstring, integerToString(newExam->workload));
@@ -175,6 +175,7 @@ bool insertStudentIntoExam(student *student, exam *exam) {
     strcat(studenttext, student->firstName);
     strcat(studenttext, (char*)";");
     strcat(studenttext, student->lastName);
+    strcat(studenttext, (char*)"\0");
 
     //creating examfile string
     char examfile[50] = "../assets/exams/";

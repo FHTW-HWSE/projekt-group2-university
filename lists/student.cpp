@@ -35,6 +35,23 @@ void printStudent(student *student)
  * @param newStudent the Student to insert in the List
  * @return student* the new List
  */
+
+student* searchStudent(student *head, char *lastname)
+{
+    student *current = head;
+    while (current != NULL)
+    {
+        if (equals(current->lastName, lastname))
+        {
+            // printf("elemet gefunden\n");
+            return current;
+        }
+        current = current->nextStudent;
+    }
+    // printf("elemet nicht gefunden\n");
+    return NULL;
+}
+
 bool insertStudentIntoList(student **list, student *newStudent, bool csvflag)
 {
     if (*list == NULL)
@@ -78,20 +95,7 @@ bool insertStudentIntoList(student **list, student *newStudent, bool csvflag)
  * @param head the Student List to print
  */
 
-bool searchStudent(student *head, char *lastname)
-{
-    while (head != NULL)
-    {
-        if (equals(head->lastName, lastname))
-        {
-            // printf("elemet gefunden\n");
-            return true;
-        }
-        head = head->nextStudent;
-    }
-    // printf("elemet nicht gefunden\n");
-    return false;
-}
+
 
 void printStudentList(student *head)
 {

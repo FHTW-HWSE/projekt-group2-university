@@ -81,6 +81,7 @@ void studentEnterExam(exam **examList, student *student) {
         exit(0);
     }
     insertStudentIntoExam(student, tmp);
+    printf("You joined exam '%s'\n", tmp->name);
 }
 
 
@@ -148,7 +149,14 @@ void studentWorkflow(student **studentList, exam **examList)
     scanf("%20s", firstname);
     printf("Enter your last name: ");
     scanf("%20s", lastname);
-    student *loggedStudent = createStudent(firstname, lastname);
+    student *loggedStudent = searchStudent(*studentList, lastname);
+
+    if(loggedStudent == NULL) {
+        loggedStudent = createStudent(firstname, lastname);
+        printf("You created a new account\n");
+    } else {
+        printf("You logged in with your account\n");
+    }
     
     
     insertStudentIntoList(studentList, loggedStudent, true);
