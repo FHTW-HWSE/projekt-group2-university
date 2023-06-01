@@ -175,7 +175,6 @@ bool insertStudentIntoExam(student *student, exam *exam) {
     strcat(studenttext, student->firstName);
     strcat(studenttext, (char*)";");
     strcat(studenttext, student->lastName);
-    strcat(studenttext, (char*)"\0");
 
     //creating examfile string
     char examfile[50] = "../assets/exams/";
