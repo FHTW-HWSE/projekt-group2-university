@@ -540,6 +540,102 @@ helpers.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/generator_library.dir/build.make CMakeFiles/generator_library.dir/helpers.cpp.s
 .PHONY : helpers.cpp.s
 
+lists/exam.o: lists/exam.cpp.o
+.PHONY : lists/exam.o
+
+# target to build an object file
+lists/exam.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generator_library.dir/build.make CMakeFiles/generator_library.dir/lists/exam.cpp.o
+.PHONY : lists/exam.cpp.o
+
+lists/exam.i: lists/exam.cpp.i
+.PHONY : lists/exam.i
+
+# target to preprocess a source file
+lists/exam.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generator_library.dir/build.make CMakeFiles/generator_library.dir/lists/exam.cpp.i
+.PHONY : lists/exam.cpp.i
+
+lists/exam.s: lists/exam.cpp.s
+.PHONY : lists/exam.s
+
+# target to generate assembly for a file
+lists/exam.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generator_library.dir/build.make CMakeFiles/generator_library.dir/lists/exam.cpp.s
+.PHONY : lists/exam.cpp.s
+
+lists/lectureHall.o: lists/lectureHall.cpp.o
+.PHONY : lists/lectureHall.o
+
+# target to build an object file
+lists/lectureHall.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generator_library.dir/build.make CMakeFiles/generator_library.dir/lists/lectureHall.cpp.o
+.PHONY : lists/lectureHall.cpp.o
+
+lists/lectureHall.i: lists/lectureHall.cpp.i
+.PHONY : lists/lectureHall.i
+
+# target to preprocess a source file
+lists/lectureHall.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generator_library.dir/build.make CMakeFiles/generator_library.dir/lists/lectureHall.cpp.i
+.PHONY : lists/lectureHall.cpp.i
+
+lists/lectureHall.s: lists/lectureHall.cpp.s
+.PHONY : lists/lectureHall.s
+
+# target to generate assembly for a file
+lists/lectureHall.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generator_library.dir/build.make CMakeFiles/generator_library.dir/lists/lectureHall.cpp.s
+.PHONY : lists/lectureHall.cpp.s
+
+lists/string.o: lists/string.cpp.o
+.PHONY : lists/string.o
+
+# target to build an object file
+lists/string.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generator_library.dir/build.make CMakeFiles/generator_library.dir/lists/string.cpp.o
+.PHONY : lists/string.cpp.o
+
+lists/string.i: lists/string.cpp.i
+.PHONY : lists/string.i
+
+# target to preprocess a source file
+lists/string.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generator_library.dir/build.make CMakeFiles/generator_library.dir/lists/string.cpp.i
+.PHONY : lists/string.cpp.i
+
+lists/string.s: lists/string.cpp.s
+.PHONY : lists/string.s
+
+# target to generate assembly for a file
+lists/string.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generator_library.dir/build.make CMakeFiles/generator_library.dir/lists/string.cpp.s
+.PHONY : lists/string.cpp.s
+
+lists/student.o: lists/student.cpp.o
+.PHONY : lists/student.o
+
+# target to build an object file
+lists/student.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generator_library.dir/build.make CMakeFiles/generator_library.dir/lists/student.cpp.o
+.PHONY : lists/student.cpp.o
+
+lists/student.i: lists/student.cpp.i
+.PHONY : lists/student.i
+
+# target to preprocess a source file
+lists/student.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generator_library.dir/build.make CMakeFiles/generator_library.dir/lists/student.cpp.i
+.PHONY : lists/student.cpp.i
+
+lists/student.s: lists/student.cpp.s
+.PHONY : lists/student.s
+
+# target to generate assembly for a file
+lists/student.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generator_library.dir/build.make CMakeFiles/generator_library.dir/lists/student.cpp.s
+.PHONY : lists/student.cpp.s
+
 main.o: main.cpp.o
 .PHONY : main.o
 
@@ -588,102 +684,6 @@ services/csv-service.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/generator_library.dir/build.make CMakeFiles/generator_library.dir/services/csv-service.cpp.s
 .PHONY : services/csv-service.cpp.s
 
-structs/exam.o: structs/exam.cpp.o
-.PHONY : structs/exam.o
-
-# target to build an object file
-structs/exam.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/generator_library.dir/build.make CMakeFiles/generator_library.dir/structs/exam.cpp.o
-.PHONY : structs/exam.cpp.o
-
-structs/exam.i: structs/exam.cpp.i
-.PHONY : structs/exam.i
-
-# target to preprocess a source file
-structs/exam.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/generator_library.dir/build.make CMakeFiles/generator_library.dir/structs/exam.cpp.i
-.PHONY : structs/exam.cpp.i
-
-structs/exam.s: structs/exam.cpp.s
-.PHONY : structs/exam.s
-
-# target to generate assembly for a file
-structs/exam.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/generator_library.dir/build.make CMakeFiles/generator_library.dir/structs/exam.cpp.s
-.PHONY : structs/exam.cpp.s
-
-structs/lectureHall.o: structs/lectureHall.cpp.o
-.PHONY : structs/lectureHall.o
-
-# target to build an object file
-structs/lectureHall.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/generator_library.dir/build.make CMakeFiles/generator_library.dir/structs/lectureHall.cpp.o
-.PHONY : structs/lectureHall.cpp.o
-
-structs/lectureHall.i: structs/lectureHall.cpp.i
-.PHONY : structs/lectureHall.i
-
-# target to preprocess a source file
-structs/lectureHall.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/generator_library.dir/build.make CMakeFiles/generator_library.dir/structs/lectureHall.cpp.i
-.PHONY : structs/lectureHall.cpp.i
-
-structs/lectureHall.s: structs/lectureHall.cpp.s
-.PHONY : structs/lectureHall.s
-
-# target to generate assembly for a file
-structs/lectureHall.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/generator_library.dir/build.make CMakeFiles/generator_library.dir/structs/lectureHall.cpp.s
-.PHONY : structs/lectureHall.cpp.s
-
-structs/string.o: structs/string.cpp.o
-.PHONY : structs/string.o
-
-# target to build an object file
-structs/string.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/generator_library.dir/build.make CMakeFiles/generator_library.dir/structs/string.cpp.o
-.PHONY : structs/string.cpp.o
-
-structs/string.i: structs/string.cpp.i
-.PHONY : structs/string.i
-
-# target to preprocess a source file
-structs/string.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/generator_library.dir/build.make CMakeFiles/generator_library.dir/structs/string.cpp.i
-.PHONY : structs/string.cpp.i
-
-structs/string.s: structs/string.cpp.s
-.PHONY : structs/string.s
-
-# target to generate assembly for a file
-structs/string.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/generator_library.dir/build.make CMakeFiles/generator_library.dir/structs/string.cpp.s
-.PHONY : structs/string.cpp.s
-
-structs/student.o: structs/student.cpp.o
-.PHONY : structs/student.o
-
-# target to build an object file
-structs/student.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/generator_library.dir/build.make CMakeFiles/generator_library.dir/structs/student.cpp.o
-.PHONY : structs/student.cpp.o
-
-structs/student.i: structs/student.cpp.i
-.PHONY : structs/student.i
-
-# target to preprocess a source file
-structs/student.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/generator_library.dir/build.make CMakeFiles/generator_library.dir/structs/student.cpp.i
-.PHONY : structs/student.cpp.i
-
-structs/student.s: structs/student.cpp.s
-.PHONY : structs/student.s
-
-# target to generate assembly for a file
-structs/student.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/generator_library.dir/build.make CMakeFiles/generator_library.dir/structs/student.cpp.s
-.PHONY : structs/student.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -726,24 +726,24 @@ help:
 	@echo "... helpers.o"
 	@echo "... helpers.i"
 	@echo "... helpers.s"
+	@echo "... lists/exam.o"
+	@echo "... lists/exam.i"
+	@echo "... lists/exam.s"
+	@echo "... lists/lectureHall.o"
+	@echo "... lists/lectureHall.i"
+	@echo "... lists/lectureHall.s"
+	@echo "... lists/string.o"
+	@echo "... lists/string.i"
+	@echo "... lists/string.s"
+	@echo "... lists/student.o"
+	@echo "... lists/student.i"
+	@echo "... lists/student.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
 	@echo "... services/csv-service.o"
 	@echo "... services/csv-service.i"
 	@echo "... services/csv-service.s"
-	@echo "... structs/exam.o"
-	@echo "... structs/exam.i"
-	@echo "... structs/exam.s"
-	@echo "... structs/lectureHall.o"
-	@echo "... structs/lectureHall.i"
-	@echo "... structs/lectureHall.s"
-	@echo "... structs/string.o"
-	@echo "... structs/string.i"
-	@echo "... structs/string.s"
-	@echo "... structs/student.o"
-	@echo "... structs/student.i"
-	@echo "... structs/student.s"
 .PHONY : help
 
 

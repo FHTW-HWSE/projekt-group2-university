@@ -1,33 +1,48 @@
 #include "../headerFiles/headers.h"
 
-stringNode *readCsv(char *filepath) {
-    stringNode *list = (stringNode*) malloc(sizeof(stringNode*));
+bool readCsv(char *filepath, stringNode **list)
+{
     FILE *fp;
-    char row[100];
+    char row[STRING_MAX];
     fp = fopen(filepath, "r");
-    if(fp == NULL) {
-        return NULL;
+    if (fp == NULL)
+    {
+        return false;
     }
     while (feof(fp) != true)
     {
-        fgets(row, 100, fp);
-        insertIntoStringList(&list, createStringNode(row));
+        fgets(row, STRING_MAX, fp);
+        insertIntoStringList(list, createStringNode(row));
     }
     fclose(fp);
-    return list;
+    return true;
 }
 
-bool writeCsv(char *filename, stringNode *list) {
+bool writeCsv(char *filename, stringNode *list)
+{
     FILE *fpt;
     fpt = fopen(filename, "a");
-    if(fpt == NULL) {
+    if (fpt == NULL)
+    {
         return false;
     }
-    while(list != NULL) {
-        fprintf(fpt,"%s\n", list->content);
+    while (list != NULL)
+    {
+        fprintf(fpt, "%s", list->content);
         list = list->nextStringNode;
     }
     fclose(fpt);
     return true;
 }
 
+bool writeLineInCsv(char *filename, char *content)
+{
+    FILE *fpt;
+    fpt = fopen(filename, "a");
+    if (fpt == NULL)
+    {
+        return false;
+    }
+    fprintf(fpt, "\n%s", content);
+    return true;
+}

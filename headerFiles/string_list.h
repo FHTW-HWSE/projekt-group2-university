@@ -1,10 +1,10 @@
 #ifndef STRING_LIST_H // Include guard
 #define STRING_LIST_H
 
-
+#define STRING_MAX 100
 typedef struct stringNode
 {
-   char* content;
+   char content[STRING_MAX];
    stringNode *nextStringNode;
 } stringNode;
 
@@ -15,5 +15,8 @@ void printStringNode(stringNode *stringNode);
 void insertIntoStringList(stringNode **list, stringNode *newStringNode);
 
 void printStringList(stringNode *head);
+
+void freeStringList(stringNode *head);
+
 
 #endif
