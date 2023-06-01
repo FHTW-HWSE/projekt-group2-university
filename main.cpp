@@ -40,10 +40,15 @@ bool adminInsertExam(exam *examList, lectureHall *lectureHallList) {
     printf("Enter the name of the lecutrehall where the exam is hold:\n");
     scanf("%20s", lecturehall);
     printf("%s", lecturehall);
-    printLectureHallList(lectureHallList);
-    if(searchLectureHall(lectureHallList, lecturehall) == NULL) {
+    lectureHall *tmp = searchLectureHall(lectureHallList, lecturehall);
+    if(tmp == NULL) {
         printf("This Lecturehall does not exist\n");
+        return false;
     }
+    //printLectureHall(tmp);
+    exam *newExam = createExam(name, atoi(&workload), tmp);
+    printf("\n");
+    printExam(newExam);
 
 
     return true;
@@ -142,8 +147,6 @@ int main()
 
     stringlistToLectureHallList(stringListHalls, &lectureHallList);
     stringlistToStudentList(stringListStudents, &studentList);
-
-    printLectureHallList(lectureHallList);
     
     //freeing the stringLists after copying data into new data structure
     freeStringList(stringListHalls);
