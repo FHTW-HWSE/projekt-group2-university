@@ -70,6 +70,20 @@ bool adminInsertExam(exam *examList, lectureHall *lectureHallList) {
     return true;
 }
 
+void studentEnterExam(exam **examList, student *student) {
+    char examname[20];
+    printExamList(*examList);
+    printf("Enter the namme of the exam you want to join:\n");
+    scanf("%20s", examname);
+    exam *tmp = searchExam(*examList, examname);
+    if(tmp == NULL) {
+        printf("Exam does not exist\n");
+        exit(0);
+    }
+    insertStudentIntoExam(student, tmp);
+}
+
+
 void adminWorkflow(lectureHall **lectureHallList, student **studentList, exam **examList)
 {
     printf("Pls Enter Admin Password: ");
@@ -135,9 +149,13 @@ void studentWorkflow(student **studentList, exam **examList)
     printf("Enter your last name: ");
     scanf("%20s", lastname);
     student *loggedStudent = createStudent(firstname, lastname);
+    
+    
     insertStudentIntoList(studentList, loggedStudent, true);
     printf("Welcome %s %s\n", loggedStudent->firstName, loggedStudent->lastName);
     printf("Press 1 to see lists of all exams\n");
+    printf("Press 2 to enter a exam\n");
+
     char input;
     getchar();
     input = getchar();
@@ -147,7 +165,9 @@ void studentWorkflow(student **studentList, exam **examList)
     case '1':
         printExamList(*examList);
         break;
-    
+    case '2':
+        studentEnterExam(examList, loggedStudent);
+        break;
     default:
         break;
     }

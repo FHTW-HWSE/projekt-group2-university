@@ -23,6 +23,8 @@ bool insertIntoExamList(exam **list, exam *newExam, bool csvflag);	//Update to b
 
 void printExamList(exam *head);
 
+exam *searchExam(exam *head, char *name);
+
 exam *createExamFromString(char *string, lectureHall *lectureHallList);
 
 void stringlistToExamList(stringNode *stringList, exam **examList,  lectureHall *lectureHallList);
