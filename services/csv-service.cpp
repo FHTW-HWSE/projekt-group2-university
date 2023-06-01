@@ -47,11 +47,6 @@ bool writeLineInCsv(char *filename, char *content)
         return false;
     }
 
-    if(content == NULL) {
-        fclose(fpt);
-        return true;
-    }
-
     if(size == 0) {
         fprintf(fpt, "%s", content);
     } else {
