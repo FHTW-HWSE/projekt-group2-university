@@ -59,7 +59,7 @@ bool insertIntoLectureHallList(lectureHall **list, lectureHall *newLectureHall, 
     return true;
    }
 
-   if(searchLectureHall(*list, newLectureHall->name) == NULL) {
+   if(searchLectureHall(*list, newLectureHall->name) != NULL) {
         return false;
    }
 
