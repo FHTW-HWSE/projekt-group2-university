@@ -35,7 +35,7 @@ void printStudent(student *student)
  * @param newStudent the Student to insert in the List
  * @return student* the new List
  */
-bool insertStudentIntoList(student **list, student *newStudent)
+bool insertStudentIntoList(student **list, student *newStudent, bool csvflag)
 {
 	if(*list == NULL) {
     *list = newStudent;
@@ -56,6 +56,14 @@ bool insertStudentIntoList(student **list, student *newStudent)
 
         //add the newNode at the end of the linked list
         current->nextStudent= newStudent;
+
+         if(csvflag) {
+            char csvstring[40] = {0};
+            strcat(csvstring, newStudent->firstName);
+            strcat(csvstring, ";");
+            strcat(csvstring, newStudent->lastName);
+            writeLineInCsv((char*)"../assets/students.csv", csvstring);
+        }
 		return true;
 }
 
@@ -118,7 +126,7 @@ void stringlistToStudentList(stringNode *stringList, student **studentList)
 {
     while (stringList != NULL)
     {
-        insertStudentIntoList(studentList, createStudentFromString(stringList->content));
+        insertStudentIntoList(studentList, createStudentFromString(stringList->content), false);
         stringList = stringList->nextStringNode;
     }
 	//printStudentList(*studentList);
@@ -132,4 +140,5 @@ void freeStudentList(student *head) {
         free(head);
         head = tmp;
     }
+    free(head);
 }

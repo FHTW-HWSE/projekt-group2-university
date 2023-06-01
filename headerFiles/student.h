@@ -18,7 +18,7 @@ typedef struct student
 
 student *createStudent(char *firstName, char *lastName);
 
-bool insertStudentIntoList(student **list, student *newStudent);
+bool insertStudentIntoList(student **list, student *newStudent, bool csvflag);
 
 void printStudent(student *student);
 

@@ -143,4 +143,5 @@ void freeLectureHallList(lectureHall *head) {
         free(head);
         head = tmp;
     }
+    free(head);
 }

@@ -26,4 +26,7 @@ void printExamList(exam *head);
 exam *createExamFromString(char *string, lectureHall *lectureHallList);
 
 void stringlistToExamList(stringNode *stringList, exam **examList,  lectureHall *lectureHallList);
+
+void freeExamList(exam *head);
+
 #endif

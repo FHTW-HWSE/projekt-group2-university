@@ -51,7 +51,6 @@ bool insertIntoExamList(exam **list, exam *newExam, bool csvflag)	//Update to be
 {
 
    if(*list == NULL) {
-    printf("leer\n");
     *list = newExam;
     return true;
    }
@@ -132,5 +131,15 @@ void stringlistToExamList(stringNode *stringList, exam **examList,  lectureHall 
         insertIntoExamList(examList, tmp, false);
         stringList = stringList->nextStringNode;
     }
+}
+
+void freeExamList(exam *head) {
+    exam* tmp;
+    while(head != NULL) {
+        tmp = head->nextExam;
+        free(head);
+        head = tmp;
+    }
+    free(head);
 }
 
