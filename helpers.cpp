@@ -44,3 +44,16 @@ time_t *stringToTime(char* str) {
 }
 
 //ALLES WAS MIT ZEIT ZU TUN HAT ENDE
+
+char* integerToString(int num) {
+    // Determine the length of the integer
+    int length = snprintf(NULL, 0, "%d", num);
+
+    // Allocate memory for the string representation
+    char* str = (char*) malloc((length + 1) * sizeof(char));
+
+    // Convert the integer to a string
+    snprintf(str, length + 1, "%d", num);
+
+    return str;
+}

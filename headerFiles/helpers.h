@@ -9,5 +9,6 @@ char* timeToString(time_t *time);
 
 time_t *stringToTime(char* str);
 
+char* integerToString(int num);
 
 #endif

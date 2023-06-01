@@ -51,7 +51,7 @@ bool searchLectureHall(lectureHall* head, char *name) {
 
 
 
-bool insertIntoLectureHallList(lectureHall **list, lectureHall *newLectureHall) // Update to be alphabetisch
+bool insertIntoLectureHallList(lectureHall **list, lectureHall *newLectureHall, bool csvflag) // Update to be alphabetisch
 {
    if(*list == NULL) {
     *list = newLectureHall;
@@ -72,6 +72,17 @@ bool insertIntoLectureHallList(lectureHall **list, lectureHall *newLectureHall) 
 
         //add the newNode at the end of the linked list
         current->nextLectureHall= newLectureHall;
+
+        if(csvflag) {
+            char csvstring[30] = {0};
+            strcat(csvstring, newLectureHall->name);
+            strcat(csvstring, ";");
+            strcat(csvstring, integerToString(newLectureHall->row));
+            strcat(csvstring, ";");
+            strcat(csvstring, integerToString(newLectureHall->column));
+            //strcat(csvstring, itoa(newLectureHall->row));
+            writeLineInCsv((char*)"../assets/lecturehalls.csv", csvstring);
+        }
 		return true;
 }
 
@@ -118,7 +129,7 @@ void stringlistToLectureHallList(stringNode *stringList, lectureHall **lectureHa
 {
     while (stringList != NULL)
     {
-        insertIntoLectureHallList(lectureHallList, createLectureHallFromString(stringList->content));
+        insertIntoLectureHallList(lectureHallList, createLectureHallFromString(stringList->content), false);
         stringList = stringList->nextStringNode;
     }
 }

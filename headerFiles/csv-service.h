@@ -7,4 +7,7 @@
 bool readCsv(char *filepath, stringNode **list);
 
 bool writeCsv(char *filename, stringNode *list);
+
+bool writeLineInCsv(char *filename, char *content);
+
 #endif

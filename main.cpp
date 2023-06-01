@@ -16,7 +16,7 @@ bool adminInsertHall(lectureHall *list) {
     scanf("%3s", col);
     lectureHall *tmp = createLectureHall(name, atoi(row), atoi(col));
     //printLectureHall(tmp);
-    if(!insertIntoLectureHallList(&list, tmp)) {
+    if(!insertIntoLectureHallList(&list, tmp, true)) {
         printf("Lecture hall with this name already exists\n");
     }
     return true;
