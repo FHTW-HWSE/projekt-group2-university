@@ -11,7 +11,7 @@
 lectureHall *createLectureHall(char *name, int row, int column)
 {
     lectureHall *newLectureHall = (lectureHall *)calloc(1, sizeof(lectureHall));
-    newLectureHall->name = (char *)malloc(4 * sizeof(char));
+    newLectureHall->name = (char *)malloc(20 * sizeof(char));
     strcpy(newLectureHall->name, name);
     newLectureHall->row = row;
     newLectureHall->column = column;
@@ -93,5 +93,15 @@ void stringlistToLectureHallList(stringNode *stringList, lectureHall **lectureHa
     {
         insertIntoLectureHallList(lectureHallList, createLectureHallFromString(stringList->content));
         stringList = stringList->nextStringNode;
+    }
+}
+
+
+void freeLectureHallList(lectureHall *head) {
+    lectureHall* tmp;
+    while(head != NULL) {
+        tmp = head->nextLectureHall;
+        free(head);
+        head = tmp;
     }
 }

@@ -28,4 +28,6 @@ student *createStudentFromString(char *string);
 
 void stringlistToStudentList(stringNode *stringList, student **studentList);
 
+void freeStudentList(student *head);
+
 #endif

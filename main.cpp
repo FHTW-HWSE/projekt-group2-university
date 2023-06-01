@@ -75,12 +75,15 @@ int main()
         // exit(0);
     }
     
-    
+
 
     stringlistToLectureHallList(stringListHalls, &lectureHallList);
     stringlistToStudentList(stringListStudents, &studentList);
+
     
+    //freeing the stringLists after copying data into new data structure
     freeStringList(stringListHalls);
+    freeStringList(stringListStudents);
 
     printf("Welcome\n");
     printf("Login as Admin: Press 1\n");
@@ -99,6 +102,10 @@ int main()
         studentWorkflow();
     }
 
+
+    //freeing all used list
+    freeLectureHallList(lectureHallList);
+    freeStudentList(studentList);
 
     return 0;
 }

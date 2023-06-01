@@ -9,10 +9,12 @@
  */
 student *createStudent(char *firstName, char *lastName)
 {
-	student *newStudent = (student *)calloc(1, sizeof(student *));
+	student *newStudent = (student *)calloc(1, sizeof(student));
 	newStudent->id = generateRandomId();
-	newStudent->firstName = firstName;
-	newStudent->lastName = lastName;
+	newStudent->firstName = (char *)malloc(20 * sizeof(char));
+    strcpy(newStudent->firstName, firstName);
+	newStudent->lastName = (char *)malloc(20 * sizeof(char));
+    strcpy(newStudent->lastName, lastName);
 	return newStudent;
 }
 
@@ -23,7 +25,7 @@ student *createStudent(char *firstName, char *lastName)
  */
 void printStudent(student *student)
 {
-	printf("%s %s\n", student->firstName, student->lastName);
+	printf("Firstname: %10s\t  Lastname: %10s\n", student->firstName, student->lastName);
 }
 
 /**
@@ -61,6 +63,7 @@ student *insertStudentIntoList(student **list, student *newStudent)
  */
 void printStudentList(student *head)
 {
+	printf("\tListe aller Studenten\n");
 	student *current = head;
 	while (current != NULL)
 	{
@@ -88,6 +91,9 @@ student *createStudentFromString(char *string)
 		token = strtok(NULL, s);
 		i++;
 	}
+	if(result[1][strlen(result[1])-1] == '\n')
+	result[1][strlen(result[1])-1] = '\0';
+
 
 	return createStudent(result[0], result[1]);
 }
@@ -98,5 +104,16 @@ void stringlistToStudentList(stringNode *stringList, student **studentList)
     {
         insertStudentIntoList(studentList, createStudentFromString(stringList->content));
         stringList = stringList->nextStringNode;
+    }
+	//printStudentList(*studentList);
+}
+
+
+void freeStudentList(student *head) {
+    student* tmp;
+    while(head != NULL) {
+        tmp = head->nextStudent;
+        free(head);
+        head = tmp;
     }
 }

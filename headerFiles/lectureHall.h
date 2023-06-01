@@ -21,5 +21,6 @@ void stringlistToLectureHallList(stringNode *stringList, lectureHall **lectureHa
 
 lectureHall *createLectureHallFromString(char *string);
 
+void freeLectureHallList(lectureHall *head);
 
 #endif
