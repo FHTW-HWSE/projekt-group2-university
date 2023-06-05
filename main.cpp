@@ -39,6 +39,7 @@ bool adminInsertHall(lectureHall *list) {
         printf("Lecture hall with this name already exists\n");
         return false;
     }
+    printf("successfully added lecturehall '%s'\n", tmp->name);
     return true;
 }
 
@@ -67,6 +68,7 @@ bool adminInsertExam(exam *examList, lectureHall *lectureHallList) {
     //printLectureHall(tmp);
     exam *newExam = createExam(name, atoi(&workload), tmp);
     insertIntoExamList(&examList, newExam, true);
+    printf("successfully added Exam '%s'\n", newExam->name);
     return true;
 }
 
@@ -92,7 +94,7 @@ void adminWorkflow(lectureHall **lectureHallList, student **studentList, exam **
     scanf("%30s", pwd);
     while (!equals(pwd, ADMIN_PWD))
     {
-        printf("\nWrong Password. pls ender again or quit with q: ");
+        printf("\nWrong Password. Enter again or quit with q: ");
         scanf("%30s", pwd);
         if (equals(pwd, (char *)"q"))
         {
