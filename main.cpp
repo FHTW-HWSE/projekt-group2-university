@@ -3,6 +3,25 @@
 
 bool isAdmin = false;
 
+void initStringLists(stringNode** students, stringNode** lecturehalls, stringNode** exams ) {
+ if (!readCsv((char *)"../assets/lecturehalls.csv", lecturehalls))
+    {
+        perror("FILE lecturehalls NOT FOUND");
+        // exit(0);
+    }
+
+     if (!readCsv((char *)"../assets/students.csv", students))
+    {
+        perror("FILE students NOT FOUND");
+        // exit(0);
+    }
+
+    if (!readCsv((char *)"../assets/exams.csv", exams))
+    {
+        perror("FILE exams NOT FOUND");
+        // exit(0);
+    }
+}
 
 bool adminInsertHall(lectureHall *list) {
     char name[20];
@@ -20,6 +39,7 @@ bool adminInsertHall(lectureHall *list) {
         printf("Lecture hall with this name already exists\n");
         return false;
     }
+    printf("successfully added lecturehall '%s'\n", tmp->name);
     return true;
 }
 
@@ -48,18 +68,33 @@ bool adminInsertExam(exam *examList, lectureHall *lectureHallList) {
     //printLectureHall(tmp);
     exam *newExam = createExam(name, atoi(&workload), tmp);
     insertIntoExamList(&examList, newExam, true);
+    printf("successfully added Exam '%s'\n", newExam->name);
     return true;
 }
+
+void studentEnterExam(exam **examList, student *student) {
+    char examname[20];
+    printExamList(*examList);
+    printf("Enter the namme of the exam you want to join:\n");
+    scanf("%20s", examname);
+    exam *tmp = searchExam(*examList, examname);
+    if(tmp == NULL) {
+        printf("Exam does not exist\n");
+        exit(0);
+    }
+    insertStudentIntoExam(student, tmp);
+    printf("You joined exam '%s'\n", tmp->name);
+}
+
 
 void adminWorkflow(lectureHall **lectureHallList, student **studentList, exam **examList)
 {
     printf("Pls Enter Admin Password: ");
     char pwd[30];
     scanf("%30s", pwd);
-    printf("%s", pwd);
     while (!equals(pwd, ADMIN_PWD))
     {
-        printf("\nWrong Password. pls ender again or quit with q: ");
+        printf("\nWrong Password. Enter again or quit with q: ");
         scanf("%30s", pwd);
         if (equals(pwd, (char *)"q"))
         {
@@ -105,7 +140,7 @@ void adminWorkflow(lectureHall **lectureHallList, student **studentList, exam **
     }
 }
 
-void studentWorkflow()
+void studentWorkflow(student **studentList, exam **examList)
 {
     char firstname[20];
     char lastname[20];
@@ -113,23 +148,44 @@ void studentWorkflow()
     printf("Pls fill in all the data\n");
     printf("Enter your first name: ");
     scanf("%20s", firstname);
-    printf("\nEnter your last name: ");
+    printf("Enter your last name: ");
     scanf("%20s", lastname);
-    student *loggedStudent = createStudent(firstname, lastname);
+    student *loggedStudent = searchStudent(*studentList, lastname);
+
+    if(loggedStudent == NULL) {
+        loggedStudent = createStudent(firstname, lastname);
+        printf("You created a new account\n");
+    } else {
+        printf("You logged in with your account\n");
+    }
+    
+    
+    insertStudentIntoList(studentList, loggedStudent, true);
     printf("Welcome %s %s\n", loggedStudent->firstName, loggedStudent->lastName);
+    printf("Press 1 to see lists of all exams\n");
+    printf("Press 2 to enter a exam\n");
+
+    char input;
+    getchar();
+    input = getchar();
+
+    switch (input)
+    {
+    case '1':
+        printExamList(*examList);
+        break;
+    case '2':
+        studentEnterExam(examList, loggedStudent);
+        break;
+    default:
+        break;
+    }
 }
 
 int main()
 {
-    lectureHall *lectureHallList = (lectureHall *)malloc(sizeof(lectureHall *));
-    lectureHallList = NULL;
-
-    student *studentList = (student*) malloc(sizeof(student*));
-    studentList = NULL;
-
-    exam *examList = (exam*) malloc(sizeof(student*));
-    examList = NULL;
-
+   
+    //creating empty stringlists for reading data from csv
     stringNode *stringListHalls = (stringNode *)malloc(sizeof(stringNode *));
     stringListHalls= NULL;
 
@@ -139,30 +195,26 @@ int main()
     stringNode *stringListExam = (stringNode *)malloc(sizeof(stringNode *));
     stringListExam = NULL;
 
-    if (!readCsv((char *)"../assets/lecturehalls.csv", &stringListHalls))
-    {
-        perror("FILE NOT FOUND");
-        // exit(0);
-    }
 
-     if (!readCsv((char *)"../assets/students.csv", &stringListStudents))
-    {
-        perror("FILE NOT FOUND");
-        // exit(0);
-    }
-
-    if (!readCsv((char *)"../assets/exams.csv", &stringListExam))
-    {
-        perror("FILE NOT FOUND");
-        // exit(0);
-    }
+    //initializing data from csv into the stringlists
+    initStringLists(&stringListStudents, &stringListHalls, &stringListExam);
     
 
 
+    //creating empty datalists 
+    lectureHall *lectureHallList = (lectureHall *)malloc(sizeof(lectureHall *));
+    lectureHallList = NULL;
+
+    student *studentList = (student*) malloc(sizeof(student*));
+    studentList = NULL;
+
+    exam *examList = (exam*) malloc(sizeof(student*));
+    examList = NULL;
+
+    // Mapping stringLists into DataLists
     stringlistToLectureHallList(stringListHalls, &lectureHallList);
     stringlistToStudentList(stringListStudents, &studentList);
     stringlistToExamList(stringListExam, &examList, lectureHallList);
-    //printExamList(examList);
    
     //freeing the stringLists after copying data into new data structure
     freeStringList(stringListHalls);
@@ -172,23 +224,27 @@ int main()
     printf("Login as Admin: Press 1\n");
     printf("Login as Student: Press any key\n");
 
-    int c;
-    c = getchar();
+    int input;
+    input = getchar();
     getchar();
 
-    if (c == '1')
+    if (input == '1')
     {
         adminWorkflow(&lectureHallList, &studentList, &examList);
     }
     else
     {
-        studentWorkflow();
+        studentWorkflow(&studentList, &examList);
     }
+
+
 
 
     //freeing all used list
     freeLectureHallList(lectureHallList);
     freeStudentList(studentList);
+    freeExamList(examList);
+   
 
     return 0;
 }

@@ -39,10 +39,19 @@ bool writeLineInCsv(char *filename, char *content)
 {
     FILE *fpt;
     fpt = fopen(filename, "a");
-    if (fpt == NULL)
+     if (fpt == NULL)
     {
         return false;
     }
-    fprintf(fpt, "\n%s", content);
+    fseek (fpt, 0, SEEK_END);
+    long size = ftell(fpt);
+
+
+    if(size == 0) {
+        fprintf(fpt, "%s", content);
+    } else {
+        fprintf(fpt, "\n%s", content);
+    }
+    fclose(fpt);
     return true;
 }

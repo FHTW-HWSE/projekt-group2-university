@@ -61,4 +61,5 @@ void freeStringList(stringNode *head) {
         free(head);
         head = tmp;
     }
+    free(head);
 }
