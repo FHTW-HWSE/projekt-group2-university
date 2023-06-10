@@ -244,7 +244,7 @@ int main()
     freeLectureHallList(lectureHallList);
     freeStudentList(studentList);
     freeExamList(examList);
-   
+   printf("zh");
 
     return 0;
 }
