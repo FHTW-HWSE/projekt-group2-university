@@ -39,7 +39,7 @@ bool adminInsertHall(lectureHall *list) {
         printf("Lecture hall with this name already exists\n");
         return false;
     }
-    printf("successfully added lecturehall '%s'\n", tmp->name);
+    printf("Successfully added lecture hall '%s'\n", tmp->name);
     return true;
 }
 
@@ -49,7 +49,7 @@ bool adminInsertExam(exam *examList, lectureHall *lectureHallList) {
     char lecturehall[20];
     printf("Enter the name of the Exam: ");
     scanf("%20s", name);
-    printf("\nChoose the workload for the Exam\n");
+    printf("\nChoose the workload for the exam\n");
     printf("Enter 0 for weak\nEnter 1 for medium\nEnter 2 for strong\n");
     getchar();
     workload = getchar();
@@ -57,25 +57,25 @@ bool adminInsertExam(exam *examList, lectureHall *lectureHallList) {
         printf("\nInvalid Input\n");
         return false;
     }
-    printf("Enter the name of the lecutrehall where the exam is hold:\n");
+    printf("Enter the name of the lecture hall where the exam is hold:\n");
     scanf("%20s", lecturehall);
     printf("%s", lecturehall);
     lectureHall *tmp = searchLectureHall(lectureHallList, lecturehall);
     if(tmp == NULL) {
-        printf("This Lecturehall does not exist\n");
+        printf("This lecture hall does not exist\n");
         return false;
     }
     //printLectureHall(tmp);
     exam *newExam = createExam(name, atoi(&workload), tmp);
     insertIntoExamList(&examList, newExam, true);
-    printf("successfully added Exam '%s'\n", newExam->name);
+    printf("Successfully added exam '%s'\n", newExam->name);
     return true;
 }
 
 void studentEnterExam(exam **examList, student *student) {
     char examname[20];
     printExamList(*examList);
-    printf("Enter the namme of the exam you want to join:\n");
+    printf("Enter the name of the exam you want to join:\n");
     scanf("%20s", examname);
     exam *tmp = searchExam(*examList, examname);
     if(tmp == NULL) {
@@ -89,27 +89,27 @@ void studentEnterExam(exam **examList, student *student) {
 
 void adminWorkflow(lectureHall **lectureHallList, student **studentList, exam **examList)
 {
-    printf("Pls Enter Admin Password: ");
+    printf("Enter admin password: ");
     char pwd[30];
     scanf("%30s", pwd);
     while (!equals(pwd, ADMIN_PWD))
     {
-        printf("\nWrong Password. Enter again or quit with q: ");
+        printf("\nWrong password. Enter again or quit with q: ");
         scanf("%30s", pwd);
         if (equals(pwd, (char *)"q"))
         {
-            printf("Thank you for using our Software\n");
+            printf("Thank you for using our software\n");
             exit(0);
         }
     }
-    printf("\nPassword is Correct!\nHello Admin!\n");
+    printf("\nPassword is correct!\nHello admin!\n");
     isAdmin = true;
-    printf("press 1 to show a List of all Rooms\n");
-    printf("press 2 to show a List of all Students\n");
-    printf("press 3 to show a List of all Exams\n");
+    printf("Press 1 to show a list of all rooms\n");
+    printf("Press 2 to show a list of all students\n");
+    printf("Press 3 to show a list of all exams\n");
 
-    printf("press 4 to generate a new LectureHall\n");
-    printf("press 5 to generate a new Exam\n");
+    printf("Press 4 to generate a new lecture hall\n");
+    printf("Press 5 to generate a new exam\n");
 
 
     int input;
@@ -221,8 +221,8 @@ int main()
     freeStringList(stringListStudents);
 
     printf("Welcome\n");
-    printf("Login as Admin: Press 1\n");
-    printf("Login as Student: Press any key\n");
+    printf("Login as admin: Press 1\n");
+    printf("Login as student: Press any key\n");
 
     int input;
     input = getchar();
