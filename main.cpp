@@ -89,12 +89,19 @@ void studentEnterExam(exam **examList, student *student) {
 
 void adminWorkflow(lectureHall **lectureHallList, student **studentList, exam **examList)
 {
+    int errcount = 3;
     printf("Enter admin password: ");
     char pwd[30];
     scanf("%30s", pwd);
     while (!equals(pwd, ADMIN_PWD))
     {
-        printf("\nWrong password. Enter again or quit with q: ");
+        errcount--;
+        if (errcount==0)
+        {
+            printf("Too many wrong tries.\n");
+            exit(0);
+        }
+        printf("\nWrong password. Tries left: %d. Enter again or quit with q: ", errcount);
         scanf("%30s", pwd);
         if (equals(pwd, (char *)"q"))
         {
@@ -104,12 +111,13 @@ void adminWorkflow(lectureHall **lectureHallList, student **studentList, exam **
     }
     printf("\nPassword is correct!\nHello admin!\n");
     isAdmin = true;
+    while(true){
     printf("Press 1 to show a list of all rooms\n");
     printf("Press 2 to show a list of all students\n");
     printf("Press 3 to show a list of all exams\n");
-
     printf("Press 4 to generate a new lecture hall\n");
     printf("Press 5 to generate a new exam\n");
+    printf("Press q to exit\n");
 
 
     int input;
@@ -117,27 +125,32 @@ void adminWorkflow(lectureHall **lectureHallList, student **studentList, exam **
     input = getchar();
     switch (input)
     {
-    case '1':
-        printLectureHallList(*lectureHallList);
-        break;
-    case '2': 
-        printStudentList(*studentList);
-        break;
-    case '3':
-        printExamList(*examList);
-        break;
-    case '4': 
-        adminInsertHall(*lectureHallList);
-        break;
-    case '5':
-        printLectureHallList(*lectureHallList);
-        adminInsertExam(*examList, *lectureHallList);
-        break;
-    default:
-        printf("invalid input\n");
-        exit(0);
-        break;
+        case '1':
+            printLectureHallList(*lectureHallList);
+            break;
+        case '2': 
+            printStudentList(*studentList);
+            break;
+        case '3':
+            printExamList(*examList);
+            break;
+        case '4': 
+            adminInsertHall(*lectureHallList);
+            break;
+        case '5':
+            printLectureHallList(*lectureHallList);
+            adminInsertExam(*examList, *lectureHallList);
+            break;
+        case 'q':
+            printf("Thank You for using admin services.\n");
+            exit(0);
+            break;
+        default:
+            printf("invalid input\n");
+            break;
+        }
     }
+
 }
 
 void studentWorkflow(student **studentList, exam **examList)
@@ -145,10 +158,22 @@ void studentWorkflow(student **studentList, exam **examList)
     char id[10];
     char firstname[20];
     char lastname[20];
+    int errcount = 3;
 
     printf("Please enter your student info\n");
     printf("Enter your matriculation number: ");
     scanf("%10s", id);
+    while (!checkIDFormat(id)){
+        errcount--;
+        if (errcount==0){
+            printf("Too many wrong tries.\n");
+            exit(0);
+        }
+        printf("ID invalid. Tries left: %d\n", errcount);
+        printf("Enter your matriculation number: ");
+        scanf("%10s", id);
+    } 
+    
     printf("Enter your first name: ");
     scanf("%20s", firstname);
     printf("Enter your last name: ");
@@ -161,26 +186,32 @@ void studentWorkflow(student **studentList, exam **examList)
     } else {
         printf("You logged in with your account\n");
     }
-    
     insertStudentIntoList(studentList, loggedStudent, true);
     printf("Welcome %s %s\n", loggedStudent->firstName, loggedStudent->lastName);
-    printf("Press 1 to see lists of all exams\n");
-    printf("Press 2 to enter a exam\n");
 
-    char input;
-    getchar();
-    input = getchar();
+    while(true){
+        printf("Press 1 to see lists of all exams\n");
+        printf("Press 2 to enter a exam\n");
+        printf("Press q to exit\n");
 
-    switch (input)
-    {
-    case '1':
-        printExamList(*examList);
-        break;
-    case '2':
-        studentEnterExam(examList, loggedStudent);
-        break;
-    default:
-        break;
+        char input[1];
+        scanf("%1s", input);
+
+        switch (input[0]) // fehler bei mehr als 1 char eingabe
+        {
+        case '1':
+            printExamList(*examList);
+            break;
+        case '2':
+            studentEnterExam(examList, loggedStudent);
+            break;
+        case 'q':
+            printf("Thank You for using student services.\n");
+            exit(0);
+            break;
+        default:
+            break;
+        }
     }
 }
 
