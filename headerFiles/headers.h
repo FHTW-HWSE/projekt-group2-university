@@ -9,6 +9,7 @@
 #include <time.h>
 #include <string.h>
 #include <time.h>
+#include <ctype.h>
 
 // Selfmade header files
 #include "string_list.h"

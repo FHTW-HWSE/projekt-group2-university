@@ -153,7 +153,7 @@ void studentWorkflow(student **studentList, exam **examList)
     student *loggedStudent = searchStudent(*studentList, lastname);
 
     if(loggedStudent == NULL) {
-        loggedStudent = createStudent(firstname, lastname);
+        loggedStudent = createStudent((char*)"12345678", firstname, lastname);
         printf("You created a new account\n");
     } else {
         printf("You logged in with your account\n");
@@ -184,7 +184,6 @@ void studentWorkflow(student **studentList, exam **examList)
 
 int main()
 {
-   
     //creating empty stringlists for reading data from csv
     stringNode *stringListHalls = (stringNode *)malloc(sizeof(stringNode *));
     stringListHalls= NULL;
