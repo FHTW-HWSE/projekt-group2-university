@@ -17,11 +17,24 @@ bool equals(char *a, char *b) {
  * 
  * @return long int new Random ID
  */
-long int generateRandomId()
-{
-    return 0;   //muss noch angepasst werden
-}
 
+ bool checkIDFormat(char *id){
+    
+    if(strlen(id)!=8){
+        return false;
+    }
+
+    if(!isalpha(id[0]) || !isalpha(id[1])){
+        return false;
+    }
+    for(int i=2; i<8;i++){
+        if(!isdigit(id[i])){
+            return false;
+        }
+    }
+    return true;
+
+ }
 
 
 // ALLES WAS MIT ZEIT ZU TUN HAT
@@ -50,7 +63,7 @@ char* integerToString(int num) {
     int length = snprintf(NULL, 0, "%d", num);
 
     // Allocate memory for the string representation
-    char* str = (char*) malloc((length + 1) * sizeof(char));
+    char *str = (char*) malloc((length + 1) * sizeof(char));
 
     // Convert the integer to a string
     snprintf(str, length + 1, "%d", num);

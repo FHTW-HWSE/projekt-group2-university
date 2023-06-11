@@ -7,13 +7,14 @@
  * @param lastName lastName of the Student
  * @return student* new Student object
  */
-student *createStudent(char *firstName, char *lastName)
+student *createStudent(char *id, char *firstName, char *lastName)
 {
     student *newStudent = (student *)calloc(1, sizeof(student));
-    newStudent->id = generateRandomId();
-    newStudent->firstName = (char *)malloc(20 * sizeof(char));
+    newStudent->id = (char*)malloc(IDLENGTH*sizeof(char));
+    strcpy(newStudent->id, id);
+    newStudent->firstName = (char *)malloc(MAX_NAMELENGTH * sizeof(char));
     strcpy(newStudent->firstName, firstName);
-    newStudent->lastName = (char *)malloc(20 * sizeof(char));
+    newStudent->lastName = (char *)malloc(MAX_NAMELENGTH * sizeof(char));
     strcpy(newStudent->lastName, lastName);
     return newStudent;
 }
@@ -130,7 +131,7 @@ student *createStudentFromString(char *string)
     if (result[1][strlen(result[1]) - 1] == '\n')
         result[1][strlen(result[1]) - 1] = '\0';
 
-    return createStudent(result[0], result[1]);
+    return createStudent((char*)"12345678", result[0], result[1]);
 }
 
 void stringlistToStudentList(stringNode *stringList, student **studentList)
