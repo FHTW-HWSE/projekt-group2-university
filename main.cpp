@@ -214,7 +214,6 @@ void studentWorkflow(student **studentList, exam **examList)
         loggedStudent = createStudent(id, firstname, lastname);
         printf("You created a new account\n");
     }
-    
     insertStudentIntoList(studentList, loggedStudent, true);
     printf("Welcome %s %s\n", loggedStudent->firstName, loggedStudent->lastName);
 
