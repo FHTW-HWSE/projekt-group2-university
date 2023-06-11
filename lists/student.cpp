@@ -109,6 +109,7 @@ void printStudentList(student *head)
         printStudent(current);
         current = current->nextStudent;
     }
+    printf("\n");
 }
 
 student *createStudentFromString(char *string)
