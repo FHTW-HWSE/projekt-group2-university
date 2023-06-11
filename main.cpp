@@ -142,23 +142,25 @@ void adminWorkflow(lectureHall **lectureHallList, student **studentList, exam **
 
 void studentWorkflow(student **studentList, exam **examList)
 {
+    char id[10];
     char firstname[20];
     char lastname[20];
 
-    printf("Pls fill in all the data\n");
+    printf("Please enter your student info\n");
+    printf("Enter your matriculation number: ");
+    scanf("%10s", id);
     printf("Enter your first name: ");
     scanf("%20s", firstname);
     printf("Enter your last name: ");
     scanf("%20s", lastname);
-    student *loggedStudent = searchStudent(*studentList, lastname);
+    student *loggedStudent = searchStudent(*studentList, id);
 
     if(loggedStudent == NULL) {
-        loggedStudent = createStudent((char*)"12345678", firstname, lastname);
+        loggedStudent = createStudent(id, firstname, lastname);
         printf("You created a new account\n");
     } else {
         printf("You logged in with your account\n");
     }
-    
     
     insertStudentIntoList(studentList, loggedStudent, true);
     printf("Welcome %s %s\n", loggedStudent->firstName, loggedStudent->lastName);
@@ -243,7 +245,6 @@ int main()
     freeLectureHallList(lectureHallList);
     freeStudentList(studentList);
     freeExamList(examList);
-   printf("zh");
 
     return 0;
 }
