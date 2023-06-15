@@ -173,19 +173,20 @@ void studentWorkflow(student **studentList, exam **examList)
         printf("Enter your matriculation number: ");
         scanf("%10s", id);
     } 
-    
-    printf("Enter your first name: ");
-    scanf("%20s", firstname);
-    printf("Enter your last name: ");
-    scanf("%20s", lastname);
-    student *loggedStudent = searchStudent(*studentList, id);
-
-    if(loggedStudent == NULL) {
+    student *loggedStudent;
+    if(searchStudent(*studentList, id)) {
+        loggedStudent = searchStudent(*studentList, id);
+        printf("You logged in with your account\n");
+    } else {
+        printf("Enter your first name: ");
+        scanf("%20s", firstname);
+        printf("Enter your last name: ");
+        scanf("%20s", lastname);
         loggedStudent = createStudent(id, firstname, lastname);
         printf("You created a new account\n");
-    } else {
-        printf("You logged in with your account\n");
+
     }
+    
     insertStudentIntoList(studentList, loggedStudent, true);
     printf("Welcome %s %s\n", loggedStudent->firstName, loggedStudent->lastName);
 
