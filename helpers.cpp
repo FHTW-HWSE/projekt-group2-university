@@ -89,3 +89,7 @@ int getAmountFromWorkload(int amount, int workload) {
         return amount;
     }
 }
+
+bool examIsFull(exam *exam) {
+    return exam->studentcounter == exam->maxStudents;
+}

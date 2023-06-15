@@ -41,7 +41,7 @@ void printExam(exam *exam)
     {
         strcpy(workload, "100%");
     }
-    printf("Examname: %10s   Workload: %4s   Lecturehall: %6s\n", exam->name, workload, exam->lectureHall->name);
+    printf("Examname: %10s   Workload: %4s   Lecturehall: %6s   amount: %2d/%2d\n", exam->name, workload, exam->lectureHall->name, exam->studentcounter, exam->maxStudents);
 }
 
 exam *searchExam(exam *head, char *name)
@@ -178,6 +178,8 @@ void freeExamList(exam *head)
 bool insertStudentIntoExam(student *student, exam *exam) {
     //creating student string
     char studenttext[50] = {0};
+    strcat(studenttext, student->id);
+    strcat(studenttext, (char*)";");
     strcat(studenttext, student->firstName);
     strcat(studenttext, (char*)";");
     strcat(studenttext, student->lastName);
@@ -186,6 +188,15 @@ bool insertStudentIntoExam(student *student, exam *exam) {
     char examfile[50] = "../assets/exams/";
     strcat(examfile, exam->name);
     strcat(examfile, (char*)".csv");
+
+    //insertIntoArray
+    if(!examIsFull(exam)) {
+        exam->students[exam->studentcounter] = student;
+        exam->studentcounter++;
+    } else {
+        return false;
+    }
+   
 
     return writeLineInCsv(examfile, studenttext);
 }
