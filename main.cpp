@@ -59,7 +59,6 @@ bool adminInsertExam(exam *examList, lectureHall *lectureHallList) {
     }
     printf("Enter the name of the lecture hall where the exam is hold:\n");
     scanf("%20s", lecturehall);
-    printf("%s", lecturehall);
     lectureHall *tmp = searchLectureHall(lectureHallList, lecturehall);
     if(tmp == NULL) {
         printf("This lecture hall does not exist\n");
@@ -184,7 +183,6 @@ void studentWorkflow(student **studentList, exam **examList)
         scanf("%20s", lastname);
         loggedStudent = createStudent(id, firstname, lastname);
         printf("You created a new account\n");
-
     }
     
     insertStudentIntoList(studentList, loggedStudent, true);
