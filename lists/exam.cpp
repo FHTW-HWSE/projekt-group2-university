@@ -9,7 +9,7 @@
  */
 exam *createExam(char *name, int workload, lectureHall *lecturehall)
 {
-    exam *newExam = (exam *)calloc(1, sizeof(exam) + sizeof(student)*getMaxStudentsFromLecturehall(lecturehall));
+    exam *newExam = (exam *)calloc(1, sizeof(exam) + sizeof(student) * getMaxStudentsFromLecturehall(lecturehall));
     newExam->name = (char *)malloc(20 * sizeof(char));
     strcpy(newExam->name, name);
     newExam->workload = workload;
@@ -85,18 +85,16 @@ bool insertIntoExamList(exam **list, exam *newExam, bool csvflag) // Update to b
         // add the newNode at the end of the linked list
         current->nextExam = newExam;
     }
-        char newfile[50] = "../assets/exams/";
-        strcat(newfile, newExam->name);
-        strcat(newfile, (char*)".csv");
-        if(!fileExists(newfile)) {
-            writeLineInCsv(newfile, (char*)""); //creates a empty examfile
-        }
-        
-
+    char newfile[50] = "../assets/exams/";
+    strcat(newfile, newExam->name);
+    strcat(newfile, (char *)".csv");
+    if (!fileExists(newfile))
+    {
+        writeLineInCsv(newfile, (char *)""); // creates a empty examfile
+    }
 
     if (csvflag)
     {
-        
 
         char csvstring[50] = {0};
         strcat(csvstring, newExam->name);
@@ -153,11 +151,54 @@ exam *createExamFromString(char *string, lectureHall *lectureHallList)
     return createExam(result[0], atoi(result[1]), tmp);
 }
 
+bool fillExamWithStudents(exam *exam)
+{
+    char filename[50] = {0};
+    strcat(filename, (char *)"../assets/exams/");
+    strcat(filename, exam->name);
+    strcat(filename, (char *)".csv");
+    if (fileExists(filename))
+    {
+        FILE *fp;
+
+        char row[STRING_MAX];
+        fp = fopen(filename, "r");
+        if (fp == NULL)
+        {
+            return false;
+        }
+        struct stat stat_record;
+        stat(filename, &stat_record);
+        if (stat_record.st_size <= 1)   //checks if file is empty
+        {
+            fclose(fp);
+            return true;
+        } else {            //otherwise read studens and insert in array
+            while (feof(fp) != true)
+            {
+                if (examIsFull(exam))
+                {
+                    perror("exam is full");
+                    break;
+                }
+                fgets(row, STRING_MAX, fp);
+                //printf("%s", row);
+                student *tmp = createStudentFromString(row);
+                exam->students[exam->studentcounter] = tmp;
+                exam->studentcounter++;
+            }
+        }
+        fclose(fp);
+    }
+    return true;
+}
+
 void stringlistToExamList(stringNode *stringList, exam **examList, lectureHall *lectureHallList)
 {
     while (stringList != NULL)
     {
         exam *tmp = createExamFromString(stringList->content, lectureHallList);
+        fillExamWithStudents(tmp);
         insertIntoExamList(examList, tmp, false);
         stringList = stringList->nextStringNode;
     }
@@ -175,28 +216,31 @@ void freeExamList(exam *head)
     free(head);
 }
 
-bool insertStudentIntoExam(student *student, exam *exam) {
-    //creating student string
+bool insertStudentIntoExam(student *student, exam *exam)
+{
+    // creating student string
     char studenttext[50] = {0};
     strcat(studenttext, student->id);
-    strcat(studenttext, (char*)";");
+    strcat(studenttext, (char *)";");
     strcat(studenttext, student->firstName);
-    strcat(studenttext, (char*)";");
+    strcat(studenttext, (char *)";");
     strcat(studenttext, student->lastName);
 
-    //creating examfile string
+    // creating examfile string
     char examfile[50] = "../assets/exams/";
     strcat(examfile, exam->name);
-    strcat(examfile, (char*)".csv");
+    strcat(examfile, (char *)".csv");
 
-    //insertIntoArray
-    if(!examIsFull(exam)) {
+    // insertIntoArray
+    if (!examIsFull(exam))
+    {
         exam->students[exam->studentcounter] = student;
         exam->studentcounter++;
-    } else {
+    }
+    else
+    {
         return false;
     }
-   
 
     return writeLineInCsv(examfile, studenttext);
 }
