@@ -11,10 +11,7 @@ typedef struct student
 {
     char *id;
     char *firstName;
-    char *lastName;
-    char *seat;
-    struct student *direktSeatNeighbors[MAX_DIREKT];
-    struct student *indirektSeatNeighbors[MAX_INDIREKT];
+    char *lastName;    
     struct student *nextStudent;
 } student;
 
