@@ -266,12 +266,14 @@ void printExamRoom(exam *exam)
     student *room[row][col];
     int studentindex = 0;
     int operant;
+    printf("\t\tSeating plan for the exam %s\n", exam->name);
     if (exam->workload == 0)
     {
-        bool empty = true;
+        bool empty = row != 1 ? false : true;
         for (int y = 0; y < row; y++)
         {
             empty = !empty;
+            printf("\t");
             for (int x = 0; x < col; x++)
             {
                 //room[y][x] = x % 2 == 0 ? NULL : exam->students[studentindex];
@@ -281,7 +283,7 @@ void printExamRoom(exam *exam)
                     studentindex++;
                 } else {
                     room[y][x] = NULL;
-                    printf((char*)"   --      ");
+                    printf((char*)"--------   ");
                 }
             }
             printf("\n");
@@ -295,6 +297,7 @@ void printExamRoom(exam *exam)
             if(workload == 1) {
                 switcher = switcher == 0 ? 1 : 0;
             }
+            printf("\t");
             for (int x = 0; x < col; x++)
             {
                 if(x%modolo == switcher && studentindex<(exam->studentcounter)) {
@@ -303,7 +306,7 @@ void printExamRoom(exam *exam)
                     studentindex++;
                 } else {
                     room[y][x] = NULL;
-                    printf((char*)"   --      ");
+                    printf((char*)"--------   ");
                 }
             }
             printf("\n");

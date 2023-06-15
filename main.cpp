@@ -48,6 +48,10 @@ bool adminInsertHall(lectureHall *list) {
     printf("Enter amount of columns in the hall: ");
     scanf("%3s", col);
     lectureHall *tmp = createLectureHall(name, atoi(row), atoi(col));
+    if(tmp == NULL) {
+        printf("invalid lecture hall\n");
+        return false;
+    }
     //printLectureHall(tmp);
     if(!insertIntoLectureHallList(&list, tmp, true)) {
         printf("Lecture hall with this name already exists\n");

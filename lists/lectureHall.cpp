@@ -10,6 +10,9 @@
  */
 lectureHall *createLectureHall(char *name, int row, int column)
 {
+    if(row<1 || column <1) {
+        return NULL;
+    }
     lectureHall *newLectureHall = (lectureHall *)calloc(1, sizeof(lectureHall));
     newLectureHall->name = (char *)malloc(20 * sizeof(char));
     strcpy(newLectureHall->name, name);
