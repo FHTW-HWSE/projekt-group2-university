@@ -63,7 +63,8 @@ exam *searchExam(exam *head, char *name)
 bool insertIntoExamList(exam **list, exam *newExam, bool csvflag) // Update to be alphabetisch
 {
 
-    if(newExam == NULL) {
+    if (newExam == NULL)
+    {
         perror("newExam is NULL\n");
         return false;
     }
@@ -126,7 +127,8 @@ void printExamList(exam *head)
 exam *createExamFromString(char *string, lectureHall *lectureHallList)
 {
 
-    if(countCharInString(string, ';') != 2 && strlen(string) > 20) {
+    if (countCharInString(string, ';') != 2 && strlen(string) > 20)
+    {
         perror("String in exam invalid");
         return NULL;
     }
@@ -178,11 +180,13 @@ bool fillExamWithStudents(exam *exam)
         }
         struct stat stat_record;
         stat(filename, &stat_record);
-        if (stat_record.st_size <= 1)   //checks if file is empty
+        if (stat_record.st_size <= 1) // checks if file is empty
         {
             fclose(fp);
             return true;
-        } else {            //otherwise read studens and insert in array
+        }
+        else
+        { // otherwise read studens and insert in array
             while (feof(fp) != true)
             {
                 if (examIsFull(exam))
@@ -191,7 +195,7 @@ bool fillExamWithStudents(exam *exam)
                     break;
                 }
                 fgets(row, STRING_MAX, fp);
-                //printf("%s", row);
+                // printf("%s", row);
                 student *tmp = createStudentFromString(row);
                 exam->students[exam->studentcounter] = tmp;
                 exam->studentcounter++;
@@ -252,4 +256,57 @@ bool insertStudentIntoExam(student *student, exam *exam)
     }
 
     return writeLineInCsv(examfile, studenttext);
+}
+
+void printExamRoom(exam *exam)
+{
+    int workload = exam->workload;
+    lectureHall *lecturehall = exam->lectureHall;
+    int row = lecturehall->row, col = lecturehall->column;
+    student *room[row][col];
+    int studentindex = 0;
+    int operant;
+    if (exam->workload == 0)
+    {
+        bool empty = true;
+        for (int y = 0; y < row; y++)
+        {
+            empty = !empty;
+            for (int x = 0; x < col; x++)
+            {
+                //room[y][x] = x % 2 == 0 ? NULL : exam->students[studentindex];
+                if(x % 2 == 0 && !empty && studentindex<(exam->studentcounter)) {
+                    room[y][x] = exam->students[studentindex];
+                    printf("%s   ", room[y][x]->id);
+                    studentindex++;
+                } else {
+                    room[y][x] = NULL;
+                    printf((char*)"   --      ");
+                }
+            }
+            printf("\n");
+        }
+    } else {
+        int switcher = 0;
+        int modolo = workload == 1? 2 : 1;
+
+        for (int y = 0; y < row; y++)
+        {
+            if(workload == 1) {
+                switcher = switcher == 0 ? 1 : 0;
+            }
+            for (int x = 0; x < col; x++)
+            {
+                if(x%modolo == switcher && studentindex<(exam->studentcounter)) {
+                    room[y][x] = exam->students[studentindex];
+                    printf("%s   ", room[y][x]->id);
+                    studentindex++;
+                } else {
+                    room[y][x] = NULL;
+                    printf((char*)"   --      ");
+                }
+            }
+            printf("\n");
+        }
+    }
 }

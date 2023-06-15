@@ -23,6 +23,20 @@ void initStringLists(stringNode** students, stringNode** lecturehalls, stringNod
     }
 }
 
+bool adminPrintExamRoom(exam *examList) {
+    printf("Enter the name of the exam you want to print: ");
+    char examName[10];
+    scanf("%9s", examName);
+    exam *exam = searchExam(examList, examName);
+    if(exam == NULL) {
+        printf("This exam does not exist\n");
+        return false;
+    } 
+    printExamRoom(exam);
+    return false;
+}
+
+
 bool adminInsertHall(lectureHall *list) {
     char name[20];
     char row[3];
@@ -116,6 +130,7 @@ void adminWorkflow(lectureHall **lectureHallList, student **studentList, exam **
     printf("Press 3 to show a list of all exams\n");
     printf("Press 4 to generate a new lecture hall\n");
     printf("Press 5 to generate a new exam\n");
+    printf("Press 6 to print a exam room\n");
     printf("Press q to exit\n");
 
 
@@ -139,6 +154,10 @@ void adminWorkflow(lectureHall **lectureHallList, student **studentList, exam **
         case '5':
             printLectureHallList(*lectureHallList);
             adminInsertExam(*examList, *lectureHallList);
+            break;
+        case '6':
+            printExamList(*examList);
+            adminPrintExamRoom(*examList);
             break;
         case 'q':
             printf("Thank You for using admin services.\n");

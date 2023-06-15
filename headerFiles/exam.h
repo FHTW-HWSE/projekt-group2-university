@@ -36,4 +36,6 @@ void freeExamList(exam *head);
 
 bool insertStudentIntoExam(student *student, exam *exam);
 
+void printExamRoom(exam *exam);
+
 #endif
