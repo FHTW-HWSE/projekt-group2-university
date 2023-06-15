@@ -20,4 +20,14 @@ project(
   set(CMAKE_BUILD_TYPE Debug)
 
   add_executable(generator main.cpp )
+  
+  
+  add_executable(test_generator 
+  test/main.cpp
+  )
+  
+
   target_link_libraries(generator generator_library)
+  target_link_libraries(test_generator generator_library)
+
+  catch_discover_tests(test_generator)
