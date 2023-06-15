@@ -3,7 +3,7 @@
 
 bool equals(char *a, char *b);
 
-long int generateRandomId();
+ bool checkIDFormat(char *id);
 
 char* timeToString(time_t *time);
 

@@ -28,17 +28,17 @@ void printExam(exam *exam)
     char workload[10];
     if (exam->workload == 0)
     {
-        strcpy(workload, "weak");
+        strcpy(workload, "25%");
     }
     else if (exam->workload == 1)
     {
-        strcpy(workload, "medium");
+        strcpy(workload, "50%");
     }
     else
     {
-        strcpy(workload, "strong");
+        strcpy(workload, "100%");
     }
-    printf("Examname: %10s   Workload: %6s   Lecturehall: %6s\n", exam->name, workload, exam->lectureHall->name);
+    printf("Examname: %10s   Workload: %4s   Lecturehall: %6s\n", exam->name, workload, exam->lectureHall->name);
 }
 
 exam *searchExam(exam *head, char *name)
