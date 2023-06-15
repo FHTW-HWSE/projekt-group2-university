@@ -70,3 +70,8 @@ char* integerToString(int num) {
 
     return str;
 }
+
+bool fileExists (char *filename) {
+  struct stat buffer;   
+  return (stat (filename, &buffer) == 0);
+}

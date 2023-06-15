@@ -11,4 +11,6 @@ time_t *stringToTime(char* str);
 
 char* integerToString(int num);
 
+bool fileExists (char *filename);
+
 #endif

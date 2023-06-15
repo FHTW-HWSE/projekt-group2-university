@@ -85,7 +85,10 @@ bool insertIntoExamList(exam **list, exam *newExam, bool csvflag) // Update to b
         char newfile[50] = "../assets/exams/";
         strcat(newfile, newExam->name);
         strcat(newfile, (char*)".csv");
-        writeLineInCsv(newfile, (char*)""); //creates a empty examfile
+        if(!fileExists(newfile)) {
+            writeLineInCsv(newfile, (char*)""); //creates a empty examfile
+        }
+        
 
 
     if (csvflag)
