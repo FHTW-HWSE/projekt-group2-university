@@ -21,4 +21,5 @@ int getAmountFromWorkload(int amount, int workload);
 
 bool examIsFull(exam *exam);
 
+int countCharInString(char *string, char character);
 #endif

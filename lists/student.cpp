@@ -10,7 +10,7 @@
 student *createStudent(char *id, char *firstName, char *lastName)
 {
     student *newStudent = (student *)calloc(1, sizeof(student));
-    newStudent->id = (char*)malloc(IDLENGTH*sizeof(char));
+    newStudent->id = (char *)malloc(IDLENGTH * sizeof(char));
     strcpy(newStudent->id, id);
     newStudent->firstName = (char *)malloc(MAX_NAMELENGTH * sizeof(char));
     strcpy(newStudent->firstName, firstName);
@@ -37,7 +37,7 @@ void printStudent(student *student)
  * @return student* the new List
  */
 
-student* searchStudent(student *head, char *id)
+student *searchStudent(student *head, char *id)
 {
     student *current = head;
     while (current != NULL)
@@ -55,6 +55,11 @@ student* searchStudent(student *head, char *id)
 
 bool insertStudentIntoList(student **list, student *newStudent, bool csvflag)
 {
+
+    if(newStudent == NULL) {
+        perror("newStudent is NULL\n");
+        return false;
+    }
     if (*list == NULL)
     {
         *list = newStudent;
@@ -98,8 +103,6 @@ bool insertStudentIntoList(student **list, student *newStudent, bool csvflag)
  * @param head the Student List to print
  */
 
-
-
 void printStudentList(student *head)
 {
     printf("\tListe aller Studenten\n");
@@ -115,6 +118,11 @@ void printStudentList(student *head)
 student *createStudentFromString(char *string)
 {
 
+    if (countCharInString(string, ';') != 2 && strlen(string) > 50)
+    {
+        perror("String in exam invalid");
+        return NULL;
+    }
     char str[50] = {0};
     char *result[3];
     strcpy(str, string);

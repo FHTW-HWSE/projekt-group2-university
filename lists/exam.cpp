@@ -63,6 +63,11 @@ exam *searchExam(exam *head, char *name)
 bool insertIntoExamList(exam **list, exam *newExam, bool csvflag) // Update to be alphabetisch
 {
 
+    if(newExam == NULL) {
+        perror("newExam is NULL\n");
+        return false;
+    }
+
     if (*list == NULL)
     {
         *list = newExam;
@@ -121,6 +126,10 @@ void printExamList(exam *head)
 exam *createExamFromString(char *string, lectureHall *lectureHallList)
 {
 
+    if(countCharInString(string, ';') != 2 && strlen(string) > 20) {
+        perror("String in exam invalid");
+        return NULL;
+    }
     char str[20] = {0};
     char *result[3];
     strcpy(str, string);

@@ -93,3 +93,15 @@ int getAmountFromWorkload(int amount, int workload) {
 bool examIsFull(exam *exam) {
     return exam->studentcounter == exam->maxStudents;
 }
+
+int countCharInString(char *string, char character) {
+    int counter = 0;
+    int index = 0;
+    while(string[index] != '\0') {
+        if(string[index] == character) {
+            counter++;
+        }
+        index++;
+    }
+    return counter;
+}
