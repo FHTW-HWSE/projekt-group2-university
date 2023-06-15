@@ -9,12 +9,15 @@
  */
 exam *createExam(char *name, int workload, lectureHall *lecturehall)
 {
-    exam *newExam = (exam *)calloc(1, sizeof(exam));
+    exam *newExam = (exam *)calloc(1, sizeof(exam) + sizeof(student)*getMaxStudentsFromLecturehall(lecturehall));
     newExam->name = (char *)malloc(20 * sizeof(char));
     strcpy(newExam->name, name);
     newExam->workload = workload;
     newExam->lectureHall = (lectureHall *)malloc(sizeof(lectureHall));
     newExam->lectureHall = lecturehall;
+    newExam->studentcounter = 0;
+    int tmp = getMaxStudentsFromLecturehall(lecturehall);
+    newExam->maxStudents = getAmountFromWorkload(tmp, workload);
     return newExam;
 }
 

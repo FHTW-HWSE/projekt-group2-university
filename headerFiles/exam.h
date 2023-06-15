@@ -13,6 +13,9 @@ typedef struct exam
     int workload; 
     struct lectureHall *lectureHall;
     struct exam *nextExam;
+    int studentcounter;
+    int maxStudents;
+    student* students[];
 } exam;
 
 exam *createExam(char *name, int workload, lectureHall *lectureHall);

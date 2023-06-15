@@ -75,3 +75,17 @@ bool fileExists (char *filename) {
   struct stat buffer;   
   return (stat (filename, &buffer) == 0);
 }
+
+int getMaxStudentsFromLecturehall(lectureHall *lectureHall) {
+    return lectureHall->row * lectureHall->column;
+}
+
+int getAmountFromWorkload(int amount, int workload) {
+    if(workload == 0) {
+        return amount/4;
+    } else if(workload == 1) {
+        return amount/2;
+    } else {
+        return amount;
+    }
+}

@@ -13,4 +13,8 @@ char* integerToString(int num);
 
 bool fileExists (char *filename);
 
+int getMaxStudentsFromLecturehall(lectureHall *lectureHall);
+
+int getAmountFromWorkload(int amount, int workload);
+
 #endif
