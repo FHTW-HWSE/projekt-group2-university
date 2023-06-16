@@ -232,6 +232,15 @@ void freeExamList(exam *head)
 
 bool insertStudentIntoExam(student *student, exam *exam)
 {
+    //check if student is in exam
+     for(int i=0; i<exam->studentcounter; i++) {
+        if(equals(exam->students[i]->id, student->id)) {
+            printf("You already written in exam '%s'\n", exam->name);
+            return false;
+        }
+    }
+
+
     // creating student string
     char studenttext[50] = {0};
     strcat(studenttext, student->id);
@@ -245,7 +254,10 @@ bool insertStudentIntoExam(student *student, exam *exam)
     strcat(examfile, exam->name);
     strcat(examfile, (char *)".csv");
 
-    // insertIntoArray
+    
+
+   
+
     if (!examIsFull(exam))
     {
         exam->students[exam->studentcounter] = student;
