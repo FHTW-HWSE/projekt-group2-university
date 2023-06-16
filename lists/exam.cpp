@@ -10,7 +10,7 @@
 exam *createExam(char *name, int workload, lectureHall *lecturehall)
 {
     exam *newExam = (exam *)calloc(1, sizeof(exam) + sizeof(student) * getMaxStudentsFromLecturehall(lecturehall));
-    newExam->name = (char *)malloc(20 * sizeof(char));
+    newExam->name = (char *)malloc(EXAM_FILE * sizeof(char));
     strcpy(newExam->name, name);
     newExam->workload = workload;
     newExam->lectureHall = (lectureHall *)malloc(sizeof(lectureHall));
@@ -29,11 +29,11 @@ exam *createExam(char *name, int workload, lectureHall *lecturehall)
 void printExam(exam *exam)
 {
     char workload[10];
-    if (exam->workload == 0)
+    if (exam->workload == WEAK)
     {
         strcpy(workload, "25%");
     }
-    else if (exam->workload == 1)
+    else if (exam->workload == MEDIUM)
     {
         strcpy(workload, "50%");
     }
@@ -41,7 +41,7 @@ void printExam(exam *exam)
     {
         strcpy(workload, "100%");
     }
-    printf("Examname: %10s   Workload: %4s   Lecturehall: %6s   amount: %2d/%2d\n", exam->name, workload, exam->lectureHall->name, exam->studentcounter, exam->maxStudents);
+    printf("Examname: %10s   Workload: %4s   Lecture hall: %6s   Seats: %2d/%2d\n", exam->name, workload, exam->lectureHall->name, exam->studentcounter, exam->maxStudents);
 }
 
 exam *searchExam(exam *head, char *name)
@@ -51,12 +51,12 @@ exam *searchExam(exam *head, char *name)
     {
         if (equals(current->name, name))
         {
-            // printf("elemet gefunden\n");
+            // printf("element gefunden\n");
             return current;
         }
         current = current->nextExam;
     }
-    // printf("elemet nicht gefunden\n");
+    // printf("element nicht gefunden\n");
     return NULL;
 }
 
@@ -91,7 +91,7 @@ bool insertIntoExamList(exam **list, exam *newExam, bool csvflag) // Update to b
         // add the newNode at the end of the linked list
         current->nextExam = newExam;
     }
-    char newfile[50] = "../assets/exams/";
+    char newfile[EXAM_FILE] = "../assets/exams/";
     strcat(newfile, newExam->name);
     strcat(newfile, (char *)".csv");
     if (!fileExists(newfile))
@@ -102,7 +102,7 @@ bool insertIntoExamList(exam **list, exam *newExam, bool csvflag) // Update to b
     if (csvflag)
     {
 
-        char csvstring[50] = {0};
+        char csvstring[EXAM_FILE] = {0};
         strcat(csvstring, newExam->name);
         strcat(csvstring, ";");
         strcat(csvstring, integerToString(newExam->workload));
@@ -115,7 +115,7 @@ bool insertIntoExamList(exam **list, exam *newExam, bool csvflag) // Update to b
 
 void printExamList(exam *head)
 {
-    printf("\tListe aller Prüfungen\n");
+    printf("\tList of all exams\n");
     while (head != NULL)
     {
         printExam(head);
@@ -127,12 +127,12 @@ void printExamList(exam *head)
 exam *createExamFromString(char *string, lectureHall *lectureHallList)
 {
 
-    if (countCharInString(string, ';') != 2 && strlen(string) > 20)
+    if (countCharInString(string, ';') != 2 && strlen(string) > EXAM_FILE)
     {
         perror("String in exam invalid");
         return NULL;
     }
-    char str[20] = {0};
+    char str[EXAM_FILE] = {0};
     char *result[3];
     strcpy(str, string);
     const char s[2] = ";";
@@ -155,7 +155,7 @@ exam *createExamFromString(char *string, lectureHall *lectureHallList)
     lectureHall *tmp = searchLectureHall(lectureHallList, result[2]);
     if (tmp == NULL)
     {
-        printf("Lecturehall does not exist\n");
+        printf("Lecture hall does not exist\n");
         exit(0);
     }
     // printLectureHall(tmp);
@@ -164,7 +164,7 @@ exam *createExamFromString(char *string, lectureHall *lectureHallList)
 
 bool fillExamWithStudents(exam *exam)
 {
-    char filename[50] = {0};
+    char filename[EXAM_FILE] = {0};
     strcat(filename, (char *)"../assets/exams/");
     strcat(filename, exam->name);
     strcat(filename, (char *)".csv");
@@ -232,7 +232,7 @@ void freeExamList(exam *head)
 bool insertStudentIntoExam(student *student, exam *exam)
 {
     // creating student string
-    char studenttext[50] = {0};
+    char studenttext[STUDENT_FILE] = {0};
     strcat(studenttext, student->id);
     strcat(studenttext, (char *)";");
     strcat(studenttext, student->firstName);
@@ -240,7 +240,7 @@ bool insertStudentIntoExam(student *student, exam *exam)
     strcat(studenttext, student->lastName);
 
     // creating examfile string
-    char examfile[50] = "../assets/exams/";
+    char examfile[EXAM_FILE] = "../assets/exams/";
     strcat(examfile, exam->name);
     strcat(examfile, (char *)".csv");
 
@@ -267,7 +267,7 @@ void printExamRoom(exam *exam)
     int studentindex = 0;
     int operant;
     printf("\t\tSeating plan for the exam %s\n", exam->name);
-    if (exam->workload == 0)
+    if (exam->workload == WEAK)
     {
         bool empty = row != 1 ? false : true;
         for (int y = 0; y < row; y++)
@@ -290,11 +290,11 @@ void printExamRoom(exam *exam)
         }
     } else {
         int switcher = 0;
-        int modolo = workload == 1? 2 : 1;
+        int modolo = workload == MEDIUM? 2 : 1;
 
         for (int y = 0; y < row; y++)
         {
-            if(workload == 1) {
+            if(workload == MEDIUM) {
                 switcher = switcher == 0 ? 1 : 0;
             }
             printf("\t");

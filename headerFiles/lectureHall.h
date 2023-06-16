@@ -1,6 +1,8 @@
 #ifndef LECTUREHALL_H // Include guard
 #define LECTUREHALL_H
 #include "string_list.h"
+
+#define LECTUREHALL_FILE 30
 typedef struct lectureHall
 {
     char *name;
