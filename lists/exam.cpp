@@ -41,7 +41,7 @@ void printExam(exam *exam)
     {
         strcpy(workload, "100%");
     }
-    printf("Examname: %10s   Workload: %4s   Lecture hall: %6s   Seats: %2d/%2d\n", exam->name, workload, exam->lectureHall->name, exam->studentcounter, exam->maxStudents);
+    printf("Exam name: %10s   Workload: %4s   Lecture hall: %6s   Seats: %2d/%2d\n", exam->name, workload, exam->lectureHall->name, exam->studentcounter, exam->maxStudents);
 }
 
 exam *searchExam(exam *head, char *name)
