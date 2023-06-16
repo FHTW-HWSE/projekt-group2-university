@@ -1,5 +1,5 @@
 #include <catch2/catch.hpp>
-#include "../headerFiles/headers.h"
+#include "../../headerFiles/headers.h"
 
 // Test case for inserting a student into an empty list
 TEST_CASE("Insert student into empty list") {

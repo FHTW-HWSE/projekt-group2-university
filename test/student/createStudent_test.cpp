@@ -1,5 +1,5 @@
 #include <catch2/catch.hpp>
-#include "../headerFiles/headers.h"
+#include "../../headerFiles/headers.h"
 
 TEST_CASE("createStudent creates a student with correct values") {
     char firstName[] = "John";
