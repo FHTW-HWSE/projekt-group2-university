@@ -41,6 +41,7 @@ bool writeLineInCsv(char *filename, char *content)
     fpt = fopen(filename, "a");
      if (fpt == NULL)
     {
+        perror("fopen did not work\n");
         return false;
     }
     fseek (fpt, 0, SEEK_END);

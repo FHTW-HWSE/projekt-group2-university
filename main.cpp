@@ -23,6 +23,20 @@ void initStringLists(stringNode** students, stringNode** lecturehalls, stringNod
     }
 }
 
+bool adminPrintExamRoom(exam *examList) {
+    printf("Enter the name of the exam you want to print: ");
+    char examName[10];
+    scanf("%9s", examName);
+    exam *exam = searchExam(examList, examName);
+    if(exam == NULL) {
+        printf("This exam does not exist\n");
+        return false;
+    } 
+    printExamRoom(exam);
+    return false;
+}
+
+
 bool adminInsertHall(lectureHall *list) {
     char name[20];
     char row[3];
@@ -34,6 +48,10 @@ bool adminInsertHall(lectureHall *list) {
     printf("Enter amount of columns in the hall: ");
     scanf("%3s", col);
     lectureHall *tmp = createLectureHall(name, atoi(row), atoi(col));
+    if(tmp == NULL) {
+        printf("invalid lecture hall\n");
+        return false;
+    }
     //printLectureHall(tmp);
     if(!insertIntoLectureHallList(&list, tmp, true)) {
         printf("Lecture hall with this name already exists\n");
@@ -59,7 +77,6 @@ bool adminInsertExam(exam *examList, lectureHall *lectureHallList) {
     }
     printf("Enter the name of the lecture hall where the exam is hold:\n");
     scanf("%20s", lecturehall);
-    printf("%s", lecturehall);
     lectureHall *tmp = searchLectureHall(lectureHallList, lecturehall);
     if(tmp == NULL) {
         printf("This lecture hall does not exist\n");
@@ -117,6 +134,7 @@ void adminWorkflow(lectureHall **lectureHallList, student **studentList, exam **
     printf("Press 3 to show a list of all exams\n");
     printf("Press 4 to generate a new lecture hall\n");
     printf("Press 5 to generate a new exam\n");
+    printf("Press 6 to print a exam room\n");
     printf("Press q to exit\n");
 
 
@@ -140,6 +158,10 @@ void adminWorkflow(lectureHall **lectureHallList, student **studentList, exam **
         case '5':
             printLectureHallList(*lectureHallList);
             adminInsertExam(*examList, *lectureHallList);
+            break;
+        case '6':
+            printExamList(*examList);
+            adminPrintExamRoom(*examList);
             break;
         case 'q':
             printf("Thank You for using admin services.\n");
@@ -173,19 +195,19 @@ void studentWorkflow(student **studentList, exam **examList)
         printf("Enter your matriculation number: ");
         scanf("%10s", id);
     } 
-    
-    printf("Enter your first name: ");
-    scanf("%20s", firstname);
-    printf("Enter your last name: ");
-    scanf("%20s", lastname);
-    student *loggedStudent = searchStudent(*studentList, id);
-
-    if(loggedStudent == NULL) {
+    student *loggedStudent;
+    if(searchStudent(*studentList, id)) {
+        loggedStudent = searchStudent(*studentList, id);
+        printf("You logged in with your account\n");
+    } else {
+        printf("Enter your first name: ");
+        scanf("%20s", firstname);
+        printf("Enter your last name: ");
+        scanf("%20s", lastname);
         loggedStudent = createStudent(id, firstname, lastname);
         printf("You created a new account\n");
-    } else {
-        printf("You logged in with your account\n");
     }
+    
     insertStudentIntoList(studentList, loggedStudent, true);
     printf("Welcome %s %s\n", loggedStudent->firstName, loggedStudent->lastName);
 

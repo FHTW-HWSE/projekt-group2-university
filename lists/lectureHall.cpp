@@ -10,6 +10,9 @@
  */
 lectureHall *createLectureHall(char *name, int row, int column)
 {
+    if(row<1 || column <1) {
+        return NULL;
+    }
     lectureHall *newLectureHall = (lectureHall *)calloc(1, sizeof(lectureHall));
     newLectureHall->name = (char *)malloc(20 * sizeof(char));
     strcpy(newLectureHall->name, name);
@@ -54,6 +57,11 @@ lectureHall *searchLectureHall(lectureHall *head, char *name)
 
 bool insertIntoLectureHallList(lectureHall **list, lectureHall *newLectureHall, bool csvflag) // Update to be alphabetisch
 {
+     if(newLectureHall == NULL) {
+        perror("newLecturehall is NULL\n");
+        return false;
+    }
+
     if (*list == NULL)
     {
         *list = newLectureHall;
@@ -111,6 +119,10 @@ void printLectureHallList(lectureHall *head)
 lectureHall *createLectureHallFromString(char *string)
 {
 
+     if(countCharInString(string, ';') != 2 && strlen(string) > 20) {
+        perror("String in lecturehall invalid");
+        return NULL;
+    }
     char str[20] = {0};
     char *result[3];
     strcpy(str, string);

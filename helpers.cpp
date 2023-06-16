@@ -70,3 +70,38 @@ char* integerToString(int num) {
 
     return str;
 }
+
+bool fileExists (char *filename) {
+  struct stat buffer;   
+  return (stat (filename, &buffer) == 0);
+}
+
+int getMaxStudentsFromLecturehall(lectureHall *lectureHall) {
+    return lectureHall->row * lectureHall->column;
+}
+
+int getAmountFromWorkload(int amount, int workload) {
+    if(workload == 0) {
+        return amount/4;
+    } else if(workload == 1) {
+        return amount/2;
+    } else {
+        return amount;
+    }
+}
+
+bool examIsFull(exam *exam) {
+    return exam->studentcounter == exam->maxStudents;
+}
+
+int countCharInString(char *string, char character) {
+    int counter = 0;
+    int index = 0;
+    while(string[index] != '\0') {
+        if(string[index] == character) {
+            counter++;
+        }
+        index++;
+    }
+    return counter;
+}

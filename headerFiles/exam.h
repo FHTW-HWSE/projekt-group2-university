@@ -13,6 +13,9 @@ typedef struct exam
     int workload; 
     struct lectureHall *lectureHall;
     struct exam *nextExam;
+    int studentcounter;
+    int maxStudents;
+    student* students[];
 } exam;
 
 exam *createExam(char *name, int workload, lectureHall *lectureHall);
@@ -32,5 +35,7 @@ void stringlistToExamList(stringNode *stringList, exam **examList,  lectureHall 
 void freeExamList(exam *head);
 
 bool insertStudentIntoExam(student *student, exam *exam);
+
+void printExamRoom(exam *exam);
 
 #endif
