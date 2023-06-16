@@ -105,7 +105,7 @@ bool insertStudentIntoList(student **list, student *newStudent, bool csvflag)
 
 void printStudentList(student *head)
 {
-    printf("\tListe aller Studenten\n");
+    printf("\tList of all students\n");
     student *current = head;
     while (current != NULL)
     {

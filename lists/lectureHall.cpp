@@ -28,7 +28,7 @@ lectureHall *createLectureHall(char *name, int row, int column)
  */
 void printLectureHall(lectureHall *lectureHall)
 {
-    printf("Raumname: %9s\t Reihen: %3d\t Spalten: %3d\n", lectureHall->name, lectureHall->row, lectureHall->column);
+    printf("Lecture hall: %9s\t Rows: %3d\t Columns: %3d\n", lectureHall->name, lectureHall->row, lectureHall->column);
 }
 
 /**
@@ -107,7 +107,7 @@ bool insertIntoLectureHallList(lectureHall **list, lectureHall *newLectureHall, 
  */
 void printLectureHallList(lectureHall *head)
 {
-    printf("\tListe aller Räume\n");
+    printf("\tList of all lecture halls\n");
     while (head != NULL)
     {
         printLectureHall(head);
@@ -120,7 +120,7 @@ lectureHall *createLectureHallFromString(char *string)
 {
 
      if(countCharInString(string, ';') != 2 && strlen(string) > LECTUREHALL_FILE) {
-        perror("String in lecturehall invalid");
+        perror("String in lecture hall invalid");
         return NULL;
     }
     char str[LECTUREHALL_FILE] = {0};

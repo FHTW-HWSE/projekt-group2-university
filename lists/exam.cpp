@@ -191,7 +191,7 @@ bool fillExamWithStudents(exam *exam)
             {
                 if (examIsFull(exam))
                 {
-                    perror("exam is full");
+                    perror("Exam is full");
                     break;
                 }
                 fgets(row, STRING_MAX, fp);
