@@ -28,3 +28,7 @@ project(
   
 
   target_link_libraries(generator generator_library)
+  
+  target_link_libraries(test_generator generator_library)
+
+  catch_discover_tests(test_generator)
