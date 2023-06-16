@@ -138,10 +138,11 @@ void adminWorkflow(lectureHall **lectureHallList, student **studentList, exam **
     printf("Press 6 to print a exam room\n");
     printf("Press q to exit\n");
 
-
     int input;
     getchar();
     input = getchar();
+    printf("\e[1;1H\e[2J");
+
     switch (input)
     {
         case '1':
@@ -216,6 +217,7 @@ void studentWorkflow(student **studentList, exam **examList)
         printf("Press 1 to see lists of all exams\n");
         printf("Press 2 to enter a exam\n");
         printf("Press q to exit\n");
+        printf("\e[1;1H\e[2J");
 
         char input[1];
         scanf("%1s", input);
@@ -299,6 +301,6 @@ int main()
     freeLectureHallList(lectureHallList);
     freeStudentList(studentList);
     freeExamList(examList);
-
+    
     return 0;
 }
