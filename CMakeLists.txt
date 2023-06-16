@@ -24,6 +24,7 @@ project(
   
   add_executable(test_generator 
   test/main.cpp
+  test/helpers/equals_test.cpp
   )
   
 
