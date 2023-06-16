@@ -99,8 +99,9 @@ void studentEnterExam(exam **examList, student *student) {
         printf("Exam does not exist\n");
         exit(0);
     }
-    insertStudentIntoExam(student, tmp);
-    printf("You joined exam '%s'\n", tmp->name);
+    if(insertStudentIntoExam(student, tmp)) {
+        printf("You joined exam '%s'\n", tmp->name);
+    }
 }
 
 

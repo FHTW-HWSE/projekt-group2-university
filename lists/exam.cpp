@@ -199,6 +199,7 @@ bool fillExamWithStudents(exam *exam)
                 student *tmp = createStudentFromString(row);
                 exam->students[exam->studentcounter] = tmp;
                 exam->studentcounter++;
+                
             }
         }
         fclose(fp);
@@ -249,9 +250,12 @@ bool insertStudentIntoExam(student *student, exam *exam)
     {
         exam->students[exam->studentcounter] = student;
         exam->studentcounter++;
+        student->exams[student->examcounter] = exam;
+        student->examcounter++;
     }
     else
     {
+        printf("Exam is already full\n");
         return false;
     }
 

@@ -2,8 +2,6 @@
 #define STUDENT_H
 
 
-#define MAX_DIREKT 8
-#define MAX_INDIREKT 16
 #define IDLENGTH 10
 #define MAX_NAMELENGTH 20
 
@@ -13,6 +11,8 @@ typedef struct student
     char *firstName;
     char *lastName;    
     struct student *nextStudent;
+    int examcounter;
+    struct exam *exams[];
 } student;
 
 student *createStudent(char *id, char *firstName, char *lastName);

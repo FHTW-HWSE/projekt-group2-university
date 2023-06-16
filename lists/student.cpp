@@ -26,7 +26,7 @@ student *createStudent(char *id, char *firstName, char *lastName)
  */
 void printStudent(student *student)
 {
-    printf("Matriculation number: %8s\t First name: %10s\t  Last name: %10s\n", student->id, student->firstName, student->lastName);
+    printf("Matriculation number: %8s\t First name: %10s\t  Last name: %10s\t Exams: [%2d]\n", student->id, student->firstName, student->lastName, student->examcounter);
 }
 
 /**
