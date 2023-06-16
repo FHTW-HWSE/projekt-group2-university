@@ -26,8 +26,13 @@ project(
   test/main.cpp
   test/helpers/equals_test.cpp
   test/helpers/checkIDFormat_test.cpp
+  test/helpers/integerToString_test.cpp
+  test/helpers/getMaxStudentsFromLecturehall_test.cpp
+  test/helpers/getAmountFromWorkload_test.cpp
+  test/helpers/examIsFull_test.cpp
   test/student/createStudent_test.cpp
   test/student/insertStudentIntoList_test.cpp
+  test/student/createStudentFromString_test.cpp
   )
   
 
