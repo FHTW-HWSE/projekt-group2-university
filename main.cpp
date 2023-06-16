@@ -6,7 +6,7 @@ bool isAdmin = false;
 void initStringLists(stringNode** students, stringNode** lecturehalls, stringNode** exams ) {
  if (!readCsv((char *)"../assets/lecturehalls.csv", lecturehalls))
     {
-        perror("FILE lecturehalls NOT FOUND");
+        perror("FILE lecture halls NOT FOUND");
         // exit(0);
     }
 
@@ -65,7 +65,7 @@ bool adminInsertExam(exam *examList, lectureHall *lectureHallList) {
     char name[20];
     char workload;
     char lecturehall[20];
-    printf("Enter the name of the Exam: ");
+    printf("Enter the name of the exam: ");
     scanf("%20s", name);
     printf("\nChoose the workload for the exam\n");
     printf("Enter 0 for weak\nEnter 1 for medium\nEnter 2 for strong\n");
@@ -166,7 +166,7 @@ void adminWorkflow(lectureHall **lectureHallList, student **studentList, exam **
             adminPrintExamRoom(*examList);
             break;
         case 'q':
-            printf("Thank You for using admin services.\n");
+            printf("Thank Yyu for using admin services.\n");
             exit(0);
             break;
         default:
@@ -231,7 +231,7 @@ void studentWorkflow(student **studentList, exam **examList)
             studentEnterExam(examList, loggedStudent);
             break;
         case 'q':
-            printf("Thank You for using student services.\n");
+            printf("Thank you for using student services.\n");
             exit(0);
             break;
         default:

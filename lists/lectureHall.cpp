@@ -14,7 +14,7 @@ lectureHall *createLectureHall(char *name, int row, int column)
         return NULL;
     }
     lectureHall *newLectureHall = (lectureHall *)calloc(1, sizeof(lectureHall));
-    newLectureHall->name = (char *)malloc(20 * sizeof(char));
+    newLectureHall->name = (char *)malloc(LECTUREHALL_FILE * sizeof(char));
     strcpy(newLectureHall->name, name);
     newLectureHall->row = row;
     newLectureHall->column = column;
@@ -28,7 +28,7 @@ lectureHall *createLectureHall(char *name, int row, int column)
  */
 void printLectureHall(lectureHall *lectureHall)
 {
-    printf("Raumname: %9s\t Reihen: %3d\t Spalten: %3d\n", lectureHall->name, lectureHall->row, lectureHall->column);
+    printf("Lecture hall: %9s\t Rows: %3d\t Columns: %3d\n", lectureHall->name, lectureHall->row, lectureHall->column);
 }
 
 /**
@@ -46,12 +46,12 @@ lectureHall *searchLectureHall(lectureHall *head, char *name)
     {
         if (equals(current->name, name))
         {
-            // printf("elemet gefunden\n");
+            // printf("element gefunden\n");
             return current;
         }
         current = current->nextLectureHall;
     }
-    // printf("elemet nicht gefunden\n");
+    // printf("element nicht gefunden\n");
     return NULL;
 }
 
@@ -88,7 +88,7 @@ bool insertIntoLectureHallList(lectureHall **list, lectureHall *newLectureHall, 
     }
     if (csvflag)
     {
-        char csvstring[30] = {0};
+        char csvstring[LECTUREHALL_FILE] = {0};
         strcat(csvstring, newLectureHall->name);
         strcat(csvstring, ";");
         strcat(csvstring, integerToString(newLectureHall->row));
@@ -107,7 +107,7 @@ bool insertIntoLectureHallList(lectureHall **list, lectureHall *newLectureHall, 
  */
 void printLectureHallList(lectureHall *head)
 {
-    printf("\tListe aller Räume\n");
+    printf("\tList of all lecture halls\n");
     while (head != NULL)
     {
         printLectureHall(head);
@@ -119,11 +119,11 @@ void printLectureHallList(lectureHall *head)
 lectureHall *createLectureHallFromString(char *string)
 {
 
-     if(countCharInString(string, ';') != 2 && strlen(string) > 20) {
-        perror("String in lecturehall invalid");
+     if(countCharInString(string, ';') != 2 && strlen(string) > LECTUREHALL_FILE) {
+        perror("String in lecture hall invalid");
         return NULL;
     }
-    char str[20] = {0};
+    char str[LECTUREHALL_FILE] = {0};
     char *result[3];
     strcpy(str, string);
     const char s[2] = ";";

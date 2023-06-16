@@ -1,9 +1,10 @@
 #ifndef EXAM_H // Include guard
 #define EXAM_H
 
-#define strong 2
-#define medium 1
-#define weak 0
+#define STRONG 2
+#define MEDIUM 1
+#define WEAK 0
+#define EXAM_FILE 50
 
 #include "headers.h"
 

@@ -4,6 +4,8 @@
 
 #define IDLENGTH 10
 #define MAX_NAMELENGTH 20
+#define STUDENT_FILE 50
+
 
 typedef struct student
 {
