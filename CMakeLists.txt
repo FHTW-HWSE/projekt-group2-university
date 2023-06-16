@@ -20,11 +20,14 @@ project(
   set(CMAKE_BUILD_TYPE Debug)
 
   add_executable(generator main.cpp )
-  
+   
   
   add_executable(test_generator 
   test/main.cpp
   test/helpers/equals_test.cpp
+  test/helpers/checkIDFormat_test.cpp
+  test/student/createStudent_test.cpp
+  test/student/insertStudentIntoList_test.cpp
   )
   
 
