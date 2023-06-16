@@ -1,55 +1,71 @@
 #include <catch2/catch.hpp>
 #include "../../headerFiles/headers.h"
 
-// Test case for inserting a student into an empty list
-TEST_CASE("Insert student into empty list") {
-    student *list = NULL;
-    student *newStudent = new student;
-    newStudent->lastName = "Smith";
-    newStudent->nextStudent = NULL;
+TEST_CASE("insertStudentIntoList function tests", "[insertStudentIntoList]") {
+    student* list = nullptr;
 
-    bool result = insertStudentIntoList(&list, newStudent);
+    SECTION("Insert first student into empty list") {
+        student* newStudent = new student;
+        newStudent->id = strdup("12345678");
+        newStudent->firstName = strdup("John");
+        newStudent->lastName = strdup("Doe");
+        newStudent->nextStudent = nullptr;
 
-    // Verify that the student was inserted successfully
-    REQUIRE(result == true);
-    REQUIRE(list == newStudent);
-}
+        bool result = insertStudentIntoList(&list, newStudent, false);
 
-// Test case for inserting a student with a unique last name
-TEST_CASE("Insert student with unique last name") {
-    student *list = NULL;
-    student *existingStudent = new student;
-    existingStudent->lastName = "Smith";
-    existingStudent->nextStudent = NULL;
-    list = existingStudent;
+        REQUIRE(result == true);
+        REQUIRE(list != nullptr);
+        REQUIRE(list->id == newStudent->id);
+        REQUIRE(list->firstName == newStudent->firstName);
+        REQUIRE(list->lastName == newStudent->lastName);
+        REQUIRE(list->nextStudent == nullptr);
+    }
 
-    student *newStudent = new student;
-    newStudent->lastName = "Johnson";
-    newStudent->nextStudent = NULL;
+    SECTION("Insert student with existing ID") {
+        student* existingStudent = new student;
+        existingStudent->id = strdup("12345678");
+        existingStudent->firstName = strdup("Jane");
+        existingStudent->lastName = strdup("Smith");
+        existingStudent->nextStudent = nullptr;
+        list = existingStudent;
 
-    bool result = insertStudentIntoList(&list, newStudent);
+        student* newStudent = new student;
+        newStudent->id = strdup("12345678");
+        newStudent->firstName = strdup("John");
+        newStudent->lastName = strdup("Doe");
+        newStudent->nextStudent = nullptr;
 
-    // Verify that the student was inserted successfully
-    REQUIRE(result == true);
-    REQUIRE(existingStudent->nextStudent == newStudent);
-}
+        bool result = insertStudentIntoList(&list, newStudent, false);
 
-// Test case for inserting a student with a duplicate last name
-TEST_CASE("Insert student with duplicate last name") {
-    student *list = NULL;
-    student *existingStudent = new student;
-    existingStudent->lastName = "Smith";
-    existingStudent->nextStudent = NULL;
-    list = existingStudent;
+        REQUIRE(result == false);
+    }
 
-    student *newStudent = new student;
-    newStudent->lastName = "Smith";
-    newStudent->nextStudent = NULL;
+    SECTION("Insert student at the end of the list") {
+        student* student1 = new student;
+        student1->id = strdup("12345678");
+        student1->firstName = strdup("John");
+        student1->lastName = strdup("Doe");
+        student1->nextStudent = nullptr;
+        list = student1;
 
-    bool result = insertStudentIntoList(&list, newStudent);
+        student* student2 = new student;
+        student2->id = strdup("87654321");
+        student2->firstName = strdup("Jane");
+        student2->lastName = strdup("Smith");
+        student2->nextStudent = nullptr;
+        student1->nextStudent = student2;
 
-    // Verify that the student was not inserted
-    REQUIRE(result == false);
-    REQUIRE(existingStudent->nextStudent == NULL);
+        student* newStudent = new student;
+        newStudent->id = strdup("98765432");
+        newStudent->firstName = strdup("Alice");
+        newStudent->lastName = strdup("Johnson");
+        newStudent->nextStudent = nullptr;
+
+        bool result = insertStudentIntoList(&list, newStudent, false);
+
+        REQUIRE(result == true);
+        REQUIRE(student2->nextStudent == newStudent);
+        REQUIRE(newStudent->nextStudent == nullptr);
+    }
 }
 
