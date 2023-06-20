@@ -6,7 +6,7 @@ bool isAdmin = false;
 void initStringLists(stringNode** students, stringNode** lecturehalls, stringNode** exams ) {
  if (!readCsv((char *)"../assets/lecturehalls.csv", lecturehalls))
     {
-        perror("FILE lecturehalls NOT FOUND");
+        perror("FILE lecture halls NOT FOUND");
         // exit(0);
     }
 
@@ -65,7 +65,7 @@ bool adminInsertExam(exam *examList, lectureHall *lectureHallList) {
     char name[20];
     char workload;
     char lecturehall[20];
-    printf("Enter the name of the Exam: ");
+    printf("Enter the name of the exam: ");
     scanf("%20s", name);
     printf("\nChoose the workload for the exam\n");
     printf("Enter 0 for weak\nEnter 1 for medium\nEnter 2 for strong\n");
@@ -99,8 +99,9 @@ void studentEnterExam(exam **examList, student *student) {
         printf("Exam does not exist\n");
         exit(0);
     }
-    insertStudentIntoExam(student, tmp);
-    printf("You joined exam '%s'\n", tmp->name);
+    if(insertStudentIntoExam(student, tmp)) {
+        printf("You joined exam '%s'\n", tmp->name);
+    }
 }
 
 
@@ -137,10 +138,11 @@ void adminWorkflow(lectureHall **lectureHallList, student **studentList, exam **
     printf("Press 6 to print a exam room\n");
     printf("Press q to exit\n");
 
-
     int input;
     getchar();
     input = getchar();
+    printf("\e[1;1H\e[2J");
+
     switch (input)
     {
         case '1':
@@ -164,7 +166,7 @@ void adminWorkflow(lectureHall **lectureHallList, student **studentList, exam **
             adminPrintExamRoom(*examList);
             break;
         case 'q':
-            printf("Thank You for using admin services.\n");
+            printf("Thank Yyu for using admin services.\n");
             exit(0);
             break;
         default:
@@ -215,6 +217,7 @@ void studentWorkflow(student **studentList, exam **examList)
         printf("Press 1 to see lists of all exams\n");
         printf("Press 2 to enter a exam\n");
         printf("Press q to exit\n");
+        printf("\e[1;1H\e[2J");
 
         char input[1];
         scanf("%1s", input);
@@ -228,7 +231,7 @@ void studentWorkflow(student **studentList, exam **examList)
             studentEnterExam(examList, loggedStudent);
             break;
         case 'q':
-            printf("Thank You for using student services.\n");
+            printf("Thank you for using student services.\n");
             exit(0);
             break;
         default:
@@ -298,6 +301,6 @@ int main()
     freeLectureHallList(lectureHallList);
     freeStudentList(studentList);
     freeExamList(examList);
-
+    
     return 0;
 }

@@ -86,7 +86,7 @@ bool insertStudentIntoList(student **list, student *newStudent, bool csvflag)
     }
     if (csvflag)
     {
-        char csvstring[50] = {0};
+        char csvstring[STUDENT_FILE] = {0};
         strcat(csvstring, newStudent->id);
         strcat(csvstring, ";");
         strcat(csvstring, newStudent->firstName);
@@ -105,7 +105,7 @@ bool insertStudentIntoList(student **list, student *newStudent, bool csvflag)
 
 void printStudentList(student *head)
 {
-    printf("\tListe aller Studenten\n");
+    printf("\tList of all students\n");
     student *current = head;
     while (current != NULL)
     {
@@ -118,12 +118,12 @@ void printStudentList(student *head)
 student *createStudentFromString(char *string)
 {
 
-    if (countCharInString(string, ';') != 2 && strlen(string) > 50)
+    if (countCharInString(string, ';') != 2 && strlen(string) > STUDENT_FILE)
     {
-        perror("String in exam invalid");
+        perror("String in student invalid");
         return NULL;
     }
-    char str[50] = {0};
+    char str[STUDENT_FILE] = {0};
     char *result[3];
     strcpy(str, string);
     const char s[2] = ";";
