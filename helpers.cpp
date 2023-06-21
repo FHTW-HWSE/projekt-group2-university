@@ -24,7 +24,7 @@ bool equals(char *a, char *b) {
         return false;
     }
 
-    if(!isalpha(id[0]) || !isalpha(id[1])){
+    if(!isalpha(id[0]) || !isupper(id[0]) || !isalpha(id[1]) || !isupper(id[1])){
         return false;
     }
     for(int i=2; i<8;i++){

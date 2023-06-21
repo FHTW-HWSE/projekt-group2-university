@@ -141,7 +141,7 @@ void adminWorkflow(lectureHall **lectureHallList, student **studentList, exam **
     int input;
     getchar();
     input = getchar();
-    printf("\e[1;1H\e[2J");
+    //printf("\e[1;1H\e[2J");
 
     switch (input)
     {
@@ -217,7 +217,7 @@ void studentWorkflow(student **studentList, exam **examList)
         printf("Press 1 to see lists of all exams\n");
         printf("Press 2 to enter a exam\n");
         printf("Press q to exit\n");
-        printf("\e[1;1H\e[2J");
+        //printf("\e[1;1H\e[2J");
 
         char input[1];
         scanf("%1s", input);

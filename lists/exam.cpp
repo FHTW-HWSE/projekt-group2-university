@@ -199,7 +199,6 @@ bool fillExamWithStudents(exam *exam)
                 student *tmp = createStudentFromString(row);
                 exam->students[exam->studentcounter] = tmp;
                 exam->studentcounter++;
-                
             }
         }
         fclose(fp);
@@ -232,14 +231,15 @@ void freeExamList(exam *head)
 
 bool insertStudentIntoExam(student *student, exam *exam)
 {
-    //check if student is in exam
-     for(int i=0; i<exam->studentcounter; i++) {
-        if(equals(exam->students[i]->id, student->id)) {
+    // check if student is in exam
+    for (int i = 0; i < exam->studentcounter; i++)
+    {
+        if (equals(exam->students[i]->id, student->id))
+        {
             printf("You already written in exam '%s'\n", exam->name);
             return false;
         }
     }
-
 
     // creating student string
     char studenttext[STUDENT_FILE] = {0};
@@ -253,10 +253,6 @@ bool insertStudentIntoExam(student *student, exam *exam)
     char examfile[EXAM_FILE] = "../assets/exams/";
     strcat(examfile, exam->name);
     strcat(examfile, (char *)".csv");
-
-    
-
-   
 
     if (!examIsFull(exam))
     {
@@ -292,40 +288,106 @@ void printExamRoom(exam *exam)
             printf("\t");
             for (int x = 0; x < col; x++)
             {
-                //room[y][x] = x % 2 == 0 ? NULL : exam->students[studentindex];
-                if(x % 2 == 0 && !empty && studentindex<(exam->studentcounter)) {
+                // room[y][x] = x % 2 == 0 ? NULL : exam->students[studentindex];
+                if (x % 2 == 0 && !empty && studentindex < (exam->studentcounter))
+                {
                     room[y][x] = exam->students[studentindex];
                     printf("%s   ", room[y][x]->id);
                     studentindex++;
-                } else {
+                }
+                else
+                {
                     room[y][x] = NULL;
-                    printf((char*)"--------   ");
+                    printf((char *)"--------   ");
                 }
             }
             printf("\n");
         }
-    } else {
+    }
+    else
+    {
         int switcher = 0;
-        int modolo = workload == MEDIUM? 2 : 1;
+        int modolo = workload == MEDIUM ? 2 : 1;
 
         for (int y = 0; y < row; y++)
         {
-            if(workload == MEDIUM) {
+            if (workload == MEDIUM)
+            {
                 switcher = switcher == 0 ? 1 : 0;
             }
             printf("\t");
             for (int x = 0; x < col; x++)
             {
-                if(x%modolo == switcher && studentindex<(exam->studentcounter)) {
+                if (x % modolo == switcher && studentindex < (exam->studentcounter))
+                {
                     room[y][x] = exam->students[studentindex];
                     printf("%s   ", room[y][x]->id);
                     studentindex++;
-                } else {
+                }
+                else
+                {
                     room[y][x] = NULL;
-                    printf((char*)"--------   ");
+                    printf((char *)"--------   ");
                 }
             }
             printf("\n");
         }
+    }
+    printf("Press 1 to see neighbours of a student\n");
+    printf("Press any key to return to menu\n");
+    int c;
+    getchar();
+    c = getchar();
+    if (c == '1')
+    {
+        char id[IDLENGTH] = {0};
+        printf("Enter student ID: ");
+        scanf("%10s", id);
+        if (!checkIDFormat(id))
+        {
+            printf("Invalid ID");
+            return;
+        }
+        for (int y = 0; y < row; y++)
+        {
+            for (int x = 0; x < col; x++)
+            {
+                if (room[y][x] != NULL && equals(room[y][x]->id, id))
+                {
+
+                    // print neighbors
+                    printf("List of direct seat neighbours\n");
+                    if (y != 0)
+                    {
+                        if (x!=0 && room[y - 1][x - 1] != NULL)
+                            printStudent(room[y - 1][x - 1]);
+                        if (room[y - 1][x] != NULL)
+                            printStudent(room[y - 1][x]);
+                        if (x!=col-1 && room[y - 1][x + 1] != NULL)
+                            printStudent(room[y - 1][x + 1]);
+                    }
+
+                    if (x!=col-1 && room[y][x + 1] != NULL)
+                        printStudent(room[y][x + 1]);
+                    if (y != row - 1)
+                    {
+                        if (x!=col-1 && room[y + 1][x + 1] != NULL)
+                            printStudent(room[y + 1][x + 1]);
+                        if (room[y + 1][x] != NULL)
+                            printStudent(room[y + 1][x]);
+                        if (x!=0 && room[y + 1][x - 1] != NULL)
+                            printStudent(room[y + 1][x - 1]);
+                    }
+
+                    if (x!=0 && room[y][x - 1] != NULL)
+                        printStudent(room[y][x - 1]);
+                }
+            }
+        }
+        printf("Id not found\n");
+    }
+    else
+    {
+        printf("exit");
     }
 }
