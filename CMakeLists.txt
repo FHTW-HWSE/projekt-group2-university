@@ -14,6 +14,9 @@ project(
   add_library(generator_library helpers.cpp lists/exam.cpp lists/lectureHall.cpp lists/string.cpp lists/student.cpp services/csv-service.cpp)
   target_include_directories(generator_library PUBLIC headerFiles)
   
+  set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fprofile-arcs -ftest-coverage")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fprofile-arcs -ftest-coverage")
+
   set(CMAKE_CXX_STANDARD 20)
   set(CMAKE_CXX_STANDARD_REQUIRED ON)
   set(CMAKE_CXX_EXTENSIONS OFF)
@@ -24,20 +27,23 @@ project(
   
   add_executable(test_generator 
   test/main.cpp
-  test/helpers/equals_test.cpp
+  test/exam/createExam_test.cpp
   test/helpers/checkIDFormat_test.cpp
-  test/helpers/integerToString_test.cpp
-  test/helpers/getMaxStudentsFromLecturehall_test.cpp
-  test/helpers/getAmountFromWorkload_test.cpp
+  test/helpers/equals_test.cpp
   test/helpers/examIsFull_test.cpp
+  test/helpers/getAmountFromWorkload_test.cpp
+  test/helpers/getMaxStudentsFromLecturehall_test.cpp
+  test/helpers/integerToString_test.cpp
+  test/string/createStringNode_test.cpp
   test/student/createStudent_test.cpp
   test/student/insertStudentIntoList_test.cpp
-  test/student/createStudentFromString_test.cpp
+
+
   )
-  
+
 
   target_link_libraries(generator generator_library)
   
-  target_link_libraries(test_generator generator_library)
+  target_link_libraries(test_generator generator_library gcov)
 
-  catch_discover_tests(test_generator)
+   
