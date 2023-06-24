@@ -1,13 +1,13 @@
 #include <catch2/catch.hpp>
-#include "../headerFiles/headers.h"
+#include "../../headerFiles/headers.h"
 
 // Test case for reading a lectureHall CSV file with valid data
 TEST_CASE("Read valid CSV file") {
     stringNode *list = NULL;
-    char* filepath = "../assets/lecturehalls.csv";
+    const char* filepath = "../assets/lecturehalls.csv";
 
     // Call the readCsv function
-    bool result = readCsv(filepath, &list);
+    bool result = readCsv(const_cast<char*>(filepath), &list);
 
     // Verify that the function returns true
     REQUIRE(result == true);
@@ -35,10 +35,10 @@ TEST_CASE("Read valid CSV file") {
 // Test case for reading a non-existent CSV file
 TEST_CASE("Read non-existent CSV file") {
     stringNode *list = NULL;
-    char* filepath = "nonexistent.csv";
+    const char* filepath = "nonexistent.csv";
 
     // Call the readCsv function
-    bool result = readCsv(filepath, &list);
+    bool result = readCsv(const_cast<char*>(filepath), &list);
 
     // Verify that the function returns false
     REQUIRE(result == false);

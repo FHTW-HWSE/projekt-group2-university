@@ -9,7 +9,9 @@ stringNode *createStringNode(char *content)
         newStringNode->content[i] = content[i];
         i++;
     }
-    content[i+1] = '\0';
+    //content[i+1] = '\0';
+    newStringNode->content[i] = '\0';
+    newStringNode->nextStringNode = NULL;
     //newStringNode->content = (char*) malloc(STRING_MAX * sizeof(char));
     //strcpy(newStringNode->content, content);
     return newStringNode;
