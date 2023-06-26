@@ -70,7 +70,7 @@ bool adminInsertExam(exam *examList, lectureHall *lectureHallList) {
     printf("Enter the name of the exam: ");
     scanf("%20s", name);
     printf("\nChoose the workload for the exam\n");
-    printf("Enter 0 for weak\nEnter 1 for medium\nEnter 2 for strong\n");
+    printf("Enter 0 for 25%k\nEnter 1 for 50%\nEnter 2 for 100%\n");
     getchar();
     workload = getchar();
     if(workload != '0' && workload != '1' && workload != '2') {
@@ -132,13 +132,13 @@ void adminWorkflow(lectureHall **lectureHallList, student **studentList, exam **
     printf("\nPassword is correct!\nHello admin!\n");
     isAdmin = true;
     while(true){
-    printf("Press 1 to show a list of all rooms\n");
-    printf("Press 2 to show a list of all students\n");
-    printf("Press 3 to show a list of all exams\n");
-    printf("Press 4 to generate a new lecture hall\n");
-    printf("Press 5 to generate a new exam\n");
-    printf("Press 6 to print a exam room\n");
-    printf("Press q to exit\n");
+    printf("Press [1] to show a list of all rooms\n");
+    printf("Press [2] to show a list of all students\n");
+    printf("Press [3] to show a list of all exams\n");
+    printf("Press [4] to generate a new lecture hall\n");
+    printf("Press [5] to generate a new exam\n");
+    printf("Press [6] to print a exam room\n");
+    printf("Press [q] to exit\n");
 
     int input;
     getchar();
@@ -216,9 +216,9 @@ void studentWorkflow(student **studentList, exam **examList)
     printf("Welcome %s %s\n", loggedStudent->firstName, loggedStudent->lastName);
 
     while(true){
-        printf("Press 1 to see lists of all exams\n");
-        printf("Press 2 to enter a exam\n");
-        printf("Press q to exit\n");
+        printf("Press [1] to see list of all exams\n");
+        printf("Press [2] to enter a exam\n");
+        printf("Press [q] to exit\n");
         //printf("\e[1;1H\e[2J");
 
         char input[1];
@@ -280,8 +280,8 @@ int main()
     freeStringList(stringListStudents);
 
     printf("Welcome\n");
-    printf("Login as admin: Press 1\n");
-    printf("Login as student: Press any key\n");
+    printf("Login as admin: Press [1]\n");
+    printf("Login as student: Press [any key]\n");
 
     int input;
     input = getchar();

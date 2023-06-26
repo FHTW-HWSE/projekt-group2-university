@@ -332,8 +332,8 @@ void printExamRoom(exam *exam)
             printf("\n\n");
         }
     }
-    printf("Press 1 to see neighbours of a student\n");
-    printf("Press any key to return to menu\n");
+    printf("Press [1] to see neighbours of a student\n");
+    printf("Press [any key] to return to menu\n");
     int c;
     getchar();
     c = getchar();
