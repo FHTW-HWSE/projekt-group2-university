@@ -32,7 +32,9 @@ bool adminPrintExamRoom(exam *examList) {
         printf("This exam does not exist\n");
         return false;
     } 
+    printf("\n");
     printExamRoom(exam);
+    printf("\n");
     return false;
 }
 

@@ -277,7 +277,7 @@ void printExamRoom(exam *exam)
     student *room[row][col];
     int studentindex = 0;
     int operant;
-    printf("\t\tSeating plan for the exam %s\n", exam->name);
+    printf("\t\tSeating plan for the exam %s\n\n", exam->name);
     if (exam->workload == WEAK)
     {
         bool empty = row != 1 ? false : true;
@@ -329,7 +329,7 @@ void printExamRoom(exam *exam)
                     printf((char *)"--------   ");
                 }
             }
-            printf("\n");
+            printf("\n\n");
         }
     }
     printf("Press 1 to see neighbours of a student\n");
@@ -344,7 +344,7 @@ void printExamRoom(exam *exam)
         scanf("%10s", id);
         if (!checkIDFormat(id))
         {
-            printf("Invalid ID");
+            printf("Invalid ID\n");
             return;
         }
 
@@ -386,7 +386,6 @@ void printExamRoom(exam *exam)
         }
 
         // schleife für indirekte nachbarn
-        printf("\n\tList of indirect seat neighbours\n");
 
         for (int y = 0; y < row; y++)
         {
@@ -395,6 +394,8 @@ void printExamRoom(exam *exam)
 
                 if (room[y][x] != NULL && equals(room[y][x]->id, id))
                 {
+                    printf("\n\tList of indirect seat neighbours\n");
+
                     if (y > 1 && y < row - 2 && x > 1 && x < col - 2)
                     {
                         printStudent(room[y - 2][x - 2]); // 1
