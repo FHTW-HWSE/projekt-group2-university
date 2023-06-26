@@ -70,7 +70,7 @@ bool adminInsertExam(exam *examList, lectureHall *lectureHallList) {
     printf("Enter the name of the exam: ");
     scanf("%20s", name);
     printf("\nChoose the workload for the exam\n");
-    printf("Enter 0 for 25%k\nEnter 1 for 50%\nEnter 2 for 100%\n");
+    printf("Enter 0 for 25%%\nEnter 1 for 50%%\nEnter 2 for 100%%\n");
     getchar();
     workload = getchar();
     if(workload != '0' && workload != '1' && workload != '2') {
@@ -86,8 +86,11 @@ bool adminInsertExam(exam *examList, lectureHall *lectureHallList) {
     }
     //printLectureHall(tmp);
     exam *newExam = createExam(name, atoi(&workload), tmp);
-    insertIntoExamList(&examList, newExam, true);
-    printf("Successfully added exam '%s'\n", newExam->name);
+    if(insertIntoExamList(&examList, newExam, true)) {
+        printf("Successfully added exam '%s'\n", newExam->name);
+    } else {
+        printf("Could not generate exam. Exam already exists\n");
+    }
     return true;
 }
 
@@ -168,7 +171,7 @@ void adminWorkflow(lectureHall **lectureHallList, student **studentList, exam **
             adminPrintExamRoom(*examList);
             break;
         case 'q':
-            printf("Thank Yyu for using admin services.\n");
+            printf("Thank you for using admin services.\n");
             exit(0);
             break;
         default:
