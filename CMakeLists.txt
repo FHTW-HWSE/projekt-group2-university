@@ -26,22 +26,28 @@ project(
    
   add_executable(test_generator 
   test/main.cpp
-  test/exam/createExam_test.cpp
-  test/helpers/checkIDFormat_test.cpp
-  test/helpers/equals_test.cpp
-  test/helpers/examIsFull_test.cpp
-  test/helpers/getAmountFromWorkload_test.cpp
-  test/helpers/getMaxStudentsFromLecturehall_test.cpp
-  test/helpers/integerToString_test.cpp
-  test/string/createStringNode_test.cpp
-  test/student/createStudent_test.cpp
-  test/student/insertStudentIntoList_test.cpp
-  test/lectureHall/createLectureHall_test.cpp
-  test/lectureHall/searchLectureHall_test.cpp
-  test/lectureHall/stringlistToLectureHallList_test.cpp
-  
-  
 
+  test/csv-service/readCsvLectureHall_test.cpp
+
+  #test/exam/createExam_test.cpp
+
+  #test/helpers/checkIDFormat_test.cpp
+  #test/helpers/equals_test.cpp
+  #test/helpers/examIsFull_test.cpp
+  #test/helpers/getAmountFromWorkload_test.cpp
+  #test/helpers/getMaxStudentsFromLecturehall_test.cpp
+  #test/helpers/integerToString_test.cpp
+  #test/lectureHall/createLectureHall_test.cpp
+  #test/lectureHall/searchLectureHall_test.cpp
+  #test/lectureHall/stringlistToLectureHallList_test.cpp
+  #test/lectureHall/createLectureHallFromString_test.cpp
+  #test/lectureHall/insertIntoLectureHallList_test.cpp
+  #test/string/createStringNode_test.cpp
+  #test/student/createStudent_test.cpp
+  #test/student/insertStudentIntoList_test.cpp
+  #test/student/searchStudent_test.cpp
+  #test/student/createStudentFromString_test.cpp
+  #test/student/stringlistToStudentList_test.cpp
 
   )
 

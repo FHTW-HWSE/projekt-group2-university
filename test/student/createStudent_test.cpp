@@ -3,9 +3,9 @@
 
 TEST_CASE("createStudent function tests", "[createStudent]") {
     SECTION("Valid student creation") {
-        char id[] = "12345678";
-        char firstName[] = "John";
-        char lastName[] = "Doe";
+        char *id = (char*)"TT345678";
+        char *firstName = (char*)"John";
+        char *lastName = (char*)"Doe";
 
         student* newStudent = createStudent(id, firstName, lastName);
 
@@ -19,4 +19,5 @@ TEST_CASE("createStudent function tests", "[createStudent]") {
         free(newStudent->lastName);
         free(newStudent);
     }
+
 }

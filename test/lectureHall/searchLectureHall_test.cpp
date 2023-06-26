@@ -3,9 +3,9 @@
 
 TEST_CASE("Search lecture hall in a non-empty list", "[lectureHall]") {
 
-    char name1[] = "E";
-    char name2[] = "F";
-    char name3[] = "G";
+    char *name1 = (char*)"XXXX";
+    char *name2 = (char*)"YYYY";
+    char *name3 = (char*)"ZZZZ";
     int row = 10;
     int column = 20;
     lectureHall* head = createLectureHall(name1, row, column);
@@ -27,7 +27,7 @@ TEST_CASE("Search lecture hall in a non-empty list", "[lectureHall]") {
 }
 
 TEST_CASE("Search lecture hall in an empty list", "[lectureHall]") {
-    char name[] = "H";
+    char *name = (char*)"WXYZ";
     lectureHall* head = nullptr;
 
     lectureHall* result = searchLectureHall(head, name);
@@ -37,8 +37,8 @@ TEST_CASE("Search lecture hall in an empty list", "[lectureHall]") {
 
 TEST_CASE("Search lecture hall with a non-existing name", "[lectureHall]") {
 
-    char name1[] = "I";
-    char name2[] = "J";
+    char *name1 = (char*)"UWVX";
+    char *name2 = (char*)"ZYXW";
     int row = 10;
     int column = 20;
     lectureHall* head = createLectureHall(name1, row, column);
