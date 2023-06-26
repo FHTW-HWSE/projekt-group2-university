@@ -1,4 +1,4 @@
-#include "headerFiles/headers.h"
+#include "../headerFiles/headers.h"
 
 /**
  * @brief compares if 2 Strings are equal or not

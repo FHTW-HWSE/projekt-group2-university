@@ -11,7 +11,7 @@ project(
   include(CTest)
   include(Catch)
 
-  add_library(generator_library helpers.cpp lists/exam.cpp lists/lectureHall.cpp lists/string.cpp lists/student.cpp services/csv-service.cpp)
+  add_library(generator_library services/helpers.cpp lists/exam.cpp lists/lectureHall.cpp lists/string.cpp lists/student.cpp services/csv-service.cpp)
   target_include_directories(generator_library PUBLIC headerFiles)
   
   set(CMAKE_CXX_STANDARD 20)
