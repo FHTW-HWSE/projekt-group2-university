@@ -11,9 +11,6 @@ project(
   include(CTest)
   include(Catch)
 
-  add_library(generator_library services/helpers.cpp lists/exam.cpp lists/lectureHall.cpp lists/string.cpp lists/student.cpp services/csv-service.cpp)
-  target_include_directories(generator_library PUBLIC headerFiles)
-  
   set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fprofile-arcs -ftest-coverage")
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fprofile-arcs -ftest-coverage")
 
@@ -22,9 +19,11 @@ project(
   set(CMAKE_CXX_EXTENSIONS OFF)
   set(CMAKE_BUILD_TYPE Debug)
 
+  add_library(generator_library helpers.cpp lists/exam.cpp lists/lectureHall.cpp lists/string.cpp lists/student.cpp services/csv-service.cpp)
+  target_include_directories(generator_library PUBLIC headerFiles)
+  
   add_executable(generator main.cpp )
    
-  
   add_executable(test_generator 
   test/main.cpp
   test/exam/createExam_test.cpp
@@ -44,6 +43,16 @@ project(
 
   target_link_libraries(generator generator_library)
   
-  target_link_libraries(test_generator generator_library gcov)
+  target_link_libraries(test_generator generator_library)
 
-   
+  # Add a target coverage that will run the tests and report the coverage of the 
+  # library in a folder coverage
+  if (CMAKE_CXX_COMPILER_IS_GNUCXX)
+    include(CodeCoverage.cmake)
+    append_coverage_compiler_flags_to_target(generator_library)
+    setup_target_for_coverage_lcov(
+        NAME coverage
+        EXECUTABLE test_generator
+        EXCLUDE "/usr/include/*" "test/*" "main.cpp"
+    )
+  endif()
