@@ -6,7 +6,10 @@
 * Dominik Vavra
 * Marwan Abdalla
 
-## Befehl zum Kompilieren
+## Kompilieren
+zum Kompilieren wird CMake verwendet. Dazu Respository klonen, Terminal im build-Ordner öffnen unnd folgende Befehle eingeben:
 ```bash
-gcc -std=c99 -Wall -Wextra -pedantic -Wno-unused-parameter main.c helpers.c structs/student.c structs/lectureHall.c structs/exam.c services/csv-service.c -o ./prog
+cmake ..
+make
+./generator
 ```
