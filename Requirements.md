@@ -30,7 +30,7 @@ bestimmte Prüfung) bekommen.
 ---
 - Given: ein Admin-Account, den jeder Admin benutzt
 - When: Anmelden mit falschen Zugangsdaten
-- Then: Meldung „kein Zugang zum Admin-Account“ -> kein Zugriff auf Adminfunktionen
+- Then: Zwei weitere Versuche möglich. Bei drei falschen Versuchen wird das Programm beendet
 #### UserStory 2: manuelle Generierung Hörsaal
 Als Admin möchte ich durch Angabe der Rauminformationen (Raumbezeichnung, Reihen, Spalten)
 einen Hörsaal generieren können.
@@ -45,23 +45,27 @@ Sitzpläne für bestimmte Prüfungen generieren können.
 - Then: neue Prüfung erstellt
 ---
 - Given: Admin ist eingeloggt, Hörsaal existiert schon
-- When: Eingabe Prüfungsinformationen, die sich schon vorhanden sind
-- Then: Meldung: „Prüfung existiert schon“ -> Prüdung wird nicht erstellt
+- When: Eingabe Prüfungsinformationen, die schon vorhanden sind
+- Then: Meldung:, dass die Prüfung schon existiert“ -> Prüfung wird nicht erstellt
+---
+-  Given: Admin ist eingeloggt, Hörsaal existiert schon
+- When: Eingabe eines Hörsaals, der nicht existiert
+- Then: Meldung, dass dieser Hörsaal nicht existiert -> Prüfung wird nicht erstellt
 #### UserStory 4: Anmeldung für Prüfung
 Als Student möchte ich durch Eingabe meiner Studienkennung, einen Sitzplatz für eine bestimmte
 Prüfung erhalten, damit ich bei der Prüfung einen festen Platz habe (angemeldet bin).
 - Given: Prüfung mit freien Sitzplätzen
 - When: Eintragung mit Studienkennung
-- Then: zugewiesener Sitzplatz wird angezeigt
+- Then: Bestätigung, dass man anmgemeldet ist
 ---
 - Given: Prüfung ohne freie Sitzplätzen
 - When: Eintragung mit Studienkennung
-- Then: Ausgabe, dass Benutzer sich nicht für Prüfung anmelden kann
+- Then: Ausgabe, dass Prüfung voll ist
 #### UserStory 5: Sitznachbarabfrage Admin
 Als Admin möchte ich durch Eingabe einer beliebigen Studienkennung für eine bestimmte Prüfung
-auswählen können, ob ich direkte oder indirekte Nachbarn abfragen möchte, damit mir die
-direkten/indirekten Sitznachbarn jener Studienkennung für eine bestimmte Prüfung ausgegeben
+auswählen können, ob ich direkte und indirekte Nachbarn abfragen möchte, damit mir die
+direkten und indirekten Sitznachbarn jener Studienkennung für eine bestimmte Prüfung ausgegeben
 werden.
 - Given: Prüfung, Student in Prüfung eingetragen
 - When: Auswahl direkte/indirekte Nachbarn
-- Then: Ausgabe aller Studienkennungen der direkten/indirekten Nachbarn
+- Then: Ausgabe aller Studienkennungen der direkten und indirekten Nachbarn
