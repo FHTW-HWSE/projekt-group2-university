@@ -349,7 +349,6 @@ void printExamRoom(exam *exam)
         }
 
         // schleife für direkte nachbarn
-        printf("\n\tList of direct seat neighbours\n");
 
         for (int y = 0; y < row; y++)
         {
@@ -357,6 +356,8 @@ void printExamRoom(exam *exam)
             {
                 if (room[y][x] != NULL && equals(room[y][x]->id, id))
                 {
+
+                    printf("\n\tList of direct seat neighbours\n");
 
                     // print neighbors
                     if (y != 0)
@@ -487,6 +488,112 @@ void printExamRoom(exam *exam)
                         printStudent(room[y][x - 2]);     // 15
                         printStudent(room[y - 1][x - 2]); // 16
                     }
+                    else if (y == 0 && x > 1 && x < col - 2)
+                    {
+                        printStudent(room[y][x + 2]);     // 7
+                        printStudent(room[y + 1][x + 2]); // 8
+                        printStudent(room[y + 2][x + 2]); // 9
+                        printStudent(room[y + 2][x + 1]); // 10
+                        printStudent(room[y + 2][x]);     // 11
+                        printStudent(room[y + 2][x - 1]); // 12
+                        printStudent(room[y + 2][x - 2]); // 13
+                        printStudent(room[y + 1][x - 2]); // 14
+                        printStudent(room[y][x - 2]);     // 15
+                    }
+                    else if (y == 1 && x > 1 && x < col - 2)
+                    {
+                        printStudent(room[y - 1][x + 2]); // 6
+                        printStudent(room[y][x + 2]);     // 7
+                        printStudent(room[y + 1][x + 2]); // 8
+                        printStudent(room[y + 2][x + 2]); // 9
+                        printStudent(room[y + 2][x + 1]); // 10
+                        printStudent(room[y + 2][x]);     // 11
+                        printStudent(room[y + 2][x - 1]); // 12
+                        printStudent(room[y + 2][x - 2]); // 13
+                        printStudent(room[y + 1][x - 2]); // 14
+                        printStudent(room[y][x - 2]);     // 15
+                        printStudent(room[y - 1][x - 2]); // 16
+                    }
+                    else if (y == row - 1 && x > 1 && x < col - 2)
+                    {
+                        printStudent(room[y - 2][x - 2]); // 1
+                        printStudent(room[y - 2][x - 1]); // 2
+                        printStudent(room[y - 2][x]);     // 3
+                        printStudent(room[y - 2][x + 1]); // 4
+                        printStudent(room[y - 2][x + 2]); // 5
+                        printStudent(room[y - 1][x + 2]); // 6
+                        printStudent(room[y][x + 2]);     // 7
+                        printStudent(room[y][x - 2]);     // 15
+                        printStudent(room[y - 1][x - 2]); // 16
+                    }
+                    else if (y == row - 2 && x > 1 && x < col - 2)
+                    {
+                        printStudent(room[y - 2][x - 2]); // 1
+                        printStudent(room[y - 2][x - 1]); // 2
+                        printStudent(room[y - 2][x]);     // 3
+                        printStudent(room[y - 2][x + 1]); // 4
+                        printStudent(room[y - 2][x + 2]); // 5
+                        printStudent(room[y - 1][x + 2]); // 6
+                        printStudent(room[y][x + 2]);     // 7
+                        printStudent(room[y + 1][x + 2]); // 8
+                        printStudent(room[y + 1][x - 2]); // 14
+                        printStudent(room[y][x - 2]);     // 15
+                        printStudent(room[y - 1][x - 2]); // 16
+                    }
+                    else if (y > 1 && y < row - 2 && x == 0)
+                    {
+                        printStudent(room[y - 2][x]);     // 3
+                        printStudent(room[y - 2][x + 1]); // 4
+                        printStudent(room[y - 2][x + 2]); // 5
+                        printStudent(room[y - 1][x + 2]); // 6
+                        printStudent(room[y][x + 2]);     // 7
+                        printStudent(room[y + 1][x + 2]); // 8
+                        printStudent(room[y + 2][x + 2]); // 9
+                        printStudent(room[y + 2][x + 1]); // 10
+                        printStudent(room[y + 2][x]);     // 11
+                    }
+                    else if (y > 1 && y < row - 2 && x == 1)
+                    {
+                        printStudent(room[y - 2][x - 1]); // 2
+                        printStudent(room[y - 2][x]);     // 3
+                        printStudent(room[y - 2][x + 1]); // 4
+                        printStudent(room[y - 2][x + 2]); // 5
+                        printStudent(room[y - 1][x + 2]); // 6
+                        printStudent(room[y][x + 2]);     // 7
+                        printStudent(room[y + 1][x + 2]); // 8
+                        printStudent(room[y + 2][x + 2]); // 9
+                        printStudent(room[y + 2][x + 1]); // 10
+                        printStudent(room[y + 2][x]);     // 11
+                        printStudent(room[y + 2][x - 1]); // 12
+                    }
+                    else if (y > 1 && y < row - 2 && x == col - 1)
+                    {
+
+                        printStudent(room[y - 2][x - 2]); // 1
+                        printStudent(room[y - 2][x - 1]); // 2
+                        printStudent(room[y - 2][x]);     // 3
+                        printStudent(room[y + 2][x]);     // 11
+                        printStudent(room[y + 2][x - 1]); // 12
+                        printStudent(room[y + 2][x - 2]); // 13
+                        printStudent(room[y + 1][x - 2]); // 14
+                        printStudent(room[y][x - 2]);     // 15
+                        printStudent(room[y - 1][x - 2]); // 16
+                    }
+                    else if (y > 1 && y < row - 2 && x == col - 2)
+                    {
+                        printStudent(room[y - 2][x - 2]); // 1
+                        printStudent(room[y - 2][x - 1]); // 2
+                        printStudent(room[y - 2][x]);     // 3
+                        printStudent(room[y - 2][x + 1]); // 4
+                        printStudent(room[y + 2][x + 1]); // 10
+                        printStudent(room[y + 2][x]);     // 11
+                        printStudent(room[y + 2][x - 1]); // 12
+                        printStudent(room[y + 2][x - 2]); // 13
+                        printStudent(room[y + 1][x - 2]); // 14
+                        printStudent(room[y][x - 2]);     // 15
+                        printStudent(room[y - 1][x - 2]); // 16
+                    }
+
                     return;
                 }
             }
