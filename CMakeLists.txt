@@ -36,6 +36,11 @@ project(
   test/string/createStringNode_test.cpp
   test/student/createStudent_test.cpp
   test/student/insertStudentIntoList_test.cpp
+  test/lectureHall/createLectureHall_test.cpp
+  test/lectureHall/searchLectureHall_test.cpp
+  test/lectureHall/stringlistToLectureHallList_test.cpp
+  
+  
 
 
   )
@@ -47,7 +52,7 @@ project(
 
   # Add a target coverage that will run the tests and report the coverage of the 
   # library in a folder coverage
-  if (CMAKE_CXX_COMPILER_IS_GNUCXX)
+  if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
     include(CodeCoverage.cmake)
     append_coverage_compiler_flags_to_target(generator_library)
     setup_target_for_coverage_lcov(
