@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "string.h": "c",
-        "typeinfo": "cpp"
+        "typeinfo": "cpp",
+        "new": "cpp"
     }
 }
