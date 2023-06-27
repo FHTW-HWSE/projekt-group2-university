@@ -11,6 +11,8 @@ char* timeToString(time_t *time);
 
 time_t *stringToTime(char* str);
 
+bool checkIfFormatMatch(char *string, char *format);
+
 char* integerToString(int num);
 
 bool fileExists (char *filename);

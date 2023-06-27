@@ -19,7 +19,7 @@ project(
   set(CMAKE_CXX_EXTENSIONS OFF)
   set(CMAKE_BUILD_TYPE Debug)
 
-  add_library(generator_library helpers.cpp lists/exam.cpp lists/lectureHall.cpp lists/string.cpp lists/student.cpp services/csv-service.cpp)
+  add_library(generator_library services/helpers.cpp lists/exam.cpp lists/lectureHall.cpp lists/string.cpp lists/student.cpp services/csv-service.cpp)
   target_include_directories(generator_library PUBLIC headerFiles)
   
   add_executable(generator main.cpp )
@@ -27,27 +27,31 @@ project(
   add_executable(test_generator 
   test/main.cpp
 
-  test/csv-service/readCsvLectureHall_test.cpp
+  #test/csv-service/readCsvLectureHall_test.cpp
 
-  #test/exam/createExam_test.cpp
-
-  #test/helpers/checkIDFormat_test.cpp
-  #test/helpers/equals_test.cpp
-  #test/helpers/examIsFull_test.cpp
-  #test/helpers/getAmountFromWorkload_test.cpp
-  #test/helpers/getMaxStudentsFromLecturehall_test.cpp
-  #test/helpers/integerToString_test.cpp
-  #test/lectureHall/createLectureHall_test.cpp
-  #test/lectureHall/searchLectureHall_test.cpp
-  #test/lectureHall/stringlistToLectureHallList_test.cpp
-  #test/lectureHall/createLectureHallFromString_test.cpp
-  #test/lectureHall/insertIntoLectureHallList_test.cpp
-  #test/string/createStringNode_test.cpp
-  #test/student/createStudent_test.cpp
-  #test/student/insertStudentIntoList_test.cpp
-  #test/student/searchStudent_test.cpp
-  #test/student/createStudentFromString_test.cpp
-  #test/student/stringlistToStudentList_test.cpp
+  test/exam/createExam_test.cpp
+  test/exam/searchExam_test.cpp
+  test/exam/createExamFromString_test.cpp
+  test/helpers/checkIDFormat_test.cpp
+  test/helpers/equals_test.cpp
+  test/helpers/examIsFull_test.cpp
+  test/helpers/getAmountFromWorkload_test.cpp
+  test/helpers/getMaxStudentsFromLecturehall_test.cpp
+  test/helpers/integerToString_test.cpp
+  test/helpers/checkIfFormatMatch_test.cpp
+  test/helpers/fileExists_test.cpp
+  test/helpers/countCharInString_test.cpp
+  test/lectureHall/createLectureHall_test.cpp
+  test/lectureHall/searchLectureHall_test.cpp
+  test/lectureHall/stringlistToLectureHallList_test.cpp
+  test/lectureHall/createLectureHallFromString_test.cpp
+  test/lectureHall/insertIntoLectureHallList_test.cpp
+  test/string/createStringNode_test.cpp
+  test/student/createStudent_test.cpp
+  test/student/insertStudentIntoList_test.cpp
+  test/student/searchStudent_test.cpp
+  test/student/createStudentFromString_test.cpp
+  test/student/stringlistToStudentList_test.cpp
 
   )
 
