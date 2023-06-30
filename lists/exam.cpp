@@ -358,7 +358,7 @@ bool printExamRoom(exam *exam)
         if (!checkIDFormat(id))
         {
             printf("Invalid ID\n");
-            return;
+            return false;
         }
 
         // schleife für direkte nachbarn
