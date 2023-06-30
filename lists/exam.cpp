@@ -26,8 +26,11 @@ exam *createExam(char *name, int workload, lectureHall *lecturehall)
  *
  * @param exam the Exam to print
  */
-void printExam(exam *exam)
+bool printExam(exam *exam)
 {
+    if(exam == NULL) {
+        return false;
+    }
     char workload[10];
     if (exam->workload == WEAK)
     {
@@ -42,6 +45,7 @@ void printExam(exam *exam)
         strcpy(workload, "100%");
     }
     printf("Exam name: %10s   Workload: %4s   Lecture hall: %6s   Seats: %2d/%2d\n", exam->name, workload, exam->lectureHall->name, exam->studentcounter, exam->maxStudents);
+    return true;
 }
 
 exam *searchExam(exam *head, char *name)
@@ -113,8 +117,11 @@ bool insertIntoExamList(exam **list, exam *newExam, bool csvflag) // Update to b
     return true;
 }
 
-void printExamList(exam *head)
+bool printExamList(exam *head)
 {
+    if(head == NULL)  {
+        return false;
+    }
     printf("\tList of all exams\n");
     while (head != NULL)
     {
@@ -122,6 +129,7 @@ void printExamList(exam *head)
         head = head->nextExam;
     }
     printf("\n");
+    return true;
 }
 
 exam *createExamFromString(char *string, lectureHall *lectureHallList)
@@ -205,7 +213,7 @@ bool fillExamWithStudents(exam *exam)
     return true;
 }
 
-void stringlistToExamList(stringNode *stringList, exam **examList, lectureHall *lectureHallList)
+bool stringlistToExamList(stringNode *stringList, exam **examList, lectureHall *lectureHallList)
 {
     while (stringList != NULL)
     {
@@ -214,9 +222,10 @@ void stringlistToExamList(stringNode *stringList, exam **examList, lectureHall *
         insertIntoExamList(examList, tmp, false);
         stringList = stringList->nextStringNode;
     }
+    return true;
 }
 
-void freeExamList(exam *head)
+bool freeExamList(exam *head)
 {
     exam *tmp;
     while (head != NULL)
@@ -226,6 +235,7 @@ void freeExamList(exam *head)
         head = tmp;
     }
     free(head);
+    return true;
 }
 
 bool insertStudentIntoExam(student *student, exam *exam)
@@ -269,8 +279,11 @@ bool insertStudentIntoExam(student *student, exam *exam)
     return writeLineInCsv(examfile, studenttext);
 }
 
-void printExamRoom(exam *exam)
+bool printExamRoom(exam *exam)
 {
+    if(exam == NULL) {
+        return false;
+    }
     int workload = exam->workload;
     lectureHall *lecturehall = exam->lectureHall;
     int row = lecturehall->row, col = lecturehall->column;
@@ -594,15 +607,16 @@ void printExamRoom(exam *exam)
                         printStudent(room[y - 1][x - 2]); // 16
                     }
 
-                    return;
+                    return true;
                 }
             }
         }
 
         printf("Id not found\n");
+        return false;
     }
     else
     {
-        return;
+        return true;
     }
 }

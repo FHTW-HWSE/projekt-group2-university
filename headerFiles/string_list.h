@@ -10,13 +10,13 @@ typedef struct stringNode
 
 stringNode *createStringNode(char *content);
 
-void printStringNode(stringNode *stringNode);
+bool printStringNode(stringNode *stringNode);
 
-void insertIntoStringList(stringNode **list, stringNode *newStringNode);
+bool insertIntoStringList(stringNode **list, stringNode *newStringNode);
 
-void printStringList(stringNode *head);
+bool printStringList(stringNode *head);
 
-void freeStringList(stringNode *head);
+bool freeStringList(stringNode *head);
 
 
 #endif
