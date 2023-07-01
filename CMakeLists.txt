@@ -27,7 +27,7 @@ project(
   add_executable(test_generator 
   test/main.cpp
 
-  #test/csv-service/readCsvLectureHall_test.cpp
+  test/csv-service/readCsvLectureHall_test.cpp
 
   test/exam/createExam_test.cpp
   test/exam/searchExam_test.cpp
