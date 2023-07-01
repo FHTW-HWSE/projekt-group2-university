@@ -26,9 +26,13 @@ lectureHall *createLectureHall(char *name, int row, int column)
  *
  * @param lectureHall LectureHall to Print
  */
-void printLectureHall(lectureHall *lectureHall)
+bool printLectureHall(lectureHall *lectureHall)
 {
+    if(lectureHall == NULL) {
+        return false;
+    }
     printf("Lecture hall: %9s\t Rows: %3d\t Columns: %3d\n", lectureHall->name, lectureHall->row, lectureHall->column);
+    return true;
 }
 
 /**
@@ -105,8 +109,11 @@ bool insertIntoLectureHallList(lectureHall **list, lectureHall *newLectureHall, 
  *
  * @param head given Lecture Hall struct to print
  */
-void printLectureHallList(lectureHall *head)
+bool printLectureHallList(lectureHall *head)
 {
+    if(head == NULL) {
+        return false;
+    }
     printf("\tList of all lecture halls\n");
     while (head != NULL)
     {
@@ -114,6 +121,7 @@ void printLectureHallList(lectureHall *head)
         head = head->nextLectureHall;
     }
     printf("\n");
+    return true;
 }
 
 lectureHall *createLectureHallFromString(char *string)
@@ -143,16 +151,17 @@ lectureHall *createLectureHallFromString(char *string)
     return createLectureHall(result[0], atoi(result[1]), atoi(result[2]));
 }
 
-void stringlistToLectureHallList(stringNode *stringList, lectureHall **lectureHallList)
+bool stringlistToLectureHallList(stringNode *stringList, lectureHall **lectureHallList)
 {
     while (stringList != NULL)
     {
         insertIntoLectureHallList(lectureHallList, createLectureHallFromString(stringList->content), false);
         stringList = stringList->nextStringNode;
     }
+    return true;
 }
 
-void freeLectureHallList(lectureHall *head)
+bool freeLectureHallList(lectureHall *head)
 {
     lectureHall *tmp;
     while (head != NULL)
@@ -162,4 +171,5 @@ void freeLectureHallList(lectureHall *head)
         head = tmp;
     }
     free(head);
+    return true;
 }

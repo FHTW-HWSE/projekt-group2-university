@@ -24,12 +24,13 @@ student *createStudent(char *id, char *firstName, char *lastName)
  *
  * @param student given Student to print
  */
-void printStudent(student *student)
+bool printStudent(student *student)
 {
     if(student == NULL) {
-        return;
+        return false;
     }
     printf("Matriculation number: %8s\t First name: %10s\t  Last name: %10s\n", student->id, student->firstName, student->lastName);
+    return true;
 }
 
 /**
@@ -106,8 +107,11 @@ bool insertStudentIntoList(student **list, student *newStudent, bool csvflag)
  * @param head the Student List to print
  */
 
-void printStudentList(student *head)
+bool printStudentList(student *head)
 {
+    if(head == NULL) {
+        return false;
+    }
     printf("\tList of all students\n");
     student *current = head;
     while (current != NULL)
@@ -116,6 +120,7 @@ void printStudentList(student *head)
         current = current->nextStudent;
     }
     printf("\n");
+    return true;
 }
 
 student *createStudentFromString(char *string)
@@ -148,17 +153,18 @@ student *createStudentFromString(char *string)
     return createStudent(result[0], result[1], result[2]);
 }
 
-void stringlistToStudentList(stringNode *stringList, student **studentList)
+bool stringlistToStudentList(stringNode *stringList, student **studentList)
 {
     while (stringList != NULL)
     {
         insertStudentIntoList(studentList, createStudentFromString(stringList->content), false);
         stringList = stringList->nextStringNode;
     }
+    return true;
     // printStudentList(*studentList);
 }
 
-void freeStudentList(student *head)
+bool freeStudentList(student *head)
 {
     student *tmp;
     while (head != NULL)
@@ -168,4 +174,5 @@ void freeStudentList(student *head)
         head = tmp;
     }
     free(head);
+    return true;
 }

@@ -21,16 +21,16 @@ student *createStudent(char *id, char *firstName, char *lastName);
 
 bool insertStudentIntoList(student **list, student *newStudent, bool csvflag);
 
-void printStudent(student *student);
+bool printStudent(student *student);
 
 student* searchStudent(student *head, char *lastname);
 
-void printStudentList(student *head);
+bool printStudentList(student *head);
 
 student *createStudentFromString(char *string);
 
-void stringlistToStudentList(stringNode *stringList, student **studentList);
+bool stringlistToStudentList(stringNode *stringList, student **studentList);
 
-void freeStudentList(student *head);
+bool freeStudentList(student *head);
 
 #endif

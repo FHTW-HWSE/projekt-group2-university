@@ -21,22 +21,22 @@ typedef struct exam
 
 exam *createExam(char *name, int workload, lectureHall *lectureHall);
 
-void printExam(exam *exam);
+bool printExam(exam *exam);
 
 bool insertIntoExamList(exam **list, exam *newExam, bool csvflag);	//Update to be alphabetisch
 
-void printExamList(exam *head);
+bool printExamList(exam *head);
 
 exam *searchExam(exam *head, char *name);
 
 exam *createExamFromString(char *string, lectureHall *lectureHallList);
 
-void stringlistToExamList(stringNode *stringList, exam **examList,  lectureHall *lectureHallList);
+bool stringlistToExamList(stringNode *stringList, exam **examList,  lectureHall *lectureHallList);
 
-void freeExamList(exam *head);
+bool freeExamList(exam *head);
 
 bool insertStudentIntoExam(student *student, exam *exam);
 
-void printExamRoom(exam *exam);
+bool printExamRoom(exam *exam);
 
 #endif

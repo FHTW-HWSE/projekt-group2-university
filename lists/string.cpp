@@ -18,17 +18,18 @@ stringNode *createStringNode(char *content)
 }
 
 
-void printStringNode(stringNode *stringNode)
+bool printStringNode(stringNode *stringNode)
 {
     printf("%s\n", stringNode->content);
+    return true;
 }
 
-void insertIntoStringList(stringNode **list, stringNode *newStringNode)	//Update to be alphabetisch
+bool insertIntoStringList(stringNode **list, stringNode *newStringNode)	//Update to be alphabetisch
 {
 
    if(*list == NULL) {
     *list = newStringNode;
-    return;
+    return true;
    }
 
         stringNode *current = *list;
@@ -41,11 +42,12 @@ void insertIntoStringList(stringNode **list, stringNode *newStringNode)	//Update
 
         //add the newNode at the end of the linked list
         current->nextStringNode = newStringNode;
+        return true;
       
 }
 
 
-void printStringList(stringNode *head)
+bool printStringList(stringNode *head)
 {
      while(head!=NULL){
         if(head->content != NULL) {
@@ -54,9 +56,10 @@ void printStringList(stringNode *head)
         }
     }
         printf("\n");
+        return true;
 }
 
-void freeStringList(stringNode *head) {
+bool freeStringList(stringNode *head) {
     stringNode* tmp;
     while(head != NULL) {
         tmp = head->nextStringNode;
@@ -64,4 +67,5 @@ void freeStringList(stringNode *head) {
         head = tmp;
     }
     free(head);
+    return true;
 }
