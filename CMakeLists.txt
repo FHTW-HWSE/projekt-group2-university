@@ -28,6 +28,8 @@ project(
   test/main.cpp
 
   test/csv-service/readCsvLectureHall_test.cpp
+  test/csv-service/readCsvStudents_test.cpp
+  test/csv-service/readCsvExams_test.cpp
 
   test/exam/createExam_test.cpp
   test/exam/searchExam_test.cpp
@@ -43,6 +45,7 @@ project(
   test/helpers/checkIfFormatMatch_test.cpp
   test/helpers/fileExists_test.cpp
   test/helpers/countCharInString_test.cpp
+  test/helpers/timeToString_test.cpp
   test/lectureHall/createLectureHall_test.cpp
   test/lectureHall/searchLectureHall_test.cpp
   test/lectureHall/stringlistToLectureHallList_test.cpp

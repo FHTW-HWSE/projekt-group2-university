@@ -2,9 +2,9 @@
 #include "../../headerFiles/headers.h"
 
 // Test case for reading a lectureHall CSV file with valid data
-TEST_CASE("Read valid CSVLecturehall file") {
+TEST_CASE("Read valid CSVStudents file") {
     stringNode *list = NULL;
-    char* filepath = (char*)"../assets/lecturehalls.csv";
+    char* filepath = (char*)"../assets/students.csv";
 
     // Call the readCsv function
     bool result = readCsv(filepath, &list);
@@ -14,14 +14,14 @@ TEST_CASE("Read valid CSVLecturehall file") {
 
     // Verify the contents of the string list
     REQUIRE(list != nullptr);
-    REQUIRE(equals(list->content, (char*)"A341;4;3\n"));
+    REQUIRE(equals(list->content, (char*)"IC112255;nugo;keles\n"));
     REQUIRE(list->nextStringNode != NULL);
-    REQUIRE(equals(list->nextStringNode->content, (char*)"F407;4;7\n"));
+    REQUIRE(equals(list->nextStringNode->content, (char*)"IC184795;marwan;abdalla\n"));
     REQUIRE(list->nextStringNode->nextStringNode != NULL);
 }
 
 // Test case for reading a non-existent CSV file
-TEST_CASE("Read non-existent CSVLecturehall file") {
+TEST_CASE("Read non-existent CSVStudents file") {
     stringNode *list = NULL;
     char* filepath = (char*)"nonexistent.csv";
 
