@@ -45,7 +45,6 @@ project(
   test/helpers/checkIfFormatMatch_test.cpp
   test/helpers/fileExists_test.cpp
   test/helpers/countCharInString_test.cpp
-  test/helpers/timeToString_test.cpp
   test/lectureHall/createLectureHall_test.cpp
   test/lectureHall/searchLectureHall_test.cpp
   test/lectureHall/stringlistToLectureHallList_test.cpp
