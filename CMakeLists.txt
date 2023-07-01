@@ -32,6 +32,8 @@ project(
   test/exam/createExam_test.cpp
   test/exam/searchExam_test.cpp
   test/exam/createExamFromString_test.cpp
+  test/exam/printExam_test.cpp
+  test/exam/printExamList_test.cpp
   test/helpers/checkIDFormat_test.cpp
   test/helpers/equals_test.cpp
   test/helpers/examIsFull_test.cpp
@@ -46,12 +48,28 @@ project(
   test/lectureHall/stringlistToLectureHallList_test.cpp
   test/lectureHall/createLectureHallFromString_test.cpp
   test/lectureHall/insertIntoLectureHallList_test.cpp
+  test/lectureHall/printLectureHall_test.cpp
+  test/lectureHall/printLectureHallList_test.cpp
+  test/lectureHall/freeLectureHallList_test.cpp 
   test/string/createStringNode_test.cpp
+  test/string/printStringNode_test.cpp 
+  test/string/insertIntoStringList_test.cpp
+  test/string/printStringList_test.cpp 
+  test/string/freeStringList_test.cpp
   test/student/createStudent_test.cpp
+  test/student/createStudentFromString_test.cpp
+  test/student/freeStudentList_test.cpp 
   test/student/insertStudentIntoList_test.cpp
   test/student/searchStudent_test.cpp
-  test/student/createStudentFromString_test.cpp
   test/student/stringlistToStudentList_test.cpp
+  test/student/printStudent_test.cpp 
+  test/student/printStudentList_test.cpp 
+  
+  
+   
+  
+
+
 
   )
 
